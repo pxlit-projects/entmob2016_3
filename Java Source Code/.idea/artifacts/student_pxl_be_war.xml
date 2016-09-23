@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="student.pxl.be:war">
+    <output-path>$PROJECT_DIR$/student.pxl.be/target</output-path>
+    <root id="archive" name="student.pxl.be.war">
+      <element id="artifact" artifact-name="student.pxl.be:war exploded" />
+    </root>
+  </artifact>
+</component>
