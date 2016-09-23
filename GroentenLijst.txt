@@ -81,7 +81,15 @@ Bloemkool
 	16-25 graden
 	licht vochtig
 	
-
+Courgette
+	20-28 graden
+	licht vochtig
+	http://www.allegrow.be/nl/courgette-groen-304.htm
+	
+Pompoen
+	22-26 graden
+	relatief vochtig (grote bladeren verdampen veel water)
+	http://www.allegrow.be/nl/pompoen-311.htm
 	
 ____________________________________________________________________________________
 
