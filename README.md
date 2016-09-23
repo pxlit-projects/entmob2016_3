@@ -1,9 +1,9 @@
 # Groepsleden
 
-Arno Bruynseels - 3AONd - 11308331
-Alessio Costa - 3AONa - 11302791
-Niels Carmans - 3AONa - 11301011
-Robbert Braeken - 3AONa - 11304704
+- Arno Bruynseels - 3AONd - 11308331
+- Alessio Costa - 3AONa - 11302791
+- Niels Carmans - 3AONa - 11301011
+- Robbert Braeken - 3AONa - 11304704
 
 # Inleiding
 
@@ -16,9 +16,9 @@ Op basis van de verzamelde informatie zal de toepassing conclusies trekken en de
 
 De sensor gaat drie verschillende parameters opmeten.
 
-Luchtvochtigheid
-Hoeveelheid licht
-Temperatuur
+- Luchtvochtigheid
+- Hoeveelheid licht
+- Temperatuur
 
 Voor elke soort groenten is er een ideaal bereik van elk van deze parameters. Het toestel gaat constant data verzamelen en deze periodiek uploaden. Het is de bedoeling om deze data te gebruiken om een visueel overzicht te bekomen van de bovenstaande parameters via de applicatie.
 
