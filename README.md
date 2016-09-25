@@ -29,7 +29,7 @@ De toepassing zal een overzichtspagina bevatten waar de gebruiker alle verzameld
 Het systeem zal op basis van de metingen conclusies trekken over de huidige omstandigheden en deze melden aan de gebruiker. De conclusie zal een beschrijving bevatten met eventuele handelingen die de gebruiker kan uitvoeren.
 Doordat het systeem de gebruiker tijdig noticifeert kan er vroegtijdig ingegrepen worden indien er grenswaarden overschreden zijn voor een zo optimaal mogelijke teelt te hebben.
 
-De gebruiker zal het soort groenten kunnen kiezen waardoor het systeem weet hoe de data ge�nterpreteerd moet worden. Als uitbreiding zal er een optie beschikbaar zijn om specifieke groenten toe te voegen, te verwijderen en te bewerken.
+De gebruiker zal het soort groenten kunnen kiezen waardoor het systeem weet hoe de data geïnterpreteerd moet worden. Als uitbreiding zal er een optie beschikbaar zijn om specifieke groenten toe te voegen, te verwijderen en te bewerken.
 
 Alle data die de sensorTag registreert zal opgeslagen worden in een database.
 
