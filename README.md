@@ -20,7 +20,9 @@ De sensor gaat drie verschillende parameters opmeten.
 - Hoeveelheid licht
 - Temperatuur
 
-Voor elke soort groenten is er een ideaal bereik van elk van deze parameters. Deze waarden gaan we bepalen op resultaten die we door opzoekwerk gevonden hebben. Als we echter geen relevante informatie over een bepaalde groentesoort gevonen hebben zullen we deze invullen met fictieve waarden. Het toestel gaat constant data verzamelen en deze periodiek uploaden. Het is de bedoeling om deze data te gebruiken om een visueel overzicht te bekomen van de bovenstaande parameters via de applicatie.
+Voor elke soort groenten is er een ideaal bereik van elk van deze parameters. Deze waarden gaan we bepalen op resultaten die we door opzoekwerk gevonden hebben. Als we echter geen relevante informatie over een bepaalde groentesoort gevonden hebben zullen we deze invullen met fictieve waarden.
+
+Het toestel gaat constant data verzamelen en deze periodiek uploaden. Het is de bedoeling om deze data te gebruiken om een visueel overzicht te bekomen van de bovenstaande parameters via de applicatie.
 
 De toepassing zal een overzichtspagina bevatten waar de gebruiker alle verzamelde informatie kan raadplegen. Via deze pagina zal de gebruiker ook in staat zijn om een tijdsoverzicht te bekijken van metingen over een bepaalde periode.
 
