@@ -38,3 +38,7 @@ De front-end van het systeem zal ontwikkeld worden in C# voor de UWP toepassinge
 ## Voorbeeld situatie
 
 De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag gaat deze temperatuur registreren en vergelijken met de grenswaarden. Indien deze grenswaarden overschreden worden ontvangt de gebruiker een notificatie met de gepaste melding dat de temperatuur momenteel te hoog is. Hierbij krijgt hij ook de actie te zien die hij moet uitvoeren om de temperatuur te doen dalen.
+
+## Project Architectuur
+
+![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/3 - Architectuur/Architectuur.png "Architectuur")

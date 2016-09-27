@@ -1,4 +1,4 @@
-![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/LogoTryout/EntMob3_Logo.jpg "Logo")
+![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/2 - Logo/EntMob3_Logo.jpg "Logo")
 
 # Groenten info:
 
