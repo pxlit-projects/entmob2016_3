@@ -55,4 +55,6 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 
 - Database: De opslag van gegevens met behulp van een MySQL-database.
 
+## Database Architectuur
+
 ![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/5 - Database/Architectuur.png "Architectuur")
