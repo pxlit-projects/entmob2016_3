@@ -45,7 +45,7 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 
 **Architectuuromschrijving**
 
-- Datavoorziening: De TI sensorTag gaat gegevens registreren en doorsturen naar de UWP-applicatie via Bluetooth. Vervolgens gaat die de verzamelde gegevens doorsturen naar de Spring back-end via een REST call.
+- Datavoorziening: De TI sensorTag gaat gegevens registreren en doorsturen naar de UWP-applicatie via Bluetooth. Vervolgens gaat de UWP-applicatie deze verzamelde gegevens doorsturen naar de Spring back-end via een REST call.
 
 - UWP: _Desktop_ applicatie die de gegevens met behulp van de Spring back-end via een REST call gaat visualiseren. Aanpassingen in de gegevens zijn eveneens mogelijk via REST calls.
 
