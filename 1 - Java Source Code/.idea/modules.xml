@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Java Source Code.iml" filepath="$PROJECT_DIR$/.idea/Java Source Code.iml" />
-      <module fileurl="file://$PROJECT_DIR$/student.pxl.be/student.pxl.be.iml" filepath="$PROJECT_DIR$/student.pxl.be/student.pxl.be.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student.pxl.be/entmob2016_3.iml" filepath="$PROJECT_DIR$/student.pxl.be/entmob2016_3.iml" />
     </modules>
   </component>
 </project>
