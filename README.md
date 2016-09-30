@@ -43,9 +43,9 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 
 ![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/3 - Architectuur/Architectuur.png "Architectuur")
 
-**Beschrijving Architectuur**
+**Architectuuromschrijving**
 
-- Datavoorziening: De TI sensorTag gaat gegevens registreren en doorsturen naar de UWP-applicatie. Vervolgens gaat die de verzamelde gegevens doorsturen naar de Spring back-end via een REST call.
+- Datavoorziening: De TI sensorTag gaat gegevens registreren en doorsturen naar de UWP-applicatie via Bluetooth. Vervolgens gaat die de verzamelde gegevens doorsturen naar de Spring back-end via een REST call.
 
 - UWP: _Desktop_ applicatie die de gegevens met behulp van de Spring back-end via een REST call gaat visualiseren. Aanpassingen in de gegevens zijn eveneens mogelijk via REST calls.
 
