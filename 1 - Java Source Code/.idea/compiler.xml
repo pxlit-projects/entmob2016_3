@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="entmob2016_3" />
         <module name="student.pxl.be" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="entmob2016_3" target="1.6" />
       <module name="student.pxl.be" target="1.5" />
     </bytecodeTargetLevel>
   </component>
