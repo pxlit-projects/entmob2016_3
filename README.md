@@ -58,3 +58,9 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 ## Database Architectuur
 
 ![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/5 - Database/Architectuur.png "Architectuur")
+
+**Omschrijving en relaties**
+
+De growable items representeren de groenten. Elke item heeft een aantal basisgegevens zoals een naam, een omschrijving en een afbeelding. Daarbuiten heeft elk item ook nog expliciet 1 relatie naar temperatuur, luchtvochtigheid en hoeveelheid licht. Elk van deze hebben een minimum- en maximumwaarde. De reden waardoor deze gegevens in een andere tabel steken is omdat een het bijvoorbeeld mogelijk is dat meer dan 1 item dezelfde waarden voor temperatuur kan hebben.
+
+De users zijn er voor de toegang tot de API. Elke user heeft 1 of meerdere groepen waar bepaalde permissies aanhangen.
