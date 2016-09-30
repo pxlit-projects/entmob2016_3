@@ -45,12 +45,12 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 
 **Beschrijving Architectuur**
 
-- Datavoorziening: De TI sensorTag gaat gegevens registreren en door sturen naar de Android of UWP applicatie.
+- Datavoorziening: De TI sensorTag gaat gegevens registreren en doorsturen naar de UWP-applicatie. Vervolgens gaat die de verzamelde gegevens doorsturen naar de Spring back-end via een REST call.
 
-- UWP: _Desktop_ applicatie die gegevens van de TI sensorTag ontvangt en doorstuurt naar de Spring back-end via een REST call. Gaat eveneens ook de verzamelde gegevens visualiseren.
+- UWP: _Desktop_ applicatie die de gegevens met behulp van de Spring back-end via een REST call gaat visualiseren. Aanpassingen in de gegevens zijn eveneens mogelijk via REST calls.
 
-- Android app: _Mobiele_ applicatie die gegevens van de TI sensorTag ontvangt en doorstuurt naar de Spring back-end via een REST call. Gaat eveneens ook de verzamelde gegevens visualiseren.
+- Android app: _Mobiele_ applicatie die de gegevens met behulp van de Spring back-end via een REST call gaat visualiseren. Aanpassingen in de gegevens zijn eveneens mogelijk via REST calls.
 
-- Spring: Back-end die al het data verkeer gaat behandelen.
+- Spring: Back-end met verschillende Spring componenten die al het dataverkeer gaat verwerken.
 
-- Database: Gaat zorgen voor de opslag van gegevens.
+- Database: De opslag van gegevens met behulp van een MySQL-database.
