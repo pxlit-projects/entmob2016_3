@@ -54,3 +54,5 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 - Spring: Back-end met verschillende Spring componenten die al het dataverkeer gaat verwerken.
 
 - Database: De opslag van gegevens met behulp van een MySQL-database.
+
+![alt text](https://github.com/pxlit-projects/entmob2016_3/blob/master/5 - Database/Architectuur.png "Architectuur")
