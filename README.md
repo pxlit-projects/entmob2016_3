@@ -61,6 +61,6 @@ De temperatuur in de serre is te hoog van de specifieke groente. De sensorTag ga
 
 **Omschrijving en relaties**
 
-De _GROWABLE_ITEMS_ representeren de groenten. Elke item heeft een aantal basisgegevens zoals een naam, een omschrijving en een afbeelding. Daarbuiten heeft elk item expliciet 1 relatie naar temperatuur (_TEMPERATURE_), luchtvochtigheid (_MOISTURE_) en hoeveelheid licht (_LIGHT_). Elk van deze hebben een minimum- en een maximumwaarde. De reden waardoor deze gegevens apart worden bijgehouden is omdat een het mogelijk is dat er meerdere items dezelfde waarden kunnen hebben voor bijvoorbeeld temperatuur.
+De _GROWABLE_ITEMS_ representeren de groenten. Elke item heeft een aantal basisgegevens zoals een naam, een omschrijving en een afbeelding. Daarbuiten heeft elk item expliciet 1 relatie naar temperatuur (_TEMPERATURE_), luchtvochtigheid (_MOISTURE_) en hoeveelheid licht (_LIGHT_). Elk van deze hebben een minimum- en een maximumwaarde. De reden waardoor deze gegevens apart worden bijgehouden is omdat het mogelijk is dat er meerdere items dezelfde waarden kunnen hebben voor bijvoorbeeld temperatuur.
 
 De _USERS_ staan invoor de authenticatie tot de API en heeft een relatie met 1 of meerdere _USERGROUPS_ waar bepaalde permissies aanhangen.
