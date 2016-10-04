@@ -26,5 +26,35 @@ namespace VegiSens
         {
             this.InitializeComponent();
         }
+
+        private void mainMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void overviewMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Overview));
+        }
+
+        private void temperatureOverviewButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Overview));
+        }
+
+        private void humidityOverviewButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Overview));
+        }
+
+        private void lightDensityOverviewButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Overview));
+        }
+
+        private void selectVegetableButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SelectVegetable));
+        }
     }
 }

@@ -26,6 +26,23 @@ namespace VegiSens
         public MainPage()
         {
             this.InitializeComponent();
+            
+        }
+
+        private void spectateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SpectatorScreen));
+
+        }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
+        }
+
+        private void overviewMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Overview));
         }
     }
 }
