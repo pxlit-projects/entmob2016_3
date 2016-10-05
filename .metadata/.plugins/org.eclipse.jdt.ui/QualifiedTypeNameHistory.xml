@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
-<fullyQualifiedTypeName name="javax.persistence.Persistence"/>
-<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
-<fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
-</qualifiedTypeNameHistroy>
