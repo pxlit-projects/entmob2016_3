@@ -18,10 +18,10 @@
             <TextBlock x:Name="loginTitleTextBlock" HorizontalAlignment="Left" Margin="210,10,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398"/>
             <TextBlock x:Name="usernameTitleTextBlock" HorizontalAlignment="Left" Margin="111,81,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398" Height="27"/>
             <TextBlock x:Name="passwordTitleTextBlock" HorizontalAlignment="Left" Margin="117,150,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398"/>
-            <Button Command="{Binding mainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="190,250,0,0" VerticalAlignment="Top" Width="97"/>
+            <Button Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="190,250,0,0" VerticalAlignment="Top" Width="97"/>
             <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="111,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
             <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Margin="111,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
         </Grid>
-        <Button Command="{Binding quitCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="quitButton" Content="Quit" HorizontalAlignment="Left" Margin="192,500,0,0" VerticalAlignment="Top" Width="240"/>
+        <Button Command="{Binding QuitCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="quitButton" Content="Quit" HorizontalAlignment="Left" Margin="192,500,0,0" VerticalAlignment="Top" Width="240"/>
     </Grid>
 </Page>

@@ -112,6 +112,12 @@
     <Compile Include="VegetableRepository.cs" />
     <EmbeddedResource Include="Properties\VegiSens.DAL.rd.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VegiSens.domain\VegiSens.domain.csproj">
+      <Project>{f434b061-8e54-4293-b29c-0c621877e8df}</Project>
+      <Name>VegiSens.domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

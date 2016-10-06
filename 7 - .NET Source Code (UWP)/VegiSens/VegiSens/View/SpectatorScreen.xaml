@@ -12,11 +12,11 @@
     >
 
     <Grid Background="GreenYellow" Width="640" Height="620">
-        <Button Command="{Binding mainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="mainMenuButton" Content="Main menu" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top"/>
-        <Button Command="{Binding overviewCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="overviewMenuButton" Content="Overview" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="mainMenuButton" Content="Main menu" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding OverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="overviewMenuButton" Content="Overview" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
         <TextBlock x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="255,41,0,0" TextWrapping="Wrap" Text="Vegetable" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="138" Margin="37,0,0,0" VerticalAlignment="Top" Width="137" Source="ms-appx:///Images/Vegetables/Tomato.png"/>
-        <Button Command="{Binding selectVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="selectVegetableButton" Content="Select vegetable" HorizontalAlignment="Left" Margin="466,61,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="vegetableImage" HorizontalAlignment="Left" Height="138" Margin="37,0,0,0" VerticalAlignment="Top" Width="137"/>
+        <Button Command="{Binding SelectVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="selectVegetableButton" Content="Select vegetable" HorizontalAlignment="Left" Margin="466,61,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="255,73,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top"/>
         <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="274" Margin="10,138,0,0" VerticalAlignment="Top" Width="620">
             <TextBlock x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>

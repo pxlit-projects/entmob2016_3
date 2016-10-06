@@ -97,7 +97,9 @@
     </Compile>
     <Compile Include="Locator\ViewModelLocator.cs" />
     <Compile Include="Services\FrameNavigationService.cs" />
+    <Compile Include="Services\GrowableITemDataService.cs" />
     <Compile Include="Services\IFrameNavigation.cs" />
+    <Compile Include="Services\IGrowableItemData.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
@@ -175,6 +177,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VegiSens.DAL\VegiSens.DAL.csproj">
+      <Project>{9b1accd7-81e1-4faf-874d-3ce5089c7a46}</Project>
+      <Name>VegiSens.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VegiSens.domain\VegiSens.domain.csproj">
       <Project>{f434b061-8e54-4293-b29c-0c621877e8df}</Project>
       <Name>VegiSens.domain</Name>

@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using VegiSens.domain;
 using VegiSens.Utility;
+using VegiSens.Services;
 using VegiSens.ViewModel;
 
 namespace VegiSens.ViewModel
@@ -13,13 +15,17 @@ namespace VegiSens.ViewModel
     {
         //Properties
         protected IFrameNavigation frameNavagationService;
+        protected IGrowableItemData growableItemService;
+
+        protected GrowableItem currentGrowableItem;
+
+        public ICommand MainPageCommand { get; set; }
+        public ICommand SpectatorCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
+        public ICommand SelectVegetableCommand { get; set; }
+        public ICommand OverviewCommand { get; set; }
 
         
-        public ICommand mainPageCommand { get; set; }
-        public ICommand spectatorCommand { get; set; }
-        public ICommand loginCommand { get; set; }
-        public ICommand selectVegetableCommand { get; set; }
-        public ICommand overviewCommand { get; set; }
 
         //Methods
         protected bool CanNavigate(object obj)

@@ -12,7 +12,7 @@ namespace VegiSens.ViewModel
     public class LoginViewModel : SuperViewModel
     {
         //Properties
-        private ICommand quitCommand { get; set; }
+        private ICommand QuitCommand { get; set; }
 
         //Contructor
         public LoginViewModel(IFrameNavigation frameNavagationService)
@@ -25,12 +25,12 @@ namespace VegiSens.ViewModel
         //Load all commands
         private void LoadCommands()
         {
-            mainPageCommand = new CustomCommand(NavigateToMainPage, CanNavigate);
-            quitCommand = new CustomCommand(quitApplication, CanNavigate);
+            MainPageCommand = new CustomCommand(NavigateToMainPage, CanNavigate);
+            QuitCommand = new CustomCommand(QuitApplication, CanNavigate);
         }
 
         //Quit application
-        private void quitApplication()
+        private void QuitApplication()
         {
             Application.Current.Exit();
         }    

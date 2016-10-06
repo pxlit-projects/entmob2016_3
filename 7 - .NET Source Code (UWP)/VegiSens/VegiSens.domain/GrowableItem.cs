@@ -15,9 +15,15 @@ namespace VegiSens.domain
         private string imagePath;
 
         private Temperature temperature;
-        private Moisture moisture;
+        private Humidity humidity;
         private Light light;
 
+    
+        public int GrowableItemID
+        {
+            get { return growableItemID; }
+            set { growableItemID = value; }
+        }
 
         public string Name
         {
@@ -43,10 +49,10 @@ namespace VegiSens.domain
             set { temperature = value; }
         }
 
-        public Moisture Moisture
+        public Humidity Humidity
         {
-            get { return moisture; }
-            set { moisture = value; }
+            get { return humidity; }
+            set { humidity = value; }
         }
 
         public Light Light

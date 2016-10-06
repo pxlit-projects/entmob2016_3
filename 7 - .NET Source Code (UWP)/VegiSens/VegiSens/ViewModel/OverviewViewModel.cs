@@ -22,7 +22,7 @@ namespace VegiSens.ViewModel
         //Load all commands
         private void LoadCommands()
         {
-            spectatorCommand = new CustomCommand(NavigateToSpectate, CanNavigate);
+            SpectatorCommand = new CustomCommand(NavigateToSpectate, CanNavigate);
         }
     }
 }

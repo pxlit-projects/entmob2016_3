@@ -12,25 +12,44 @@
     >
 
     <Grid Background="GreenYellow" Width="640" Height="620">
-        <Button Command="{Binding spectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
-        <Button Command="{Binding saveCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBlock x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="441,39,0,0" TextWrapping="Wrap" Text="Vegetable" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="258" Margin="356,71,0,0" VerticalAlignment="Top" Width="274" Source="ms-appx:///Images/Vegetables/Tomato.png"/>
-        <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="78" Margin="10,334,0,0" VerticalAlignment="Top" Width="620">
-            <TextBlock x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+        <Button Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
+        <Button Command="{Binding SaveCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="441,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Image Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="vegetableImage" HorizontalAlignment="Left" Height="258" Margin="356,71,0,0" VerticalAlignment="Top" Width="274"/>
+        <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="96" Margin="10,329,0,0" VerticalAlignment="Top" Width="620">
+
+            <!--Titles-->
+            <TextBlock x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" Margin="20,10,0,0" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
             <TextBlock x:Name="humidityTitleTextBlock" HorizontalAlignment="Left" Margin="248,10,0,0" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
             <TextBlock x:Name="lightDensityTitleTextBlock" HorizontalAlignment="Left" Margin="466,10,0,0" TextWrapping="Wrap" Text="Light density" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock x:Name="temperaturRangeBlock" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="temperatureRange" VerticalAlignment="Top"/>
-            <TextBlock x:Name="humidityRangeBlock" HorizontalAlignment="Left" Margin="248,39,0,0" TextWrapping="Wrap" Text="humidityRange" VerticalAlignment="Top"/>
-            <TextBlock x:Name="lightRangeBlock" HorizontalAlignment="Left" Margin="466,43,0,0" TextWrapping="Wrap" Text="lightRange" VerticalAlignment="Top"/>
+            
+            <!--Temperature-->
+            <TextBlock Text="Min:" x:Name="temperaturMinTitleRangeBlock" HorizontalAlignment="Left" Margin="20,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Max:" x:Name="temperaturMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="20,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MinTemperature}" x:Name="temperaturMinRangeBlock" HorizontalAlignment="Left" Margin="60,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature}" x:Name="temperaturMaxRangeBlock" HorizontalAlignment="Left" Margin="60,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <!--Humidity-->
+            <TextBlock Text="Min:" x:Name="humidityMinTitleRangeBlock" HorizontalAlignment="Left" Margin="248,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Max:" x:Name="humidityMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="248,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MinHumidity}" x:Name="humidityMinRangeBlock" HorizontalAlignment="Left" Margin="288,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity}" x:Name="humidityMaxRangeBlock" HorizontalAlignment="Left" Margin="288,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <!--Light-->
+            <TextBlock Text="Min:" x:Name="lightMinTitleRangeBlock" HorizontalAlignment="Left" Margin="466,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Max:" x:Name="lightMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="466,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Light.MinLight}" x:Name="lightMinRangeBlock" HorizontalAlignment="Left" Margin="506,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Light.MaxLight}" x:Name="lightMaxRangeBlock" HorizontalAlignment="Left" Margin="506,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+
         </Grid>
         <Grid BorderThickness="1" BorderBrush="Black" Background="Olive" HorizontalAlignment="Left" Height="108" Margin="10,430,0,0" VerticalAlignment="Top" Width="620">
             <TextBlock x:Name="informationTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Descriptoion" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" />
-            <TextBlock x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="This is some description" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Description}" x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         </Grid>
-        <ComboBox x:Name="selectVegetableComboBox" HorizontalAlignment="Left" Margin="57,176,0,0" VerticalAlignment="Top" Width="250"/>
+        <ComboBox ItemsSource="{Binding GrowableItemList}" SelectedItem="{Binding CurrentGrowableItem, Mode=TwoWay}" DisplayMemberPath="Name" x:Name="selectVegetableComboBox" HorizontalAlignment="Left" Margin="57,176,0,0" VerticalAlignment="Top" Width="250"/>
         <TextBlock x:Name="chooseTitleTextBlock" HorizontalAlignment="Left" Margin="57,144,0,0" TextWrapping="Wrap" Text="Choose:" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
+        <Image x:Name="logoImage" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
         <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="131,27,0,0" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
     </Grid>
 </Page>

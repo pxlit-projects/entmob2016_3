@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VegiSens.Utility;
 using VegiSens.ViewModel;
+using VegiSens.Services;
+using VegiSens.DAL;
 
 namespace VegiSens.Locator
 {
@@ -12,12 +14,13 @@ namespace VegiSens.Locator
     {
         //Services
         private static IFrameNavigation frameNavigationService = new FrameNavigationService();
+        private static IGrowableItemData growableItemService = new GrowableITemDataService(new VegetableRepository());
 
         //ViewModels
-        private static MainPageViewModel mainPageViewModel = new MainPageViewModel(frameNavigationService);
+        private static MainPageViewModel mainPageViewModel = new MainPageViewModel(frameNavigationService, growableItemService);
         private static LoginViewModel loginViewModel = new LoginViewModel(frameNavigationService);
-        private static SelectVegetableViewModel selectVegetableViewModel = new SelectVegetableViewModel(frameNavigationService);
-        private static SpectatorScreenViewModel spectatorScreenModel = new SpectatorScreenViewModel(frameNavigationService);
+        private static SelectVegetableViewModel selectVegetableViewModel = new SelectVegetableViewModel(frameNavigationService, growableItemService);
+        private static SpectatorScreenViewModel spectatorScreenModel = new SpectatorScreenViewModel(frameNavigationService, growableItemService);
         private static OverviewViewModel overviewViewModel = new OverviewViewModel(frameNavigationService);
 
         //Properties

@@ -12,7 +12,7 @@
     >
 
     <Grid Background="GreenYellow" Width="640" Height="620">
-     <Button Command="{Binding spectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="45,578,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
+     <Button Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="45,578,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
     <TextBlock x:Name="sensorTextBlock" HorizontalAlignment="Left" Margin="273,213,0,0" TextWrapping="Wrap" Text="Sensor" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
     <Grid Background="YellowGreen" HorizontalAlignment="Left" Height="314" Margin="45,245,0,0" VerticalAlignment="Top" Width="556" BorderThickness="1" BorderBrush="Black">
         <Grid.ColumnDefinitions>

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using VegiSens.domain;
 
-namespace VegiSens.DAL
+namespace VegiSens.Services
 {
-    public interface IVegetableRepository
+    public interface IGrowableItemData
     {
         GrowableItem GetGrowableItemById(int growableItemID);
         ObservableCollection<GrowableItem> GetAllGrowableItems();
