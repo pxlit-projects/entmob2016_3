@@ -95,12 +95,19 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\HumidityConverter.cs" />
+    <Compile Include="Converter\LightConverter.cs" />
+    <Compile Include="Converter\TemperatureConverter.cs" />
     <Compile Include="Locator\ViewModelLocator.cs" />
+    <Compile Include="Messages\UpdateCurrentGrowableItem.cs" />
     <Compile Include="Services\FrameNavigationService.cs" />
-    <Compile Include="Services\GrowableITemDataService.cs" />
+    <Compile Include="Services\GrowableItemDataService.cs" />
     <Compile Include="Services\IFrameNavigation.cs" />
     <Compile Include="Services\IGrowableItemData.cs" />
+    <Compile Include="Services\ISensorTypeData.cs" />
+    <Compile Include="Services\SensorTypeDataService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
+    <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\OverviewViewModel.cs" />
@@ -186,10 +193,7 @@
       <Name>VegiSens.domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converter\" />
-    <Folder Include="Messages\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

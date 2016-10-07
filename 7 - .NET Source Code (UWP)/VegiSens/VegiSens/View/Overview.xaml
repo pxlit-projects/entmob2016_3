@@ -12,59 +12,80 @@
     >
 
     <Grid Background="GreenYellow" Width="640" Height="620">
-     <Button Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="45,578,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
-    <TextBlock x:Name="sensorTextBlock" HorizontalAlignment="Left" Margin="273,213,0,0" TextWrapping="Wrap" Text="Sensor" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-    <Grid Background="YellowGreen" HorizontalAlignment="Left" Height="314" Margin="45,245,0,0" VerticalAlignment="Top" Width="556" BorderThickness="1" BorderBrush="Black">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.8*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <Button Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="57,578,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
+        <TextBlock Text="{Binding CurrentSensorType.SensorName}" x:Name="sensorTextBlock" HorizontalAlignment="Left" Margin="57,202,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Grid Background="YellowGreen" HorizontalAlignment="Left" Height="314" Margin="57,234,0,0" VerticalAlignment="Top" Width="556" BorderThickness="1" BorderBrush="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0">
+                <TextBlock x:Name="daysTitleTextBlock" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20px"/>
+            </Grid>
 
-        <TextBlock x:Name="daysTitleTextBlock" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="unitTitleTextBlock" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Unit" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revisionTitleTextBlock" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0">
+                <TextBlock Text="Value" x:Name="unitTitleTextBlock" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20px"/>
+                <TextBlock Text="{Binding CurrentSensorType.SensorUnit}" x:Name="unitTextBlock" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="70,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1">
+            <TextBlock x:Name="day1TitleTextBlock" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 1" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2">
+            <TextBlock x:Name="day2TitleTextBlock" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 2" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="3">
+            <TextBlock x:Name="day3TitleTextBlock" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 3" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4">
+            <TextBlock x:Name="day4TitleTextBlock" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 4" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="5">
+            <TextBlock x:Name="day5TitleTextBlock" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 5" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="6">
+            <TextBlock x:Name="day6TitleTextBlock" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 6" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="7">
+            <TextBlock x:Name="day7TitleTextBlock" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 7" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
 
-        <TextBlock x:Name="day1TitleTextBlock" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 1" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="day2TitleTextBlock" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 2" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="day3TitleTextBlock" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 3" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="day4TitleTextBlock" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 4" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="day5TitleTextBlock" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 5" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="day6TitleTextBlock" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 6" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="day7TitleTextBlock" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 7" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-
-        <TextBlock x:Name="statistic1TitleTextBlock" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 1" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="statistic2TitleTextBlock" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 2" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="statistic3TitleTextBlock" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 3" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="statistic4TitleTextBlock" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 4" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="statistic5TitleTextBlock" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 5" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="statistic6TitleTextBlock" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 6" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="statistic7TitleTextBlock" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Statistic 7" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-
-        <TextBlock x:Name="revision1TitleTextBlock" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 1" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revision2TitleTextBlock" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 2" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revision3TitleTextBlock" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 3" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revision4TitleTextBlock" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 4" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revision5TitleTextBlock" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 5" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revision6TitleTextBlock" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 6" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="revision7TitleTextBlock" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Revision 7" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-
-    </Grid>
-    <ComboBox x:Name="selectStatisticComboBox" HorizontalAlignment="Left" Margin="205,150,0,0" VerticalAlignment="Top" Width="250"/>
-    <TextBlock x:Name="chooseTitleTextBlock" HorizontalAlignment="Left" Margin="126,150,0,0" TextWrapping="Wrap" Text="Choose:" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-    <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
-    <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="131,27,0,0" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-    <TextBlock x:Name="overviewTitleTextBlock" HorizontalAlignment="Left" Margin="273,113,0,0" TextWrapping="Wrap" Text="Overwiew" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
+                <TextBlock Text="{Binding CurrentSensorType.GetFirstRegisteredItem}" x:Name="statistic1TitleTextBlock" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2">
+                <TextBlock Text="{Binding CurrentSensorType.GetSecondRegisteredItem}" x:Name="statistic2TitleTextBlock" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3">
+                <TextBlock Text="{Binding CurrentSensorType.GetThirdRegisteredItem}" x:Name="statistic3TitleTextBlock" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4">
+                <TextBlock Text="{Binding CurrentSensorType.GetForthRegisteredItem}" x:Name="statistic4TitleTextBlock" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5">
+                <TextBlock Text="{Binding CurrentSensorType.GetFifthRegisteredItem}" x:Name="statistic5TitleTextBlock" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6">
+                <TextBlock Text="{Binding CurrentSensorType.GetSixtRegisteredItem}" x:Name="statistic6TitleTextBlock" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7">
+                <TextBlock Text="{Binding CurrentSensorType.GetSeventhRegisteredItem}" x:Name="statistic7TitleTextBlock" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+            </Grid>
+        </Grid>
+        <ComboBox ItemsSource="{Binding SensorTypeList}" SelectedItem="{Binding CurrentSensorType, Mode=TwoWay}" DisplayMemberPath="SensorName" x:Name="selectStatisticComboBox" HorizontalAlignment="Left" Margin="136,135,0,0" VerticalAlignment="Top" Width="250"/>
+        <TextBlock x:Name="chooseTitleTextBlock" HorizontalAlignment="Left" Margin="57,135,0,0" TextWrapping="Wrap" Text="Choose:" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
+        <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="131,27,0,0" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock x:Name="overviewTitleTextBlock" HorizontalAlignment="Left" Margin="489,43,0,0" TextWrapping="Wrap" Text="Overwiew" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
     </Grid>
 
 </Page>

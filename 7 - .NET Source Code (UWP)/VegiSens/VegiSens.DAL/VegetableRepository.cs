@@ -39,12 +39,6 @@ namespace VegiSens.DAL
             return growableItems.Where(g => g.GrowableItemID == growableItemID).FirstOrDefault();
         }
 
-        public void UpdateCurrentGrowableItem(GrowableItem growableItem)
-        {
-            GrowableItem growableItemToUpdate = growableItems.Where(g => g.GrowableItemID == growableItem.GrowableItemID).FirstOrDefault();
-            growableItemToUpdate = growableItem;
-        }
-
         //Load all data
         private void loadGrowableItems()
         {

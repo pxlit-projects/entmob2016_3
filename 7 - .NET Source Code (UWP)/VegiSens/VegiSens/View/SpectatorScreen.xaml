@@ -14,45 +14,45 @@
     <Grid Background="GreenYellow" Width="640" Height="620">
         <Button Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="mainMenuButton" Content="Main menu" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top"/>
         <Button Command="{Binding OverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="overviewMenuButton" Content="Overview" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="218,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="218,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="25"/>
         <Image  Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="vegetableImage" HorizontalAlignment="Left" Height="138" Margin="37,0,0,0" VerticalAlignment="Top" Width="137"/>
         <Button Command="{Binding SelectVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="selectVegetableButton" Content="Select vegetable" HorizontalAlignment="Left" Margin="255,564,0,0" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding CurrentGrowableItem.Description}" x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="218,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding CurrentGrowableItem.Description}" x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="218,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="274" Margin="10,138,0,0" VerticalAlignment="Top" Width="620">
             <!--Temperature-->
-            <TextBlock x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock x:Name="temperatureValueTextBlock" HorizontalAlignment="Left" Margin="10,45,0,0" TextWrapping="Wrap" Text="temperatureValue" VerticalAlignment="Top"/>
-            
-            <TextBlock Text="Min:" x:Name="temperaturMinTitleRangeBlock" HorizontalAlignment="Left" Margin="250,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="Max:" x:Name="temperaturMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="250,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MinTemperature}" x:Name="temperaturMinRangeBlock" HorizontalAlignment="Left" Margin="288,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature}" x:Name="temperaturMaxRangeBlock" HorizontalAlignment="Left" Margin="288,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" Margin="22,11,0,0" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperatureValueTextBlock" HorizontalAlignment="Left" Margin="60,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+
+            <TextBlock Text="Min:" x:Name="temperaturMinTitleRangeBlock" HorizontalAlignment="Left" Margin="47,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Max:" x:Name="temperaturMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="47,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MinTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperaturMinRangeBlock" HorizontalAlignment="Left" Margin="85,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperaturMaxRangeBlock" HorizontalAlignment="Left" Margin="85,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
             <!--Humidity-->
-            <TextBlock x:Name="humidityTitleTextBlock" HorizontalAlignment="Left" Margin="10,86,0,0" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock x:Name="humidityValueTextBlock" HorizontalAlignment="Left" Margin="10,127,0,0" TextWrapping="Wrap" Text="humidityValue" VerticalAlignment="Top"/>
+            <TextBlock FontSize="20" x:Name="humidityTitleTextBlock" HorizontalAlignment="Left" Margin="265,12,0,0" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityValueTextBlock" HorizontalAlignment="Left" Margin="285,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
 
-            <TextBlock Text="Min:" x:Name="humidityMinTitleRangeBlock" HorizontalAlignment="Left" Margin="250,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="Max:" x:Name="humidityMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="250,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MinHumidity}" x:Name="humidityMinRangeBlock" HorizontalAlignment="Left" Margin="288,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity}" x:Name="humidityMaxRangeBlock" HorizontalAlignment="Left" Margin="288,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Min:" x:Name="humidityMinTitleRangeBlock" HorizontalAlignment="Left" Margin="269,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Max:" x:Name="humidityMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="269,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MinHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityMinRangeBlock" HorizontalAlignment="Left" Margin="307,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityMaxRangeBlock" HorizontalAlignment="Left" Margin="307,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
             <!--Light-->
-            <TextBlock x:Name="lightDensityTitleTextBlock" HorizontalAlignment="Left" Margin="8,172,0,0" TextWrapping="Wrap" Text="Light density" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock x:Name="lightValueTextBlock" HorizontalAlignment="Left" Margin="10,212,0,0" TextWrapping="Wrap" Text="lightValue" VerticalAlignment="Top"/>
+            <TextBlock FontSize="20" x:Name="lightDensityTitleTextBlock" HorizontalAlignment="Left" Margin="493,10,0,0" TextWrapping="Wrap" Text="Light (lx)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Light.MaxLight, Converter={StaticResource LightConverterKey}}" x:Name="lightValueTextBlock" HorizontalAlignment="Left" Margin="510,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
 
-            <TextBlock Text="Min:" x:Name="lightMinTitleRangeBlock" HorizontalAlignment="Left" Margin="250,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="Max:" x:Name="lightMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="250,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Light.MinLight}" x:Name="lightMinRangeBlock" HorizontalAlignment="Left" Margin="288,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Light.MaxLight}" x:Name="lightMaxRangeBlock" HorizontalAlignment="Left" Margin="288,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Min:" x:Name="lightMinTitleRangeBlock" HorizontalAlignment="Left" Margin="495,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="Max:" x:Name="lightMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="495,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Light.MinLight, Converter={StaticResource LightConverterKey}}" x:Name="lightMinRangeBlock" HorizontalAlignment="Left" Margin="533,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Light.MaxLight, Converter={StaticResource LightConverterKey}}" x:Name="lightMaxRangeBlock" HorizontalAlignment="Left" Margin="533,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
             <!--Buttons-->
-            <Button BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="temperatureOverviewButton" Content="Temperature" HorizontalAlignment="Left" Margin="450,41,0,0" VerticalAlignment="Top" Width="133"/>
-            <Button BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="humidityOverviewButton" Content="Humidity" HorizontalAlignment="Left" Margin="450,122,0,0" VerticalAlignment="Top" Width="133"/>
-            <Button BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="lightDensityOverviewButton" Content="Light" HorizontalAlignment="Left" Margin="450,211,0,0" VerticalAlignment="Top" Width="133"/>
+            <Button Command="{Binding TemperatureOverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="temperatureOverviewButton" Content="Temperature" HorizontalAlignment="Left" Margin="21,215,0,0" VerticalAlignment="Top" Width="133"/>
+            <Button Command="{Binding HumidityOverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="humidityOverviewButton" Content="Humidity" HorizontalAlignment="Left" Margin="245,215,0,0" VerticalAlignment="Top" Width="133"/>
+            <Button Command="{Binding LightOverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="lightDensityOverviewButton" Content="Light" HorizontalAlignment="Left" Margin="460,214,0,0" VerticalAlignment="Top" Width="133"/>
         </Grid>
         <Grid BorderThickness="1" BorderBrush="Black" Background="Olive" HorizontalAlignment="Left" Height="108" Margin="10,430,0,0" VerticalAlignment="Top" Width="620">
-            <TextBlock x:Name="informationTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" />
+            <TextBlock x:Name="informationTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="18" />
             <TextBlock x:Name="informationTextBlock" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top"/>
         </Grid>
     </Grid>

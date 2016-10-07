@@ -22,6 +22,13 @@ namespace VegiSens.ViewModel
             LoadData();
 
             LoadCommands();
+
+            Messenger.Default.Register<GrowableItem>(this, OnGrowableItemReceived);
+        }
+
+        private void OnGrowableItemReceived(GrowableItem growbaleItem)
+        {
+            currentGrowableItem = growbaleItem;
         }
 
         //Load all commands

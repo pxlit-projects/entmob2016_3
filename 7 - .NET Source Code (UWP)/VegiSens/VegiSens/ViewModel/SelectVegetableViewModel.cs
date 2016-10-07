@@ -10,6 +10,7 @@ using VegiSens.domain;
 using VegiSens.Services;
 using VegiSens.Utility;
 using VegiSens.ViewModel;
+using Windows.UI.Popups;
 
 namespace VegiSens.ViewModel
 {
@@ -70,8 +71,15 @@ namespace VegiSens.ViewModel
         }
 
         //Quit application
-        private void SaveVegetable()
+        private async void SaveVegetable()
         {
+            Messenger.Default.Send<GrowableItem>(currentGrowableItem);
+
+            //Messgae confirmation
+            MessageDialog dialog = new MessageDialog("Selected vegetable has been saved!");
+            dialog.Title = "Confirmation";
+            dialog.Commands.Add(new UICommand { Label = "Ok", Id = 0 });
+            await dialog.ShowAsync();
 
         }
 

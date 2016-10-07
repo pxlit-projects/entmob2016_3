@@ -9,13 +9,13 @@ using VegiSens.domain;
 
 namespace VegiSens.Services
 {
-    public class GrowableITemDataService : IGrowableItemData
+    public class GrowableItemDataService : IGrowableItemData
     {
         //Properties
         IVegetableRepository repository;
 
         //Constructor
-        public GrowableITemDataService(IVegetableRepository repository)
+        public GrowableItemDataService(IVegetableRepository repository)
         {
             this.repository = repository;
         }

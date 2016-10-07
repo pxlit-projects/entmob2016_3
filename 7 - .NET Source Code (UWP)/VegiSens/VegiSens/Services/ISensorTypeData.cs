@@ -8,9 +8,8 @@ using VegiSens.domain;
 
 namespace VegiSens.Services
 {
-    public interface IGrowableItemData
+    public interface ISensorTypeData
     {
-        GrowableItem GetGrowableItemById(int growableItemID);
-        ObservableCollection<GrowableItem> GetAllGrowableItems();
+        ObservableCollection<SuperSensor> GetAllSensorTypes();
     }
 }

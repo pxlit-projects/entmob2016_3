@@ -13,15 +13,16 @@ namespace VegiSens.Locator
     public class ViewModelLocator
     {
         //Services
+        private static ISensorTypeData sensorTypeDataService = new SensorTypeDataService(new SensorTypeRepository());
         private static IFrameNavigation frameNavigationService = new FrameNavigationService();
-        private static IGrowableItemData growableItemService = new GrowableITemDataService(new VegetableRepository());
+        private static IGrowableItemData growableItemService = new GrowableItemDataService(new VegetableRepository());
 
         //ViewModels
         private static MainPageViewModel mainPageViewModel = new MainPageViewModel(frameNavigationService, growableItemService);
         private static LoginViewModel loginViewModel = new LoginViewModel(frameNavigationService);
         private static SelectVegetableViewModel selectVegetableViewModel = new SelectVegetableViewModel(frameNavigationService, growableItemService);
-        private static SpectatorScreenViewModel spectatorScreenModel = new SpectatorScreenViewModel(frameNavigationService, growableItemService);
-        private static OverviewViewModel overviewViewModel = new OverviewViewModel(frameNavigationService);
+        private static SpectatorScreenViewModel spectatorScreenModel = new SpectatorScreenViewModel(frameNavigationService, growableItemService, sensorTypeDataService);
+        private static OverviewViewModel overviewViewModel = new OverviewViewModel(frameNavigationService, sensorTypeDataService);
 
         //Properties
         public static MainPageViewModel MainPageViewModel

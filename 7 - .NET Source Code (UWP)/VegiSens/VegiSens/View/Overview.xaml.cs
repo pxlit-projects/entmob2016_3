@@ -23,25 +23,9 @@ namespace VegiSens
     /// </summary>
     public sealed partial class Overview : Page
     {
-        private ObservableCollection<string> sensorDataType;
-
         public Overview()
         {
             this.InitializeComponent();
-
-            sensorDataType = new ObservableCollection<string> {
-                "Select statistic",
-                "Temperature",
-                "Humidity",
-                "Light"
-            };
-
-            selectStatisticComboBox.ItemsSource = sensorDataType;
-        }
-
-        private void backButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(SpectatorScreen));
         }
     }
 }

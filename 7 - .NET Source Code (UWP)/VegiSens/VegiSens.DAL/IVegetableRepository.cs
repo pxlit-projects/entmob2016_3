@@ -12,6 +12,5 @@ namespace VegiSens.DAL
     {
         GrowableItem GetGrowableItemById(int growableItemID);
         ObservableCollection<GrowableItem> GetAllGrowableItems();
-        void UpdateCurrentGrowableItem(GrowableItem growableItem);
     }
 }

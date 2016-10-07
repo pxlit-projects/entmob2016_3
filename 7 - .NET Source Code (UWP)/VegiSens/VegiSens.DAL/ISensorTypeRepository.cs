@@ -6,11 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using VegiSens.domain;
 
-namespace VegiSens.Services
+namespace VegiSens.DAL
 {
-    public interface IGrowableItemData
+    public interface ISensorTypeRepository
     {
-        GrowableItem GetGrowableItemById(int growableItemID);
-        ObservableCollection<GrowableItem> GetAllGrowableItems();
+        ObservableCollection<SuperSensor> GetAllSensorTypes();
     }
 }

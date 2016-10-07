@@ -50,12 +50,6 @@ namespace VegiSens.ViewModel
             frameNavagationService.NavigateToFrame(typeof(Login));
         }
 
-        //Navigate to overview
-        protected void NavigateToOverview()
-        {
-            frameNavagationService.NavigateToFrame(typeof(Overview));
-        }
-
         //Navigate to selectVegetable
         protected void NavigateToSelectVegetable()
         {
