@@ -31,6 +31,11 @@ namespace VegiSens.Services
             return repository.GetAllGrowableItems();
         }
 
+        public void UpdateCurrentGrowableItem(GrowableItem growableItem)
+        {
+            throw new NotImplementedException();
+        }
+
         //public void UpdateCoffee(Coffee coffee)
         //{
         //    repository.UpdateCoffee(coffee);
