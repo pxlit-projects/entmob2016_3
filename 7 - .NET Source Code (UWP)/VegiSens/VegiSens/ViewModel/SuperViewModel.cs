@@ -25,8 +25,6 @@ namespace VegiSens.ViewModel
         public ICommand SelectVegetableCommand { get; set; }
         public ICommand OverviewCommand { get; set; }
 
-        
-
         //Methods
         protected bool CanNavigate(object obj)
         {

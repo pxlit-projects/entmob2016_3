@@ -12,7 +12,7 @@ namespace VegiSens.ViewModel
     public class LoginViewModel : SuperViewModel
     {
         //Properties
-        private ICommand QuitCommand { get; set; }
+        public ICommand QuitCommand { get; set; }
 
         //Contructor
         public LoginViewModel(IFrameNavigation frameNavagationService)
