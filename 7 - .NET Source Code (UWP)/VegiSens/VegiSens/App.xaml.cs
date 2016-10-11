@@ -78,8 +78,8 @@ namespace VegiSens
 
 
                 //Resize Screen
-                ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-                ApplicationView.PreferredLaunchViewSize = new Size(640, 620);
+                //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+                //ApplicationView.PreferredLaunchViewSize = new Size(640, 620);
 
                 // Ensure the current window is active
                 Window.Current.Activate();

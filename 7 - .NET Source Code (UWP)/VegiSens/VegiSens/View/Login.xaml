@@ -6,22 +6,110 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"    
-    Height="620" 
-    Width="640"
     DataContext="{Binding Source={StaticResource ViewModelLocatorKey},  Path=LoginViewModel}"
     >
 
-    <Grid Height="620"  Width="640" Background="GreenYellow">
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
-        <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="131,27,0,0" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-        <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="316" Margin="73,148,0,0" VerticalAlignment="Top" Width="493">
-            <TextBlock x:Name="loginTitleTextBlock" HorizontalAlignment="Left" Margin="210,10,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398"/>
-            <TextBlock x:Name="usernameTitleTextBlock" HorizontalAlignment="Left" Margin="111,81,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398" Height="27"/>
-            <TextBlock x:Name="passwordTitleTextBlock" HorizontalAlignment="Left" Margin="117,150,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398"/>
-            <Button Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="190,250,0,0" VerticalAlignment="Top" Width="97"/>
-            <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="111,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
-            <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Margin="111,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="259"/>
-        </Grid>
-        <Button Command="{Binding QuitCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="quitButton" Content="Quit" HorizontalAlignment="Left" Margin="192,500,0,0" VerticalAlignment="Top" Width="240"/>
-    </Grid>
+    <RelativePanel x:Name="relativePanel" Background="GreenYellow">
+
+        <!--Logo-->
+        <Image Margin="0,0,10,10" RelativePanel.Above="innerGrid" RelativePanel.AlignLeftWith="innerGrid" x:Name="logoImage" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
+
+        <!--VegiSens Title-->
+        <TextBlock RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.RightOf="logoImage" x:Name="titleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+
+        <!--Inner Grid-->
+        <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="innerGrid" BorderThickness="1" BorderBrush="Black" Background="YellowGreen">
+
+            <!--Login Title-->
+            <TextBlock Margin="0,10,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="loginTitleTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Login" FontWeight="Bold" FontSize="30"/>
+
+            <!--Username-->
+            <TextBlock RelativePanel.Below="loginTitleTextBlock" x:Name="usernameTitleTextBlock"  VerticalAlignment="Top" Text="Username:" FontSize="20" FontWeight="Bold"/>
+            <TextBox RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWith="usernameTitleTextBlock" RelativePanel.Below="usernameTitleTextBlock" x:Name="usernameTextBox" VerticalAlignment="Top"/>
+
+            <!--Password-->
+            <TextBlock RelativePanel.Below="usernameTextBox" x:Name="passwordTitleTextBlock" Text="Password:" FontSize="20" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox RelativePanel.Below="passwordTitleTextBlock" RelativePanel.AlignLeftWith="passwordTitleTextBlock" RelativePanel.AlignRightWithPanel="True" x:Name="passwordTextBox" VerticalAlignment="Top" />
+
+            <!--Login Button-->
+            <Button Width="200" Margin="0,40,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="passwordTextBox" Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="OliveDrab" x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </RelativePanel>
+
+        <!--Quit Button-->
+        <Button Margin="0,30,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="innerGrid" Command="{Binding QuitCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="quitButton" Content="Quit" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Screenstates">
+                <!--PhoneAndSmallDevices-->
+                <VisualState x:Name="PhoneAndSmallDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="320"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="120"/>
+                        <Setter Target="logoImage.Height" Value="90"/>
+
+                        <Setter Target="quitButton.Width" Value="200"/>
+                        
+                        <Setter Target="usernameTitleTextBlock.Margin" Value="10,20,0,0"/>
+                        <Setter Target="usernameTextBox.Margin" Value="10,10,10,0"/>
+
+                        <Setter Target="passwordTitleTextBlock.Margin" Value="10,20,0,0"/>
+                        <Setter Target="passwordTextBox.Margin" Value="10,10,10,0"/>
+
+                        <Setter Target="loginButton.Margin" Value="0,40,0,0"/>
+                        
+                        <Setter Target="innerGrid.Height" Value="320"></Setter>
+                        <Setter Target="innerGrid.Width" Value="350"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <!--TabletsAndMediumlDevices-->
+                <VisualState x:Name="TabletsAndMediumlDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="135"/>
+                        <Setter Target="logoImage.Height" Value="105"/>
+                        
+                        <Setter Target="usernameTitleTextBlock.Margin" Value="100,40,0,0"/>
+                        <Setter Target="usernameTextBox.Margin" Value="100,10,100,0"/>
+
+                        <Setter Target="passwordTitleTextBlock.Margin" Value="100,30,0,0"/>
+                        <Setter Target="passwordTextBox.Margin" Value="100,10,100,0"/>
+
+                        <Setter Target="loginButton.Margin" Value="0,45,0,0"/>
+
+                        <Setter Target="quitButton.Width" Value="300"/>
+                        
+                        <Setter Target="innerGrid.Height" Value="380"/>
+                        <Setter Target="innerGrid.Width" Value="600"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <!--DesktopsAndBigDevices-->
+                <VisualState x:Name="DesktopsAndBigDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="150"/>
+                        <Setter Target="logoImage.Height" Value="120"/>
+
+                        <Setter Target="usernameTitleTextBlock.Margin" Value="150,50,0,0"/>
+                        <Setter Target="usernameTextBox.Margin" Value="150,10,150,0"/>
+
+                        <Setter Target="passwordTitleTextBlock.Margin" Value="150,50,0,0"/>
+                        <Setter Target="passwordTextBox.Margin" Value="150,10,150,0"/>
+
+                        <Setter Target="loginButton.Margin" Value="0,60,0,0"/>
+
+                        <Setter Target="quitButton.Width" Value="400"/>
+
+                        <Setter Target="innerGrid.Height" Value="430"/>
+                        <Setter Target="innerGrid.Width" Value="750"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </RelativePanel>
 </Page>

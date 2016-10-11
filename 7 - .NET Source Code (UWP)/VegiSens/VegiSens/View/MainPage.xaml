@@ -6,22 +6,139 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Height="620" 
-    Width="640"
     DataContext="{Binding Source={StaticResource ViewModelLocatorKey},  Path=MainPageViewModel}"
     >
 
-    <Grid Height="620"  Width="640" Background="GreenYellow">
-        <Image x:Name="logoImage" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
-        <TextBlock x:Name="userNameTextBlock" HorizontalAlignment="Left" Margin="449,44,0,0" TextWrapping="Wrap" Text="Arno Bruynseels" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Button Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="spectateButton" Content="Spectate" HorizontalAlignment="Left" Margin="505,560,0,0" VerticalAlignment="Top" Width="97"/>
-        <Button Command="{Binding LoginCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="logoutButton" Content="Log out" HorizontalAlignment="Left" Margin="34,560,0,0" VerticalAlignment="Top" Width="97" />
-        <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="131,27,0,0" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-        <Grid  BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="358" Margin="34,135,0,0" VerticalAlignment="Top" Width="568">
-            <Image Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="currentVegetableImage" HorizontalAlignment="Left" Height="279" Margin="10,52,0,0" VerticalAlignment="Top" Width="284"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableTitleTextBlock" HorizontalAlignment="Left" Margin="234,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398"/>
-            <TextBlock x:Name="vegetableTitleTextBlock_Copy" HorizontalAlignment="Left" Margin="373,88,0,0" TextWrapping="Wrap" Text="State:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.061,0.398"/>
-            <TextBlock x:Name="stateTextBlock" HorizontalAlignment="Left" Margin="373,120,0,0" TextWrapping="Wrap" Text="This is the current state of then tomato" VerticalAlignment="Top"/>
-        </Grid>
-    </Grid>
+    <RelativePanel Background="GreenYellow">
+
+        <!--Logo-->
+        <Image Margin="0,0,10,10" RelativePanel.Above="innerPanel" RelativePanel.AlignLeftWith="innerPanel" x:Name="logoImage" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
+
+        <!--VegiSens Title-->
+        <TextBlock RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.RightOf="logoImage" x:Name="titleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+
+        <!--Username Title-->
+        <TextBlock Text="Arno Bruynseels" RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.AlignRightWith="innerPanel" x:Name="usernameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
+
+        <!--Inner Panel-->
+        <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="innerPanel" BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <!--Screen Title-->
+            <TextBlock Margin="0,10,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" Text="Main page" x:Name="screenTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+
+            <!--Vegetable Image-->
+            <Image RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="screenTitleTextBlock" Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            <!--Username Title-->
+            <TextBlock Text="{Binding CurrentGrowableItem.Name}" RelativePanel.AlignTopWith="currentVegetableImage" RelativePanel.AlignRightWithPanel="True" x:Name="vegtableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBlock Text="{Binding CurrentGrowableItem.Description}" RelativePanel.Below="vegtableNameTextBlock" RelativePanel.AlignLeftWith="vegtableNameTextBlock" x:Name="vegtableDescriptionTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Margin="0.5,0,0,0"/>
+
+            <!--State-->
+            <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="currentVegetableImage" x:Name="stateTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="State:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <TextBlock RelativePanel.Below="stateTitleTextBlock" RelativePanel.AlignLeftWithPanel="True" x:Name="stateTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="This is the current state of then tomato" VerticalAlignment="Top"/>
+        </RelativePanel>
+
+        <!--Logout Button-->
+        <Button RelativePanel.Below="innerPanel" RelativePanel.AlignRightWith="innerPanel" Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="spectateButton" Content="Spectate" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--Spectator Button-->
+        <Button RelativePanel.Below="innerPanel" RelativePanel.AlignLeftWith="innerPanel" Command="{Binding LoginCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="logoutButton" Content="Log out" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Screenstates">
+                <!--PhoneAndSmallDevices-->
+                <VisualState x:Name="PhoneAndSmallDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="320"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="logoImage.Width" Value="120"/>
+                        <Setter Target="logoImage.Height" Value="90"/>
+
+                        <Setter Target="currentVegetableImage.Width" Value="150"/>
+                        <Setter Target="currentVegetableImage.Height" Value="150"/>
+                        <Setter Target="currentVegetableImage.Margin" Value="10,20,0,20"/>
+
+                        <Setter Target="stateTitleTextBlock.Margin" Value="10,0,0,0"/>
+                        <Setter Target="stateTextBlock.Margin" Value="10,10,0,0"/>
+
+                        <Setter Target="spectateButton.Width" Value="150"/>
+                        <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="vegtableNameTextBlock.Margin" Value="0,50,100,0"/>
+
+                        
+                        <Setter Target="usernameTextBlock.Visibility" Value="Collapsed"/>
+
+                        <Setter Target="logoutButton.Width" Value="150"/>
+                        <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="innerPanel.Height" Value="360"></Setter>
+                        <Setter Target="innerPanel.Width" Value="420"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <!--TabletsAndMediumlDevices-->
+                <VisualState x:Name="TabletsAndMediumlDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="135"/>
+                        <Setter Target="logoImage.Height" Value="105"/>
+
+                        <Setter Target="currentVegetableImage.Width" Value="180"/>
+                        <Setter Target="currentVegetableImage.Height" Value="180"/>
+                        <Setter Target="currentVegetableImage.Margin" Value="80,20,0,20"/>
+
+                        <Setter Target="stateTitleTextBlock.Margin" Value="80,0,0,0"/>
+                        <Setter Target="stateTextBlock.Margin" Value="80,10,0,0"/>
+
+                        <Setter Target="spectateButton.Width" Value="180"/>
+                        <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="usernameTextBlock.Visibility" Value="Visible"/>
+
+                        <Setter Target="vegtableNameTextBlock.Margin" Value="0,50,150,0"/>
+                        
+                        <Setter Target="logoutButton.Width" Value="180"/>
+                        <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="innerPanel.Height" Value="380"/>
+                        <Setter Target="innerPanel.Width" Value="600"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <!--DesktopsAndBigDevices-->
+                <VisualState x:Name="DesktopsAndBigDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="150"/>
+                        <Setter Target="logoImage.Height" Value="120"/>
+
+                        <Setter Target="currentVegetableImage.Width" Value="220"/>
+                        <Setter Target="currentVegetableImage.Height" Value="220"/>
+                        <Setter Target="currentVegetableImage.Margin" Value="80,20,0,20"/>
+
+                        <Setter Target="stateTitleTextBlock.Margin" Value="80,0,0,0"/>
+                        <Setter Target="stateTextBlock.Margin" Value="80,10,0,0"/>
+
+                        <Setter Target="spectateButton.Width" Value="200"/>
+                        <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="usernameTextBlock.Visibility" Value="Visible"/>
+                        
+                        <Setter Target="vegtableNameTextBlock.Margin" Value="0,50,250,0"/>
+                        
+                        <Setter Target="logoutButton.Width" Value="200"/>
+                        <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
+
+                        <Setter Target="innerPanel.Height" Value="430"/>
+                        <Setter Target="innerPanel.Width" Value="800"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </RelativePanel>
 </Page>
