@@ -45,5 +45,10 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <DeviceCapability Name="bluetooth.genericAttributeProfile">
+      <Device Id="any">
+        <Function Type="name:genericAccess" />
+      </Device>
+    </DeviceCapability>
   </Capabilities>
 </Package>

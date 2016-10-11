@@ -10,13 +10,77 @@
     Width="640"
     DataContext="{Binding Source={StaticResource ViewModelLocatorKey},  Path=SpectatorScreenModel}"
     >
+    <Page.Resources>
+        <DataTemplate x:Key="ResultsListViewTemplate">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" MinWidth="100"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Height="40" Width="40" Margin="5" VerticalAlignment="Top">
+                    <Image Source="{Binding Path=GlyphBitmapImage}"
+                           Stretch="UniformToFill"/>
+                </Border>
+                <Border Grid.Column="1" Margin="5">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Name:" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" TextWrapping="WrapWholeWords"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Id:" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Path=Id}" TextWrapping="Wrap"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="CanPair:" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Path=CanPair}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="IsPaired:" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Path=IsPaired}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
-    <Grid Background="GreenYellow" Width="640" Height="620">
-        <Button Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="mainMenuButton" Content="Main menu" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top"/>
-        <Button Command="{Binding OverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="overviewMenuButton" Content="Overview" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
+    <Grid Background="GreenYellow" Width="640" Margin="0,0,0,-188">
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border x:Name="pairingPanel" BorderThickness="1" BorderBrush="AntiqueWhite" Margin="10,0,0,10" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="pairingTextBlock" Foreground ="White" Margin="0,0,0,2" TextWrapping="WrapWholeWords"/>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBox x:Name="pinEntryTextBox" Foreground ="White" MinWidth="100" Margin="2" Visibility="Collapsed" />
+                        <Button x:Name="okButton"  Margin="2" Click="okButton_Click" Visibility="Collapsed">OK</Button>
+                        <Button x:Name="yesButton" Margin="2" Click="yesButton_Click" Visibility="Collapsed">Yes</Button>
+                        <Button x:Name="noButton"  Margin="2" Click="noButton_Click" Visibility="Collapsed">No</Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        
+        <Button x:Name="PairButton" Content="Pair and Connect" Background="#CCFFFFFF" Click="PairButton_Click" Margin="10,652,0,111" IsEnabled="True" Height="45"></Button>
+        <Button x:Name="UnpairButton" Content="Unpair Selected Device" Background="#CCFFFFFF" Click="UnpairButton_Click" Margin="184,652,0,115" IsEnabled="False" Height="41"></Button>
+
+        <TextBlock  x:Name="UserOutLabel" Foreground="Black" VerticalAlignment="Center" Margin="10,702,527,86">Message:</TextBlock>
+        <TextBlock x:Name="UserOut" Foreground="White" VerticalAlignment="Center" Margin="103,693,10,86" Height="29"/>
+
+
+        <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" Background="#FFF3E4E4" Margin="10,560,10,161">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,15,0">
+                <Border BorderBrush="AntiqueWhite" BorderThickness="1">
+                    <ListView x:Name="resultsListView"
+                              
+                				ItemTemplate="{StaticResource ResultsListViewTemplate}"
+                				SelectionChanged="ResultsListView_SelectionChanged" >
+                    </ListView>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
         <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="218,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="25"/>
         <Image  Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="vegetableImage" HorizontalAlignment="Left" Height="138" Margin="37,0,0,0" VerticalAlignment="Top" Width="137"/>
-        <Button Command="{Binding SelectVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="selectVegetableButton" Content="Select vegetable" HorizontalAlignment="Left" Margin="255,564,0,0" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding CurrentGrowableItem.Description}" x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="218,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="274" Margin="10,138,0,0" VerticalAlignment="Top" Width="620">
             <!--Temperature-->
@@ -54,6 +118,9 @@
         <Grid BorderThickness="1" BorderBrush="Black" Background="Olive" HorizontalAlignment="Left" Height="108" Margin="10,430,0,0" VerticalAlignment="Top" Width="620">
             <TextBlock x:Name="informationTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="18" />
             <TextBlock x:Name="informationTextBlock" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top"/>
+            <Button Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="mainMenuButton" Content="Main menu" HorizontalAlignment="Left" Margin="-10,68,0,0" VerticalAlignment="Top"/>
+            <Button Command="{Binding OverviewCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="overviewMenuButton" Content="Overview" HorizontalAlignment="Left" Margin="515,68,0,0" VerticalAlignment="Top" Width="95"/>
+            <Button Command="{Binding SelectVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="selectVegetableButton" Content="Select vegetable" HorizontalAlignment="Left" Margin="235,68,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Page>

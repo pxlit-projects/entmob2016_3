@@ -42,13 +42,13 @@ namespace BluetoothGATT
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private GattDeviceService[] serviceList = new GattDeviceService[7];
-        private GattCharacteristic[] activeCharacteristics = new GattCharacteristic[7];
+        private GattDeviceService[] serviceList = new GattDeviceService[8];
+        private GattCharacteristic[] activeCharacteristics = new GattCharacteristic[8];
 
-        const int NUM_SENSORS = 3;
+        const int NUM_SENSORS = 8;
         const int IR_SENSOR = 0;
         const int HUMIDITY = 2;
-        const int LUXOMETER = 4;
+        const int LUXOMETER = 7;
 
         const string SENSOR_GUID_PREFIX = "F000AA";
         const string SENSOR_GUID_SUFFFIX = "0-0451-4000-B000-000000000000";
@@ -110,6 +110,7 @@ namespace BluetoothGATT
 
         private void StartWatcher()
         {
+            //ZOEKEN EN FILTERERN OP SENSORTAG 
             string aqsFilter;
 
             ResultCollection.Clear();
@@ -159,8 +160,8 @@ namespace BluetoothGATT
                     }
                 });
             };
-            deviceWatcher.Updated += handlerUpdated;
 
+            deviceWatcher.Updated += handlerUpdated;
 
 
             handlerRemoved = async (watcher, deviceInfoUpdate) =>
@@ -241,6 +242,7 @@ namespace BluetoothGATT
                 {
                     Debug.WriteLine("OnBLEAdded: " + deviceInfo.Id);
                     GattDeviceService service = await GattDeviceService.FromIdAsync(deviceInfo.Id);
+
                     if (service != null)
                     {
                         int sensorIdx = -1;
@@ -262,7 +264,7 @@ namespace BluetoothGATT
                         }
                         // If the index is legal and a service hasn't already been cached, then
                         // cache this service in our serviceList
-                        if (((sensorIdx >= 0) && (sensorIdx <= LUXOMETER)) && (serviceList[sensorIdx] == null))
+                        if (((sensorIdx >= 0) && (sensorIdx <= 3)) && (serviceList[sensorIdx] == null))
                         {
                             serviceList[sensorIdx] = service;
                             await enableSensor(sensorIdx);
@@ -302,9 +304,11 @@ namespace BluetoothGATT
             };
 
             string aqs = "";
+
             for (int i = 0; i < NUM_SENSORS; i++)
             {
                 Guid BLE_GUID;
+
                 if (i < 3)
                     BLE_GUID = new Guid(SENSOR_GUID_PREFIX + i + SENSOR_GUID_SUFFFIX);
                 else
@@ -317,6 +321,7 @@ namespace BluetoothGATT
                     aqs += " OR ";
                 }
             }
+
 
             blewatcher = DeviceInformation.CreateWatcher(aqs);
             blewatcher.Added += OnBLEAdded;
@@ -666,6 +671,7 @@ namespace BluetoothGATT
                 if (characteristicList != null)
                 {
                     GattCharacteristic characteristic = characteristicList[0];
+
                     if (characteristic.CharacteristicProperties.HasFlag(GattCharacteristicProperties.Notify))
                     {
                         switch (sensor)
@@ -680,7 +686,7 @@ namespace BluetoothGATT
                                 break;
                             case (LUXOMETER):
                                 characteristic.ValueChanged += luxChanged;
-                                MagnoTitle.Foreground = new SolidColorBrush(Colors.Green);
+                                BaroTitle.Foreground = new SolidColorBrush(Colors.Green);
                                 break;
                             default:
                                 break;
@@ -695,7 +701,7 @@ namespace BluetoothGATT
                 }
 
                 // Turn on sensor
-                if (sensor >= 0 && sensor <= 3)
+                if (sensor >= 0 && sensor <= 7)
                 {
                     characteristicList = gattService.GetCharacteristics(new Guid(SENSOR_GUID_PREFIX + sensor + SENSOR_ENABLE_GUID_SUFFFIX));
                     if (characteristicList != null)
@@ -807,16 +813,19 @@ namespace BluetoothGATT
 
         async void luxChanged(GattCharacteristic sender, GattValueChangedEventArgs eventArgs)
         {
-            byte[] bArray = new byte[eventArgs.CharacteristicValue.Length];
-            DataReader.FromBuffer(eventArgs.CharacteristicValue).ReadBytes(bArray);
 
-            double lux = (double)((UInt16)bArray[1]);
-            double e = (double)((UInt16)bArray[1] >> 12);
-            lux = lux * (0.01 * Math.Pow(2.0, e)); // RH= -6 + 125 * SRH/2^16
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                BaroOut.Text = lux.ToString();
-            });
+            BaroOut.Text = "lol - ";
+
+            //byte[] bArray = new byte[eventArgs.CharacteristicValue.Length];
+            //DataReader.FromBuffer(eventArgs.CharacteristicValue).ReadBytes(bArray);
+
+            //double lux = (double)((UInt16)bArray[1]);
+            //double e = (double)((UInt16)bArray[1] >> 12);
+            //lux = lux * (0.01 * Math.Pow(2.0, e)); // RH= -6 + 125 * SRH/2^16
+            //await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            //{
+            //    BaroOut.Text = lux.ToString();
+            //});
         }
     }
 }

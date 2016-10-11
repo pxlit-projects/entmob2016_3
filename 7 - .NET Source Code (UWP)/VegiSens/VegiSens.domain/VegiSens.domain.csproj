@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceInformationDisplay.cs" />
     <Compile Include="GrowableItem.cs" />
     <Compile Include="HumiditySensorType.cs" />
     <Compile Include="Light.cs" />

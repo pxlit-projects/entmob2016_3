@@ -196,7 +196,7 @@
                 </StackPanel>
 
 
-                <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" Height="80" Background="#FFF3E4E4" Margin="10,0,10,10">
+                <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" Height="161" Background="#FFF3E4E4" Margin="10,0,10,10">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,15,0">
                         <Border BorderBrush="AntiqueWhite" BorderThickness="1">
                             <ListView x:Name="resultsListView"
