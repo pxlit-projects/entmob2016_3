@@ -29,7 +29,7 @@
             <!--Vegetable Image-->
             <Image RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="screenTitleTextBlock" Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-            <!--Username Title-->
+            <!--Vegatable Title-->
             <TextBlock Text="{Binding CurrentGrowableItem.Name}" RelativePanel.AlignTopWith="currentVegetableImage" RelativePanel.AlignRightWithPanel="True" x:Name="vegtableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>
             <TextBlock Text="{Binding CurrentGrowableItem.Description}" RelativePanel.Below="vegtableNameTextBlock" RelativePanel.AlignLeftWith="vegtableNameTextBlock" x:Name="vegtableDescriptionTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Margin="0.5,0,0,0"/>
 

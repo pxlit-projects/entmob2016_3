@@ -6,50 +6,227 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Height="620" 
-    Width="640"
     DataContext="{Binding Source={StaticResource ViewModelLocatorKey},  Path=SelectVegetableViewModel}"
     >
 
-    <Grid Background="GreenYellow" Width="640" Height="620">
-        <Button Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="10,564,0,0" VerticalAlignment="Top" Height="32" Width="95"/>
-        <Button Command="{Binding SaveCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="535,564,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableTextBlock" HorizontalAlignment="Left" Margin="57,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="30"/>
-        <Image Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="vegetableImage" HorizontalAlignment="Left" Height="302" Margin="339,27,0,0" VerticalAlignment="Top" Width="291"/>
-        <Grid BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" Height="96" Margin="10,329,0,0" VerticalAlignment="Top" Width="620">
+    <RelativePanel Background="GreenYellow">
 
-            <!--Titles-->
-            <TextBlock x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" Margin="20,10,0,0" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock x:Name="humidityTitleTextBlock" HorizontalAlignment="Left" Margin="248,10,0,0" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock x:Name="lightDensityTitleTextBlock" HorizontalAlignment="Left" Margin="466,10,0,0" TextWrapping="Wrap" Text="Light (lx)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+        <!--Logo-->
+        <Image RelativePanel.Above="chooseTitleTextBlock" RelativePanel.AlignLeftWith="rangePanel" x:Name="logoImage" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
+
+        <!--VegiSens Title-->
+        <TextBlock RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.RightOf="logoImage" x:Name="titleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+    
+        <!--Vagetable Combobox-->
+        <TextBlock RelativePanel.AlignLeftWith="rangePanel" RelativePanel.Above="rangePanel" x:Name="chooseTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Choose:" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <ComboBox RelativePanel.Above="rangePanel" RelativePanel.RightOf="chooseTitleTextBlock" ItemsSource="{Binding GrowableItemList}" SelectedItem="{Binding CurrentGrowableItem, Mode=TwoWay}" DisplayMemberPath="Name" x:Name="selectVegetableComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250"/>
+
+        <!--Vegetable Image-->
+        <Image RelativePanel.Above="vegtableNameTextBlock" Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--Vegatable Title-->
+        <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegtableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>
+     
+        <!---Range Panel-->
+        <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" x:Name="rangePanel" BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" VerticalAlignment="Top">
 
             <!--Temperature-->
-            <TextBlock Text="Min:" x:Name="temperaturMinTitleRangeBlock" HorizontalAlignment="Left" Margin="20,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="Max:" x:Name="temperaturMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="20,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MinTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperaturMinRangeBlock" HorizontalAlignment="Left" Margin="60,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperaturMaxRangeBlock" HorizontalAlignment="Left" Margin="60,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
+            <TextBlock RelativePanel.AlignLeftWith="temperatureTitleTextBlock" RelativePanel.AlignVerticalCenterWithPanel="True" Text="Min:" x:Name="temperaturMinTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.AlignLeftWith="temperatureTitleTextBlock" RelativePanel.Below="temperaturMinTitleRangeBlock" Text="Max:" x:Name="temperaturMaxTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="temperaturMinTitleRangeBlock" RelativePanel.AlignVerticalCenterWith="temperaturMinTitleRangeBlock" Text="{Binding CurrentGrowableItem.Temperature.MinTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperaturMinRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="temperaturMaxTitleRangeBlock" RelativePanel.AlignVerticalCenterWith="temperaturMaxTitleRangeBlock" Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperaturMaxRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
             <!--Humidity-->
-            <TextBlock Text="Min:" x:Name="humidityMinTitleRangeBlock" HorizontalAlignment="Left" Margin="248,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="Max:" x:Name="humidityMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="248,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MinHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityMinRangeBlock" HorizontalAlignment="Left" Margin="288,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityMaxRangeBlock" HorizontalAlignment="Left" Margin="288,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True" FontSize="20" x:Name="humidityTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+
+            <TextBlock RelativePanel.AlignLeftWith="humidityTitleTextBlock" RelativePanel.AlignVerticalCenterWithPanel="True"  Text="Min:" x:Name="humidityMinTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.AlignLeftWith="humidityTitleTextBlock" RelativePanel.Below="humidityMinTitleRangeBlock" Text="Max:" x:Name="humidityMaxTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="humidityMinTitleRangeBlock" RelativePanel.AlignVerticalCenterWith="humidityMinTitleRangeBlock" Text="{Binding CurrentGrowableItem.Humidity.MinHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityMinRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="humidityMaxTitleRangeBlock" RelativePanel.AlignVerticalCenterWith="humidityMaxTitleRangeBlock"  Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityMaxRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
             <!--Light-->
-            <TextBlock Text="Min:" x:Name="lightMinTitleRangeBlock" HorizontalAlignment="Left" Margin="466,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="Max:" x:Name="lightMaxTitleRangeBlock" HorizontalAlignment="Left" Margin="466,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Light.MinLight, Converter={StaticResource LightConverterKey}}" x:Name="lightMinRangeBlock" HorizontalAlignment="Left" Margin="506,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock Text="{Binding CurrentGrowableItem.Light.MaxLight, Converter={StaticResource LightConverterKey}}" x:Name="lightMaxRangeBlock" HorizontalAlignment="Left" Margin="506,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="humidityTitleTextBlock" RelativePanel.AlignTopWithPanel="True" FontSize="20" x:Name="lightDensityTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Light (lx)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
 
+            <TextBlock RelativePanel.AlignLeftWith="lightDensityTitleTextBlock" RelativePanel.AlignVerticalCenterWithPanel="True"  Text="Min:" x:Name="lightMinTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.AlignLeftWith="lightDensityTitleTextBlock" RelativePanel.Below="lightMinTitleRangeBlock" Text="Max:" x:Name="lightMaxTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="lightMinTitleRangeBlock" RelativePanel.AlignVerticalCenterWith="lightMinTitleRangeBlock" Text="{Binding CurrentGrowableItem.Light.MinLight, Converter={StaticResource LightConverterKey}}" x:Name="lightMinRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock RelativePanel.RightOf="lightMaxTitleRangeBlock" RelativePanel.AlignVerticalCenterWith="lightMaxTitleRangeBlock"  Text="{Binding CurrentGrowableItem.Light.MaxLight, Converter={StaticResource LightConverterKey}}" x:Name="lightMaxRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        </Grid>
-        <Grid BorderThickness="1" BorderBrush="Black" Background="Olive" HorizontalAlignment="Left" Height="108" Margin="10,430,0,0" VerticalAlignment="Top" Width="620">
-            <TextBlock x:Name="informationTitleTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" />
-            <TextBlock Text="{Binding CurrentGrowableItem.Description}" x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        </Grid>
-        <ComboBox ItemsSource="{Binding GrowableItemList}" SelectedItem="{Binding CurrentGrowableItem, Mode=TwoWay}" DisplayMemberPath="Name" x:Name="selectVegetableComboBox" HorizontalAlignment="Left" Margin="57,176,0,0" VerticalAlignment="Top" Width="250"/>
-        <TextBlock x:Name="chooseTitleTextBlock" HorizontalAlignment="Left" Margin="57,144,0,0" TextWrapping="Wrap" Text="Choose:" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <Image x:Name="logoImage" HorizontalAlignment="Left" Height="91" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
-        <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="131,27,0,0" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
-    </Grid>
+        </RelativePanel>
+        
+        <!--Description Panel-->
+        <RelativePanel x:Name="descriptionPanel" RelativePanel.AlignLeftWith="rangePanel" RelativePanel.Below="rangePanel" BorderThickness="1" BorderBrush="Black" Background="Olive" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" x:Name="informationTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" />
+            <TextBlock RelativePanel.Below="informationTitleTextBlock" RelativePanel.AlignLeftWith="informationTitleTextBlock" Text="{Binding CurrentGrowableItem.Description}" x:Name="descriptionTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        </RelativePanel>
+        
+        <!--Back Button-->
+        <Button RelativePanel.AlignLeftWith="descriptionPanel" RelativePanel.Below="descriptionPanel" Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--Save Button-->
+        <Button RelativePanel.AlignRightWith="descriptionPanel" RelativePanel.Below="descriptionPanel" Command="{Binding SaveCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Screenstates">
+                <!--PhoneAndSmallDevices-->
+                <VisualState x:Name="PhoneAndSmallDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="320"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Visibility" Value="Collapsed"/>
+                        <Setter Target="titleTextBlock.Visibility" Value="Collapsed"/>
+
+                        <Setter Target="currentVegetableImage.(RelativePanel.Above)" Value="vegtableNameTextBlock"/>
+                        <Setter Target="currentVegetableImage.(RelativePanel.AlignHorizontalCenterWith)" Value="vegtableNameTextBlock"/>
+                        <Setter Target="vegtableNameTextBlock.(RelativePanel.Above)" Value="selectVegetableComboBox"/>
+                        <Setter Target="vegtableNameTextBlock.(RelativePanel.AlignHorizontalCenterWith)" Value="rangePanel"/>
+                        <Setter Target="vegtableNameTextBlock.Margin" Value="0,0,0,0"/>
+                        
+                        <Setter Target="currentVegetableImage.Width" Value="150"/>
+                        <Setter Target="currentVegetableImage.Height" Value="150"/>
+
+                        <Setter Target="selectVegetableComboBox.Width" Value="265"/>
+                        <Setter Target="selectVegetableComboBox.Margin" Value="10,20,0,0"/>
+                        <Setter Target="chooseTitleTextBlock.Margin" Value="0,0,0,5"/>
+                        
+                        <Setter Target="rangePanel.Height" Value="90"/>
+                        <Setter Target="rangePanel.Width" Value="350"/>
+                        <Setter Target="rangePanel.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="temperatureTitleTextBlock.Margin" Value="5,0,0,15"/>
+                        <Setter Target="temperatureTitleTextBlock.Text" Value="Temp(°C)"/>
+                        <Setter Target="humidityTitleTextBlock.Margin" Value="10,0,0,15"/>
+                        <Setter Target="lightDensityTitleTextBlock.Margin" Value="15,0,0,15"/>
+
+                        <Setter Target="temperaturMinTitleRangeBlock.Margin" Value="5,0,10,0"/>
+                        <Setter Target="temperaturMaxTitleRangeBlock.Margin" Value="5,0,8,0"/>
+                        <Setter Target="humidityMinTitleRangeBlock.Margin" Value="20,0,10,0"/>
+                        <Setter Target="humidityMaxTitleRangeBlock.Margin" Value="20,0,8,0"/>
+                        <Setter Target="lightMinTitleRangeBlock.Margin" Value="20,0,10,0"/>
+                        <Setter Target="lightMaxTitleRangeBlock.Margin" Value="20,0,8,0"/>
+                        
+                        <Setter Target="descriptionPanel.Height" Value="90"/>
+                        <Setter Target="descriptionPanel.Width" Value="350"/>
+                        <Setter Target="descriptionPanel.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="descriptionTextBlock.Margin" Value="10,5,0,0"/>
+                        
+                        <Setter Target="backButton.Width" Value="100"/>
+                        <Setter Target="backButton.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="saveButton.Width" Value="100"/>
+                        <Setter Target="saveButton.Margin" Value="0,10,0,0"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <!--TabletsAndMediumlDevices-->
+                <VisualState x:Name="TabletsAndMediumlDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="135"/>
+                        <Setter Target="logoImage.Height" Value="105"/>
+                        <Setter Target="logoImage.Margin" Value="0,0,0,30"/>
+                        <Setter Target="titleTextBlock.Margin" Value="0,0,0,30"/>
+                        
+                        <Setter Target="currentVegetableImage.Width" Value="150"/>
+                        <Setter Target="currentVegetableImage.Height" Value="150"/>
+                        <Setter Target="currentVegetableImage.Margin" Value="30,0,0,0"/>
+                        
+                        <Setter Target="currentVegetableImage.(RelativePanel.AlignLeftWith)" Value="vegtableNameTextBlock"/>
+                        <Setter Target="vegtableNameTextBlock.(RelativePanel.RightOf)" Value="selectVegetableComboBox"/>
+                        <Setter Target="vegtableNameTextBlock.(RelativePanel.AlignVerticalCenterWith)" Value="selectVegetableComboBox"/>
+                        <Setter Target="vegtableNameTextBlock.Margin" Value="50,0,0,0"/>
+                        
+                        <Setter Target="selectVegetableComboBox.Width" Value="300"/>
+                        <Setter Target="selectVegetableComboBox.Margin" Value="10,20,0,0"/>
+                        <Setter Target="chooseTitleTextBlock.Margin" Value="0,20,0,5"/>
+                        
+                        <Setter Target="rangePanel.Height" Value="110"/>
+                        <Setter Target="rangePanel.Width" Value="600"/>
+                        <Setter Target="rangePanel.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="temperatureTitleTextBlock.Margin" Value="20,0,0,15"/>
+                        <Setter Target="lightDensityTitleTextBlock.Margin" Value="80,0,0,15"/>
+
+                        <Setter Target="temperaturMinTitleRangeBlock.Margin" Value="50,0,10,0"/>
+                        <Setter Target="temperaturMaxTitleRangeBlock.Margin" Value="50,0,8,0"/>
+                        <Setter Target="humidityMinTitleRangeBlock.Margin" Value="20,0,10,0"/>
+                        <Setter Target="humidityMaxTitleRangeBlock.Margin" Value="20,0,8,0"/>
+                        <Setter Target="lightMinTitleRangeBlock.Margin" Value="90,0,10,0"/>
+                        <Setter Target="lightMaxTitleRangeBlock.Margin" Value="90,0,8,0"/>
+
+                        <Setter Target="descriptionPanel.Height" Value="100"/>
+                        <Setter Target="descriptionPanel.Width" Value="600"/>
+                        <Setter Target="descriptionPanel.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="descriptionTextBlock.Margin" Value="10,5,0,0"/>
+
+                        <Setter Target="backButton.Width" Value="150"/>
+                        <Setter Target="backButton.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="saveButton.Width" Value="150"/>
+                        <Setter Target="saveButton.Margin" Value="0,10,0,0"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <!--DesktopsAndBigDevices-->
+                <VisualState x:Name="DesktopsAndBigDevices">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="logoImage.Width" Value="150"/>
+                        <Setter Target="logoImage.Height" Value="120"/>
+                        <Setter Target="logoImage.Margin" Value="0,0,0,30"/>
+                        <Setter Target="titleTextBlock.Margin" Value="0,0,0,30"/>
+                        
+                        <Setter Target="currentVegetableImage.Width" Value="170"/>
+                        <Setter Target="currentVegetableImage.Height" Value="170"/>
+                        <Setter Target="currentVegetableImage.Margin" Value="110,0,0,0"/>
+
+                        <Setter Target="currentVegetableImage.(RelativePanel.AlignLeftWith)" Value="vegtableNameTextBlock"/>
+                        <Setter Target="vegtableNameTextBlock.(RelativePanel.RightOf)" Value="selectVegetableComboBox"/>
+                        <Setter Target="vegtableNameTextBlock.(RelativePanel.AlignVerticalCenterWith)" Value="selectVegetableComboBox"/>
+                        <Setter Target="vegtableNameTextBlock.Margin" Value="130,0,0,0"/>
+
+                        <Setter Target="selectVegetableComboBox.Width" Value="300"/>
+                        <Setter Target="selectVegetableComboBox.Margin" Value="10,20,0,0"/>
+                        <Setter Target="chooseTitleTextBlock.Margin" Value="0,20,0,5"/>
+
+                        <Setter Target="rangePanel.Height" Value="130"/>
+                        <Setter Target="rangePanel.Width" Value="750"/>
+                        <Setter Target="rangePanel.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="temperatureTitleTextBlock.Margin" Value="20,10,0,15"/>
+                        <Setter Target="humidityTitleTextBlock.Margin" Value="5,10,0,15"/>
+                        <Setter Target="lightDensityTitleTextBlock.Margin" Value="150,10,0,15"/>
+
+                        <Setter Target="temperaturMinTitleRangeBlock.Margin" Value="50,0,10,0"/>
+                        <Setter Target="temperaturMaxTitleRangeBlock.Margin" Value="50,0,8,0"/>
+                        <Setter Target="humidityMinTitleRangeBlock.Margin" Value="20,0,10,0"/>
+                        <Setter Target="humidityMaxTitleRangeBlock.Margin" Value="20,0,8,0"/>
+                        <Setter Target="lightMinTitleRangeBlock.Margin" Value="160,0,10,0"/>
+                        <Setter Target="lightMaxTitleRangeBlock.Margin" Value="160,0,8,0"/>
+
+                        <Setter Target="descriptionPanel.Height" Value="120"/>
+                        <Setter Target="descriptionPanel.Width" Value="750"/>
+                        <Setter Target="descriptionPanel.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="descriptionTextBlock.Margin" Value="10,5,0,0"/>
+
+                        <Setter Target="backButton.Width" Value="170"/>
+                        <Setter Target="backButton.Margin" Value="0,10,0,0"/>
+
+                        <Setter Target="saveButton.Width" Value="170"/>
+                        <Setter Target="saveButton.Margin" Value="0,10,0,0"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </RelativePanel>
 </Page>

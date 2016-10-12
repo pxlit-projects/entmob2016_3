@@ -95,14 +95,14 @@ namespace VegiSens
     {
         this.InitializeComponent();
 
-        UserOut.Text = "Searching for Bluetooth LE Devices...";
+            paringMessageInformationTextBleck.Text = "Searching for Bluetooth LE Devices...";
         resultsListView.IsEnabled = false;
-        PairButton.IsEnabled = false;
+        pairButton.IsEnabled = false;
 
         ResultCollection = new ObservableCollection<DeviceInformationDisplay>();
 
        resultsListView.ItemsSource = ResultCollection;
-        DataContext = this;
+        //DataContext = this;
         //Start Watcher for pairable/paired devices
         StartWatcher();
     }
@@ -183,7 +183,7 @@ namespace VegiSens
                         UpdatePairingButtons();
                         if (ResultCollection.Count == 0)
                         {
-                            UserOut.Text = "Searching for Bluetooth LE Devices...";
+                            paringMessageInformationTextBleck.Text = "Searching for Bluetooth LE Devices...";
                         }
                         break;
                     }
@@ -200,11 +200,11 @@ namespace VegiSens
 
                 if (ResultCollection.Count > 0)
                 {
-                    UserOut.Text = "Select a device for pairing";
+                    paringMessageInformationTextBleck.Text = "Select a device for pairing";
                 }
                 else
                 {
-                    UserOut.Text = "No Bluetooth LE Devices found.";
+                    paringMessageInformationTextBleck.Text = "No Bluetooth LE Devices found.";
                 }
                 UpdatePairingButtons();
             });
@@ -282,7 +282,7 @@ namespace VegiSens
                         //DisableButton.IsEnabled = true;
                         //EnableButton.IsEnabled = true;
                         discoveredServices = 0;
-                        UserOut.Text = "Sensors on!";
+                        paringMessageInformationTextBleck.Text = "Sensors on!";
                     }
                 }
             });
@@ -350,13 +350,13 @@ namespace VegiSens
         }
     }
 
-    private async void PairButton_Click(object sender, RoutedEventArgs e)
+    private async void pairButton_Click(object sender, RoutedEventArgs e)
     {
         DeviceInformationDisplay deviceInfoDisp = resultsListView.SelectedItem as DeviceInformationDisplay;
 
         if (deviceInfoDisp != null)
         {
-            PairButton.IsEnabled = false;
+            pairButton.IsEnabled = false;
             bool paired = true;
             if (deviceInfoDisp.IsPaired != true)
             {
@@ -378,14 +378,14 @@ namespace VegiSens
                 }
                 else
                 {
-                    UserOut.Text = "Pairing Failed " + result.Status.ToString();
+                        paringMessageInformationTextBleck.Text = "Pairing Failed " + result.Status.ToString();
                 }
             }
 
             if (paired)
             {
-                // device is paired, set up the sensor Tag            
-                UserOut.Text = "Setting up SensorTag";
+                    // device is paired, set up the sensor Tag            
+                    paringMessageInformationTextBleck.Text = "Setting up SensorTag";
 
                 DeviceInfoConnected = deviceInfoDisp;
 
@@ -463,12 +463,12 @@ namespace VegiSens
 
     private void ShowPairingPanel(string text, DevicePairingKinds pairingKind)
     {
-            pairingPanel.Visibility = Visibility.Collapsed;
-            pinEntryTextBox.Visibility = Visibility.Collapsed;
-            okButton.Visibility = Visibility.Collapsed;
-            yesButton.Visibility = Visibility.Collapsed;
-            noButton.Visibility = Visibility.Collapsed;
-            pairingTextBlock.Text = text;
+            //pairingPanel.Visibility = Visibility.Collapsed;
+            //pinEntryTextBox.Visibility = Visibility.Collapsed;
+            //okButton.Visibility = Visibility.Collapsed;
+            //yesButton.Visibility = Visibility.Collapsed;
+            //noButton.Visibility = Visibility.Collapsed;
+            //pairingTextBlock.Text = text;
 
             switch (pairingKind)
         {
@@ -477,13 +477,13 @@ namespace VegiSens
                 // Don't need any buttons
                 break;
             case DevicePairingKinds.ProvidePin:
-                    pinEntryTextBox.Text = "";
-                    pinEntryTextBox.Visibility = Visibility.Visible;
-                    okButton.Visibility = Visibility.Visible;
+                    //pinEntryTextBox.Text = "";
+                    //pinEntryTextBox.Visibility = Visibility.Visible;
+                    //okButton.Visibility = Visibility.Visible;
                     break;
             case DevicePairingKinds.ConfirmPinMatch:
-                    yesButton.Visibility = Visibility.Visible;
-                    noButton.Visibility = Visibility.Visible;
+                    //yesButton.Visibility = Visibility.Visible;
+                    //noButton.Visibility = Visibility.Visible;
                     break;
         }
 
@@ -542,12 +542,12 @@ namespace VegiSens
         }
     }
 
-    private async void UnpairButton_Click(object sender, RoutedEventArgs e)
+    private async void unpairButton_Click(object sender, RoutedEventArgs e)
     {
         DeviceInformationDisplay deviceInfoDisp = resultsListView.SelectedItem as DeviceInformationDisplay;
         Debug.WriteLine("Unpair");
 
-        UnpairButton.IsEnabled = false;
+        unpairButton.IsEnabled = false;
         //SensorList.IsEnabled = false;
         //EnableButton.IsEnabled = false;
         //DisableButton.IsEnabled = false;
@@ -568,7 +568,7 @@ namespace VegiSens
             DeviceUnpairingResult dupr = await deviceInfoDisp.DeviceInformation.Pairing.UnpairAsync();
             string unpairResult = $"Unpairing result = {dupr.Status}";
             Debug.WriteLine(unpairResult);
-            UserOut.Text = unpairResult;
+                paringMessageInformationTextBleck.Text = unpairResult;
         }
         catch (Exception ex)
         {
@@ -598,16 +598,16 @@ namespace VegiSens
             if ((deviceInfoDisp.DeviceInformation.Pairing.IsPaired) && (bIsConnected))
             {
                 resultsListView.IsEnabled = false;
-                UnpairButton.IsEnabled = true;
-                PairButton.IsEnabled = false;
+                unpairButton.IsEnabled = true;
+                pairButton.IsEnabled = false;
             }
             // Otherwise, we're either unpaired OR we are paired to something but this app hasn't connected to it
             // so allow the user to select one of the BLE devices from the list
             else
             {
                 resultsListView.IsEnabled = bSelectableDevices;
-                UnpairButton.IsEnabled = false;
-                PairButton.IsEnabled = bSelectableDevices;
+                unpairButton.IsEnabled = false;
+                pairButton.IsEnabled = bSelectableDevices;
             }
         }
         // otherwise there are no devices selected by the user, so allow the user to select something
@@ -615,7 +615,7 @@ namespace VegiSens
         else
         {
             resultsListView.IsEnabled = bSelectableDevices;
-            PairButton.IsEnabled = false;
+            pairButton.IsEnabled = false;
         }
     }
 
@@ -631,12 +631,12 @@ namespace VegiSens
         HidePairingPanel();
     }
 
-    private void okButton_Click(object sender, RoutedEventArgs e)
-    {
-        // OK button is only used for the ProvidePin scenario
-        //CompleteProvidePinTask(pinEntryTextBox.Text);
-        HidePairingPanel();
-    }
+        private void okButton_Click(object sender, RoutedEventArgs e)
+        {
+            // OK button is only used for the ProvidePin scenario
+            //CompleteProvidePinTask(pinEntryTextBox.Text);
+            HidePairingPanel();
+        }
 
     private void EnableButton_Click(object sender, RoutedEventArgs e)
     {
@@ -654,7 +654,7 @@ namespace VegiSens
         //}
     }
 
-    private void ResultsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void resultsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         UpdatePairingButtons();
     }
