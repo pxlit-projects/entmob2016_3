@@ -16,8 +16,9 @@ namespace VegiSens.ViewModel
     public class SpectatorScreenViewModel : SuperViewModel
     {
         //Properties
-        private ObservableCollection<SuperSensor> sensorTypeList;
+        public ObservableCollection<SuperSensor> sensorTypeList { get; set; }
         private SuperSensor currentSensorType;
+
         private ISensorTypeData sensorTypeDataService;
 
         public ICommand TemperatureOverviewCommand { get; set; }

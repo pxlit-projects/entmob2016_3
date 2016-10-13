@@ -1,24 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace VegiSens.domain
 {
     public class GrowableItem
     {
+        [Key]
         private int growableItemID;
 
         private string name;
         private string description;
         private string imagePath;
-
+    
+        private int TemperatureID { get; set; }
+        [ForeignKey("TemperatureID")]
         private Temperature temperature;
+
+        private int HumidityID { get; set; }
+        [ForeignKey("HumidityID")]
         private Humidity humidity;
+
+        private int LightID { get; set; }
+        [ForeignKey("LightID")]
         private Light light;
 
-    
         public int GrowableItemID
         {
             get { return growableItemID; }

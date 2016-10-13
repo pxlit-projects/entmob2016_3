@@ -112,7 +112,7 @@
 
             <!--Temperature-->
             <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" x:Name="temperatureTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Temperature (°C)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
-            <TextBlock RelativePanel.AlignHorizontalCenterWith="temperatureTitleTextBlock" RelativePanel.Below="temperatureTitleTextBlock" Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature, Converter={StaticResource TemperatureConverterKey}}" x:Name="temperatureValueTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock RelativePanel.AlignHorizontalCenterWith="temperatureTitleTextBlock" RelativePanel.Below="temperatureTitleTextBlock" Text="N/A" x:Name="temperatureValueTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
 
             <TextBlock RelativePanel.AlignLeftWith="temperatureTitleTextBlock" RelativePanel.AlignVerticalCenterWithPanel="True" Text="Min:" x:Name="temperaturMinTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBlock RelativePanel.AlignLeftWith="temperatureTitleTextBlock" RelativePanel.Below="temperaturMinTitleRangeBlock" Text="Max:" x:Name="temperaturMaxTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -121,7 +121,7 @@
 
             <!--Humidity-->
             <TextBlock RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignTopWithPanel="True" FontSize="20" x:Name="humidityTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock RelativePanel.AlignHorizontalCenterWith="humidityTitleTextBlock" RelativePanel.Below="humidityTitleTextBlock" Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity, Converter={StaticResource HumidityConverterKey}}" x:Name="humidityValueTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+                <TextBlock RelativePanel.AlignHorizontalCenterWith="humidityTitleTextBlock" RelativePanel.Below="humidityTitleTextBlock" Text="N/A" x:Name="humidityValueTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
 
             <TextBlock RelativePanel.AlignLeftWith="humidityTitleTextBlock" RelativePanel.AlignVerticalCenterWithPanel="True"  Text="Min:" x:Name="humidityMinTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBlock RelativePanel.AlignLeftWith="humidityTitleTextBlock" RelativePanel.Below="humidityMinTitleRangeBlock" Text="Max:" x:Name="humidityMaxTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -130,7 +130,7 @@
 
             <!--Light-->
             <TextBlock RelativePanel.RightOf="humidityTitleTextBlock" RelativePanel.AlignTopWithPanel="True" FontSize="20" x:Name="lightDensityTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Light (lx)" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBlock RelativePanel.AlignHorizontalCenterWith="lightDensityTitleTextBlock" RelativePanel.Below="lightDensityTitleTextBlock" Text="{Binding CurrentGrowableItem.Light.MaxLight, Converter={StaticResource LightConverterKey}}" x:Name="lightValueTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+                <TextBlock RelativePanel.AlignHorizontalCenterWith="lightDensityTitleTextBlock" RelativePanel.Below="lightDensityTitleTextBlock" Text="N/A"  x:Name="lightValueTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
 
             <TextBlock RelativePanel.AlignLeftWith="lightDensityTitleTextBlock" RelativePanel.AlignVerticalCenterWithPanel="True"  Text="Min:" x:Name="lightMinTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBlock RelativePanel.AlignLeftWith="lightDensityTitleTextBlock" RelativePanel.Below="lightMinTitleRangeBlock" Text="Max:" x:Name="lightMaxTitleRangeBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"/>

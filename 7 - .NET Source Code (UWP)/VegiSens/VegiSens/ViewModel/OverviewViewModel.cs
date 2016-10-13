@@ -42,12 +42,6 @@ namespace VegiSens.ViewModel
         }
 
         //Messenger received
-        private void OnSensorListReceived(ObservableCollection<SuperSensor> sensorTypes)
-        {
-            sensorTypeList = sensorTypes;
-        }
-
-        //Messenger received
         private void OnSensorReceived(SuperSensor sensorType)
         {
             currentSensorType = sensorType;
