@@ -26,6 +26,7 @@ namespace VegiSens.ViewModel
             Messenger.Default.Register<GrowableItem>(this, OnGrowableItemReceived);
         }
 
+        //User received
         private void OnGrowableItemReceived(GrowableItem growbaleItem)
         {
             currentGrowableItem = growbaleItem;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using VegiSens.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,14 @@ namespace VegiSens
         public Login()
         {
             this.InitializeComponent();
+        }
+
+        //De login is geintegreerd in de applicatie maar niet goed geïmplementeert.
+        //Deze is enkel aanwezig ter uitbreiding
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((LoginViewModel)this.DataContext).Username = usernameTextBox.Text;
+            ((LoginViewModel)this.DataContext).Password = passwordTextBox.Password;
         }
     }
 }

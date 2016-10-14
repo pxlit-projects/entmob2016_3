@@ -17,9 +17,6 @@
         <!--VegiSens Title-->
         <TextBlock RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.RightOf="logoImage" x:Name="titleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
 
-        <!--Username Title-->
-        <TextBlock Text="Arno Bruynseels" RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.AlignRightWith="innerPanel" x:Name="usernameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
-
         <!--Inner Panel-->
         <RelativePanel RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="innerPanel" BorderThickness="1" BorderBrush="Black" Background="YellowGreen" HorizontalAlignment="Left" VerticalAlignment="Top">
 
@@ -63,8 +60,6 @@
                         <Setter Target="vegtableNameTextBlock.Margin" Value="0,50,100,0"/>
 
                         
-                        <Setter Target="usernameTextBlock.Visibility" Value="Collapsed"/>
-
                         <Setter Target="logoutButton.Width" Value="150"/>
                         <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
 
@@ -87,8 +82,6 @@
 
                         <Setter Target="spectateButton.Width" Value="180"/>
                         <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
-
-                        <Setter Target="usernameTextBlock.Visibility" Value="Visible"/>
 
                         <Setter Target="vegtableNameTextBlock.Margin" Value="0,50,150,0"/>
                         
@@ -114,9 +107,7 @@
 
                         <Setter Target="spectateButton.Width" Value="200"/>
                         <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
-
-                        <Setter Target="usernameTextBlock.Visibility" Value="Visible"/>
-                        
+                       
                         <Setter Target="vegtableNameTextBlock.Margin" Value="0,50,250,0"/>
                         
                         <Setter Target="logoutButton.Width" Value="200"/>

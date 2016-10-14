@@ -105,7 +105,9 @@
     <Compile Include="Services\IFrameNavigation.cs" />
     <Compile Include="Services\IGrowableItemData.cs" />
     <Compile Include="Services\ISensorTypeData.cs" />
+    <Compile Include="Services\IUsernameDataService.cs" />
     <Compile Include="Services\SensorTypeDataService.cs" />
+    <Compile Include="Services\UsernameDataService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />

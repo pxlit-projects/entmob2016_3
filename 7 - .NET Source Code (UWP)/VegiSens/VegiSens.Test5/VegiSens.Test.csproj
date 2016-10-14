@@ -101,6 +101,8 @@
     <Compile Include="Mocks\MockGrowableItemDataService.cs" />
     <Compile Include="Mocks\MockSensorTypeDataService.cs" />
     <Compile Include="Mocks\MockSensorTypeRepository.cs" />
+    <Compile Include="Mocks\MockUsernameDataService.cs" />
+    <Compile Include="Mocks\MockUserRepository.cs" />
     <Compile Include="Mocks\MockVegetableRepository.cs" />
     <Compile Include="OverviewViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
