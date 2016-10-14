@@ -46,26 +46,11 @@
     <!--Main Panel-->
     <RelativePanel Background="GreenYellow" x:Name="mainPanel">
 
-        <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Border x:Name="pairingPanel" BorderThickness="1" BorderBrush="AntiqueWhite" Margin="10,0,0,10" Visibility="Collapsed">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock x:Name="pairingTextBlock" Foreground ="White" Margin="0,0,0,2" TextWrapping="WrapWholeWords"/>
-                    <StackPanel Orientation="Horizontal" >
-                        <TextBox x:Name="pinEntryTextBox" Foreground ="White" MinWidth="100" Margin="2" Visibility="Collapsed" />
-                        <Button x:Name="okButton"  Margin="2" Click="okButton_Click" Visibility="Collapsed">OK</Button>
-                        <Button x:Name="yesButton" Margin="2" Click="yesButton_Click" Visibility="Collapsed">Yes</Button>
-                        <Button x:Name="noButton"  Margin="2" Click="noButton_Click" Visibility="Collapsed">No</Button>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-        </StackPanel>-->
-
-
         <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
             
         <RelativePanel RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="paringPanel">
         <!--Select Device Title-->
-        <TextBlock RelativePanel.AlignHorizontalCenterWith="deviceList" x:Name="selectDeviceTitleTextBleck" VerticalAlignment="Center" Text="Select a device" FontWeight="Bold" FontSize="20"/>
+        <TextBlock RelativePanel.AlignHorizontalCenterWith="deviceList" x:Name="selectDeviceTitleTextBleck" VerticalAlignment="Center" Text="Spectator screen" FontWeight="Bold" FontSize="20"/>
 
         <!--Pairing Message-->
         <TextBlock RelativePanel.Below="selectDeviceTitleTextBleck" RelativePanel.AlignLeftWith="deviceList" x:Name="paringMessageTitleTextBleck" VerticalAlignment="Center" Text="Message:" FontWeight="Bold"/>
@@ -146,8 +131,9 @@
         <!--Information Panel-->
         <RelativePanel x:Name="informationPanel" RelativePanel.Below="innerPanel" RelativePanel.AlignLeftWith="innerPanel" BorderThickness="1" BorderBrush="Black" Background="Olive" HorizontalAlignment="Left" VerticalAlignment="Top">
             <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" x:Name="informationTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="18"/>
-            <TextBlock RelativePanel.AlignLeftWith="informationTitleTextBlock" RelativePanel.Below="informationTitleTextBlock" x:Name="informationTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top"/>
-        </RelativePanel>
+            <TextBlock RelativePanel.AlignLeftWith="informationTitleTextBlock" RelativePanel.Below="informationTitleTextBlock" x:Name="temperatureInformationTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Temperature: N/A" VerticalAlignment="Top"/>
+                <TextBlock RelativePanel.AlignLeftWith="informationTitleTextBlock" RelativePanel.Below="temperatureInformationTextBlock" Margin="0,5,0,0" x:Name="humidityInformationTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Humidity: N/A" VerticalAlignment="Top"/>
+            </RelativePanel>
 
         <!--Navigation Buttons-->
         <Button RelativePanel.Below="informationPanel" RelativePanel.AlignLeftWith="innerPanel" Command="{Binding MainPageCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="mainMenuButton" Content="Main menu" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -219,8 +205,9 @@
                         <Setter Target="lightDensityOverviewButton.Width" Value="88"/>
 
                         <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
-                        <Setter Target="informationTextBlock.Margin" Value="10,10,0,0"/>
-
+                        <Setter Target="temperatureInformationTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="humidityInformationTextBlock.Margin" Value="10,5,0,0"/>
+                        
                         <Setter Target="informationPanel.Margin" Value="0,10,0,0"/>
                         <Setter Target="informationPanel.Height" Value="100"/>
                         <Setter Target="informationPanel.Width" Value="350"/>
@@ -291,8 +278,9 @@
                         <Setter Target="lightDensityOverviewButton.Width" Value="130"/>
 
                         <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
-                        <Setter Target="informationTextBlock.Margin" Value="10,10,0,0"/>
-
+                        <Setter Target="temperatureInformationTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="humidityInformationTextBlock.Margin" Value="10,5,0,0"/>
+                        
                         <Setter Target="informationPanel.Margin" Value="0,10,0,0"/>
                         <Setter Target="informationPanel.Height" Value="100"/>
                         <Setter Target="informationPanel.Width" Value="600"/>
@@ -363,7 +351,8 @@
                         <Setter Target="lightDensityOverviewButton.Width" Value="150"/>
 
                         <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
-                        <Setter Target="informationTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="temperatureInformationTextBlock.Margin" Value="10,10,0,0"/>
+                        <Setter Target="humidityInformationTextBlock.Margin" Value="10,5,0,0"/>
                         
                         <Setter Target="informationPanel.Margin" Value="0,10,0,0"/>
                         <Setter Target="informationPanel.Height" Value="100"/>

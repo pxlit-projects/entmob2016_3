@@ -109,15 +109,9 @@
   <ItemGroup>
     <Compile Include="ISensorTypeRepository.cs" />
     <Compile Include="IVegetableRepository.cs" />
-    <Compile Include="Migrations\20161013154701_Initial.cs" />
-    <Compile Include="Migrations\20161013154701_Initial.designer.cs">
-      <DependentUpon>20161013154701_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\VegiSensContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorTypeRepository.cs" />
     <Compile Include="VegetableRepository.cs" />
-    <Compile Include="VegiSensContext.cs" />
     <EmbeddedResource Include="Properties\VegiSens.DAL.rd.xml" />
   </ItemGroup>
   <ItemGroup>
