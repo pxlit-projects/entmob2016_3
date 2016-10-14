@@ -278,9 +278,6 @@ namespace VegiSens
                     // When all sensors have been discovered, notify the user
                     if (discoveredServices == NUM_SENSORS)
                     {
-                        //SensorList.IsEnabled = true;
-                        //DisableButton.IsEnabled = true;
-                        //EnableButton.IsEnabled = true;
                         discoveredServices = 0;
                         paringMessageInformationTextBleck.Text = "Sensors on!";
                     }
@@ -463,13 +460,6 @@ namespace VegiSens
 
     private void ShowPairingPanel(string text, DevicePairingKinds pairingKind)
     {
-            //pairingPanel.Visibility = Visibility.Collapsed;
-            //pinEntryTextBox.Visibility = Visibility.Collapsed;
-            //okButton.Visibility = Visibility.Collapsed;
-            //yesButton.Visibility = Visibility.Collapsed;
-            //noButton.Visibility = Visibility.Collapsed;
-            //pairingTextBlock.Text = text;
-
             switch (pairingKind)
         {
             case DevicePairingKinds.ConfirmOnly:
@@ -477,13 +467,8 @@ namespace VegiSens
                 // Don't need any buttons
                 break;
             case DevicePairingKinds.ProvidePin:
-                    //pinEntryTextBox.Text = "";
-                    //pinEntryTextBox.Visibility = Visibility.Visible;
-                    //okButton.Visibility = Visibility.Visible;
                     break;
             case DevicePairingKinds.ConfirmPinMatch:
-                    //yesButton.Visibility = Visibility.Visible;
-                    //noButton.Visibility = Visibility.Visible;
                     break;
         }
 
@@ -492,8 +477,7 @@ namespace VegiSens
 
     private void HidePairingPanel()
     {
-        //pairingPanel.Visibility = Visibility.Collapsed;
-        //pairingTextBlock.Text = "";
+
     }
 
     private async Task<string> GetPinFromUserAsync()
@@ -548,9 +532,6 @@ namespace VegiSens
         Debug.WriteLine("Unpair");
 
         unpairButton.IsEnabled = false;
-        //SensorList.IsEnabled = false;
-        //EnableButton.IsEnabled = false;
-        //DisableButton.IsEnabled = false;
         DeviceInfoConnected = null;
 
         Debug.WriteLine("Disable Sensors");
@@ -634,25 +615,8 @@ namespace VegiSens
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             // OK button is only used for the ProvidePin scenario
-            //CompleteProvidePinTask(pinEntryTextBox.Text);
             HidePairingPanel();
         }
-
-    private void EnableButton_Click(object sender, RoutedEventArgs e)
-    {
-        //if (SensorList.SelectedIndex >= 0)
-        //{
-        //    enableSensor(SensorList.SelectedIndex);
-        //}
-    }
-
-    private void DisableButton_Click(object sender, RoutedEventArgs e)
-    {
-        //if (SensorList.SelectedIndex >= 0)
-        //{
-        //    disableSensor(SensorList.SelectedIndex);
-        //}
-    }
 
     private void resultsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -682,11 +646,9 @@ namespace VegiSens
                     {
                         case (IR_SENSOR):
                             characteristic.ValueChanged += tempChanged;
-                            temperatureTitleTextBlock.Foreground = new SolidColorBrush(Colors.Green);
                             break;
                         case (HUMIDITY):
                             characteristic.ValueChanged += humidChanged;
-                            humidityTitleTextBlock.Foreground = new SolidColorBrush(Colors.Green);
                             break;
                         case (LUXOMETER):
                             characteristic.ValueChanged += luxChanged;
@@ -749,20 +711,6 @@ namespace VegiSens
             }
         }
 
-        switch (sensor)
-        {
-            case (IR_SENSOR):
-                //IRTitle.Foreground = new SolidColorBrush(Colors.White);
-                break;
-            case (HUMIDITY):
-                //HumidTitle.Foreground = new SolidColorBrush(Colors.White);
-                break;
-            case (LUXOMETER):
-                //MagnoTitle.Foreground = new SolidColorBrush(Colors.White);
-                break;
-            default:
-                break;
-        }
         activeCharacteristics[sensor] = null;
         Debug.WriteLine("End disable for sensor: " + sensor.ToString());
 
@@ -795,10 +743,35 @@ namespace VegiSens
         double tObj = Math.Pow(Math.Pow(Tdie, 4) + (fObj / S), 0.25);
 
         tObj = (tObj - 273.15);
+
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
-            temperatureValueTextBlock.Text = string.Format("Chip:\t{0:0.0####}", AmbTemp);
-            //temperatureValueTextBlock.Text = string.Format("IR:  \t{0:0.0####}", tObj);
+            temperatureValueTextBlock.Text = string.Format("{0:0.00}°C", AmbTemp);
+
+            string minText = temperaturMinRangeBlock.Text;
+            string maxText = temperaturMaxRangeBlock.Text;
+
+            int minIndex = minText.IndexOf('°');
+            int maxIndex = maxText.IndexOf('°');
+
+            double tempMin = Convert.ToDouble(minText.Substring(0, minIndex));
+            double tempMax = Convert.ToDouble(maxText.Substring(0, maxIndex));
+
+            if (AmbTemp >= tempMin && AmbTemp <= tempMax)
+            {
+                temperatureValueTextBlock.Foreground = new SolidColorBrush(Colors.Green);
+                temperatureInformationTextBlock.Text = "Temperature is good.";
+            }
+            else if (AmbTemp > tempMax)
+            {
+                temperatureValueTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+                temperatureInformationTextBlock.Text = "Temperature is to high, make sure to reduce the heat.";
+            }
+            else
+            {
+                temperatureValueTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+                temperatureInformationTextBlock.Text = "Temperature is to low, make sure to increase the heat.";
+            }
         });
     }
 
@@ -811,7 +784,33 @@ namespace VegiSens
         humidity = (-6.0 + 125.0 / 65536 * humidity); // RH= -6 + 125 * SRH/2^16
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
-            humidityValueTextBlock.Text = humidity.ToString();
+            humidityValueTextBlock.Text = string.Format("{0:0.00}%", humidity);
+
+            string minText = humidityMinRangeBlock.Text;
+            string maxText = humidityMaxRangeBlock.Text;
+
+            int minIndex = minText.IndexOf('%');
+            int maxIndex = maxText.IndexOf('%');
+
+            double humidityMin = Convert.ToDouble(minText.Substring(0, minIndex));
+            double humidityMax = Convert.ToDouble(maxText.Substring(0, maxIndex));
+
+            if (humidity >= humidityMin && humidity <= humidityMax)
+            {
+                humidityValueTextBlock.Foreground = new SolidColorBrush(Colors.Green);
+
+                humidityInformationTextBlock.Text = "Humidity is good.";
+            }
+            else if (humidity > humidityMax)
+            {
+                humidityValueTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+                humidityInformationTextBlock.Text = "Humidity is to high, make sure to reduce it.";
+            }
+            else
+            {
+                humidityValueTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+                humidityInformationTextBlock.Text = "Humidity is to low, make sure to increase it.";
+            }
         });
     }
 

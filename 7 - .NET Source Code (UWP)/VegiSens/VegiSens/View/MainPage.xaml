@@ -33,9 +33,6 @@
             <TextBlock Text="{Binding CurrentGrowableItem.Name}" RelativePanel.AlignTopWith="currentVegetableImage" RelativePanel.AlignRightWithPanel="True" x:Name="vegtableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>
             <TextBlock Text="{Binding CurrentGrowableItem.Description}" RelativePanel.Below="vegtableNameTextBlock" RelativePanel.AlignLeftWith="vegtableNameTextBlock" x:Name="vegtableDescriptionTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="20" Margin="0.5,0,0,0"/>
 
-            <!--State-->
-            <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="currentVegetableImage" x:Name="stateTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="State:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <TextBlock RelativePanel.Below="stateTitleTextBlock" RelativePanel.AlignLeftWithPanel="True" x:Name="stateTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="This is the current state of then tomato" VerticalAlignment="Top"/>
         </RelativePanel>
 
         <!--Logout Button-->
@@ -60,9 +57,6 @@
                         <Setter Target="currentVegetableImage.Height" Value="150"/>
                         <Setter Target="currentVegetableImage.Margin" Value="10,20,0,20"/>
 
-                        <Setter Target="stateTitleTextBlock.Margin" Value="10,0,0,0"/>
-                        <Setter Target="stateTextBlock.Margin" Value="10,10,0,0"/>
-
                         <Setter Target="spectateButton.Width" Value="150"/>
                         <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
 
@@ -74,7 +68,7 @@
                         <Setter Target="logoutButton.Width" Value="150"/>
                         <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
 
-                        <Setter Target="innerPanel.Height" Value="360"></Setter>
+                        <Setter Target="innerPanel.Height" Value="250"></Setter>
                         <Setter Target="innerPanel.Width" Value="420"></Setter>
                     </VisualState.Setters>
                 </VisualState>
@@ -91,9 +85,6 @@
                         <Setter Target="currentVegetableImage.Height" Value="180"/>
                         <Setter Target="currentVegetableImage.Margin" Value="80,20,0,20"/>
 
-                        <Setter Target="stateTitleTextBlock.Margin" Value="80,0,0,0"/>
-                        <Setter Target="stateTextBlock.Margin" Value="80,10,0,0"/>
-
                         <Setter Target="spectateButton.Width" Value="180"/>
                         <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
 
@@ -104,7 +95,7 @@
                         <Setter Target="logoutButton.Width" Value="180"/>
                         <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
 
-                        <Setter Target="innerPanel.Height" Value="380"/>
+                        <Setter Target="innerPanel.Height" Value="280"/>
                         <Setter Target="innerPanel.Width" Value="600"/>
                     </VisualState.Setters>
                 </VisualState>
@@ -121,9 +112,6 @@
                         <Setter Target="currentVegetableImage.Height" Value="220"/>
                         <Setter Target="currentVegetableImage.Margin" Value="80,20,0,20"/>
 
-                        <Setter Target="stateTitleTextBlock.Margin" Value="80,0,0,0"/>
-                        <Setter Target="stateTextBlock.Margin" Value="80,10,0,0"/>
-
                         <Setter Target="spectateButton.Width" Value="200"/>
                         <Setter Target="spectateButton.Margin" Value="0,20,0,0"/>
 
@@ -134,7 +122,7 @@
                         <Setter Target="logoutButton.Width" Value="200"/>
                         <Setter Target="logoutButton.Margin" Value="0,20,0,0"/>
 
-                        <Setter Target="innerPanel.Height" Value="430"/>
+                        <Setter Target="innerPanel.Height" Value="330"/>
                         <Setter Target="innerPanel.Width" Value="800"/>
                     </VisualState.Setters>
                 </VisualState>

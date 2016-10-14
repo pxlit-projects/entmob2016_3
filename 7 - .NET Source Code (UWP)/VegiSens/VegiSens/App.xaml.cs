@@ -33,11 +33,6 @@ namespace VegiSens
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
-            using (var db = new VegiSensContext())
-            {
-                db.Database.Migrate();
-            }
         }
 
         /// <summary>
