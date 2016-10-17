@@ -130,6 +130,13 @@ namespace VegiEF.Services
         public User GetSWMovieDetails(string uri)
         {
             throw new NotImplementedException();
+            //var client = new HttpClient();
+            //var response = Task.Run(() => client.GetAsync(uri)).Result;
+            //response.EnsureSuccessStatusCode();
+            //var result = Task.Run(() =>
+            //response.Content.ReadAsStringAsync()).Result;
+            //var Temperature = JsonConvert.DeserializeObject<Temperature>(result);
+            //return temperatures;
         }
 
         class RootObject<T>
