@@ -20,12 +20,15 @@ namespace VegiEF.Model
         private int TemperatureID { get; set; }
         [ForeignKey("TemperatureID")]
         private Temperature temperature;
+
         private int HumidityID { get; set; }
         [ForeignKey("HumidityID")]
         private Humidity humidity;
+
         private int LightID { get; set; }
         [ForeignKey("LightID")]
         private Light light;
+
         public int GrowableItemID { get { return growableItemID; } set { growableItemID = value; } }
         public string Name { get { return name; } set { name = value; } }
         public string Description { get { return description; } set { description = value; } }

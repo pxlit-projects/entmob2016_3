@@ -17,7 +17,28 @@ namespace VegiEF.DataLayer
         public DbSet<Humidity> Humiditys { get; set; }
         public DbSet<Light> Lights { get; set; }
         public DbSet<Temperature> Temperatures { get; set; }
+
+        //Fluant API (Powerpoint EF => slide 63+) (NEED 4)
+        //Some Example: https://msdn.microsoft.com/en-us/data/jj591617(v=vs.113).aspx#1.1
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //1 - Set PrimaryKey
+            modelBuilder.Entity<GrowableItem>().HasKey(g => g.GrowableItemID);
+
+            //2 - Set Max lenght of a property
+            modelBuilder.Entity<GrowableItem>().Property(g => g.Name).HasMaxLength(50);
+
+            //3 - Make a property required
+            modelBuilder.Entity<GrowableItem>().Property(g => g.Name).IsRequired();
+
+            //4 - Make the temeprature required and say it is a navigation property to a temperature value
+            modelBuilder.Entity<GrowableItem>().HasRequired(g => g.Temperature).WithRequiredDependent();
+
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
+
 
     //public class StarWarsContext : DbContext
     //{
