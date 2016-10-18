@@ -2,9 +2,9 @@
 
 # Groenten info:
 
-onder 50%: laag 
-50 - 60%: matig 
-boven 60%: hoog 
+- onder 50%: laag 
+- 50 - 60%: matig 
+- boven 60%: hoog 
 
 
 Alles heeft een relatieve mooie licht curve nodig om te groeien
