@@ -22,7 +22,8 @@ public class ApiRestController {
     private IGrowableItemRepositoryCrud repo;
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
-    public List<GrowableItem> getGrowableItems() {
+    public List<GrowableItem> getGrowableItems() 
+    {
         return (List<GrowableItem>)repo.findAll();
         // return "ApiRestController works";
     }

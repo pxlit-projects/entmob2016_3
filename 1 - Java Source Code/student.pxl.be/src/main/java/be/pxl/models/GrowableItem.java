@@ -10,7 +10,8 @@ import java.util.Set;
 
 @Entity
 @Table(name="GROWABLE_ITEMS")
-public class GrowableItem implements Serializable {
+public class GrowableItem implements Serializable 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")

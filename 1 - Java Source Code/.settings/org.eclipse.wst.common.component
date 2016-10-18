@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="1 - Java Source Code">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/student.pxl.be/src"/>
         <property name="context-root" value="1_-_Java_Source_Code"/>
         <property name="java-output-path" value="/1 - Java Source Code/build/classes"/>
     </wb-module>
