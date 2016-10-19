@@ -1,16 +1,56 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>entmob2016_3</groupId>
+    <artifactId>student.pxl.be</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>entmob2016_3</name>
+    <url>http://maven.apache.org</url>
 
-  <groupId>be.pxl</groupId>
-  <artifactId>Test</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
-  <name>entmob2016_3</name>
-  <url>http://maven.apache.org</url>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.1.RELEASE</version>
+    </parent>
 
-<dependencies>
+    <dependencies>
+        <!--Spring Boot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.3.3.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -62,7 +102,7 @@
             <version>4.2.4.RELEASE</version>
         </dependency>
 
-        <!-- Spring and Transactions -->
+        &lt;!&ndash; Spring and Transactions &ndash;&gt;
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -74,21 +114,14 @@
             <version>4.2.4.RELEASE</version>
         </dependency>
 
-        <!-- Spring ORM support -->
+        &lt;!&ndash; Spring ORM support &ndash;&gt;
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>4.2.4.RELEASE</version>
         </dependency>
 
-        <!--Hibernate-->
-		 <dependency>
-  		  	<groupId>javax</groupId>
-   			 <artifactId>javaee-api</artifactId>
-   			 <version>6.0</version>
-  			  <scope>provided</scope>
-		 </dependency>
-        
+        &lt;!&ndash;Hibernate&ndash;&gt;
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -98,20 +131,15 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.0.7.Final</version>
-        </dependency>
-	<dependency>
-    	<groupId>org.springframework.data</groupId>
-    	<artifactId>spring-data-jpa</artifactId>
-    	<version>1.10.4.RELEASE</version>
-	</dependency>
-		
+        </dependency>-->
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.38</version>
         </dependency>
 
-        <!--JMS-->
+        <!--&lt;!&ndash;JMS&ndash;&gt;
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
@@ -121,7 +149,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>4.2.4.RELEASE</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-jms_1.1_spec</artifactId>
@@ -132,6 +160,7 @@
             <artifactId>activemq-core</artifactId>
             <version>5.7.0</version>
         </dependency>
+
         <!--Logger-->
         <dependency>
             <groupId>log4j</groupId>
@@ -146,7 +175,7 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>4.0.1.RELEASE</version>
@@ -162,11 +191,16 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.1.RELEASE</version>
+            </plugin>
             <!-- tomcat -->
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
