@@ -10,13 +10,13 @@ namespace VegiEF.DataLayer
 {
     class VegiContext : DbContext
     {
-        public VegiContext() : base("VegiDB") { }
+        public VegiContext() : base("VegiSensDB") { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<GrowableItem> GrowableItems { get; set; }
-        public DbSet<Humidity> Humiditys { get; set; }
-        public DbSet<Light> Lights { get; set; }
-        public DbSet<Temperature> Temperatures { get; set; }
+        public DbSet<Humidity> Humidity { get; set; }
+        public DbSet<Light> Light { get; set; }
+        public DbSet<Temperature> Temperature { get; set; }
 
         //Fluant API (Powerpoint EF => slide 63+) (NEED 4)
         //Some Example: https://msdn.microsoft.com/en-us/data/jj591617(v=vs.113).aspx#1.1
@@ -31,22 +31,10 @@ namespace VegiEF.DataLayer
             //3 - Make a property required
             modelBuilder.Entity<GrowableItem>().Property(g => g.Name).IsRequired();
 
-            //4 - Make the temeprature required and say it is a navigation property to a temperature value
-            modelBuilder.Entity<GrowableItem>().HasRequired(g => g.Temperature).WithRequiredDependent();
-
+            //4 - Set The collumn name of a property
+            modelBuilder.Entity<GrowableItem>().Property(g => g.Name).HasColumnName("GrowableItemName");
 
             base.OnModelCreating(modelBuilder);
         }
     }
-
-
-    //public class StarWarsContext : DbContext
-    //{
-    //    public StarWarsContext() : base("StarWarsDB")
-    //    {
-
-    //    }
-    //    public DbSet<SWMovie> SWMovies { get; set; }
-    //    public DbSet<SWPlanet> SWPlanets { get; set; }
-    //}
 }

@@ -22,7 +22,7 @@
         <ComboBox RelativePanel.Above="rangePanel" RelativePanel.RightOf="chooseTitleTextBlock" ItemsSource="{Binding GrowableItemList}" SelectedItem="{Binding CurrentGrowableItem, Mode=TwoWay}" DisplayMemberPath="Name" x:Name="selectVegetableComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250"/>
 
         <!--Vegetable Image-->
-        <Image RelativePanel.Above="vegtableNameTextBlock" Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image RelativePanel.Above="vegtableNameTextBlock" Source="{Binding CurrentGrowableItem.Image}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!--Vegatable Title-->
         <TextBlock Text="{Binding CurrentGrowableItem.Name}" x:Name="vegtableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>

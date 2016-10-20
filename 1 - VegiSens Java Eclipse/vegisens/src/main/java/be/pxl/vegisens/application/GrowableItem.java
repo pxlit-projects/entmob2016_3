@@ -11,7 +11,7 @@ public class GrowableItem implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private int id;
+    private int humidityId;
 
     @Column(name="NAME")
     private String name;
@@ -26,10 +26,10 @@ public class GrowableItem implements Serializable
     private int temperature_fk;
 
     @Column(name="HUMIDITY_FK")
-    private int humidity_Fk;
+    private int humidity_fk;
 
 	public int getId() {
-		return id;
+		return humidityId;
 	}
 
 	public String getName() {
@@ -49,6 +49,7 @@ public class GrowableItem implements Serializable
 	}
 
 	public int getHumidity_Fk() {
-		return humidity_Fk;
+		return humidity_fk;
 	}
+
 }

@@ -20,12 +20,13 @@ namespace VegiSens.domain
 
         public virtual ICollection<GrowableItem> GrowableItems { get; set; }
 
-        public int HumidityID
+        public int Id
         {
             get { return humidityID; }
             set { humidityID = value; }
 
         }
+
         public double MaxHumidity
         {
             get { return maxHumidity; }

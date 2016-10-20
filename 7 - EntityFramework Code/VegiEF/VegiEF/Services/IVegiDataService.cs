@@ -10,14 +10,18 @@ namespace VegiEF.Services
     interface IVegiDataService
     {
         List<User> GetAllUsers();
-        User GetSWMovieDetails(string uri);
+        User GetUserById(int id);
+
         List<GrowableItem> GetAllGrowableItems();
-        User GetAllGrowableItems(string uri);
+        GrowableItem GetGrowableItemById(int id);
+
         List<Humidity> GetAllHumidity();
-        User GetAllHumidity(string uri);
+        Humidity GetHumidityById(int id);
+
         List<Light> GetAllLight();
-        User GetAllLight(string uri);
+        Light GetLightById(int id);
+
         List<Temperature> GetAllTemperature();
-        User GetAllTemperature(string uri);
+        Temperature GetTemperatureById(int id);
     }
 }

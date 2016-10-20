@@ -10,49 +10,35 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.codec.Base64;
+//import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 @RestController
 public class ApiRestController 
-{
-   
-    
-
-    
-    /*private static void listAllUsers()
-    {
-        RestTemplate restTemplate = new RestTemplate(); 
-         
-        HttpEntity<String> request = new HttpEntity<String>(getHeaders());
-        
-        ResponseEntity<List> response = restTemplate.exchange(REST_SERVICE_URI+"/api/", HttpMethod.GET, request, List.class);
-        
-        List<LinkedHashMap<String, Object>> usersMap = (List<LinkedHashMap<String, Object>>)response.getBody();
-         
-        if(usersMap!=null)
-        {
-            for(LinkedHashMap<String, Object> map : usersMap)
-            {
-                System.out.println("User : id="+map.get("id")+", Name="+map.get("name")+", Age="+map.get("age")+", Salary="+map.get("salary"));;
-            }
-        }
-        else
-        {
-            System.out.println("No user exist----------");
-        }
-    }*/
-    
+{    
 	    @Autowired
 	    private IGrowableItemService repository;
 	    
 	    
-	    @GetMapping("/api")
+	    @GetMapping("/growableItems")
 	    public List<GrowableItem> getGrowableItems1() 
 	    {	    		       
 	        return repository.getAllGrowableItems();
 	    }
-	    	    
+	    
+	    @GetMapping("/temperature")
+	    public List<Temperature> getTemperature() 
+	    {	    		       
+	        return repository.getTemperatureData();
+	    }    	
+	    
+	    @GetMapping("/humidity")
+	    public List<Humidity> getHumidity() 
+	    {	    		       
+	        return repository.getHumidityData();
+	    }  
 }

@@ -19,7 +19,7 @@ namespace VegiSens.domain
 
         public virtual ICollection<GrowableItem> GrowableItems { get; set; }
 
-        public int TemperatureID
+        public int Id
         {
             get { return temperatureID; }
             set { temperatureID = value; }

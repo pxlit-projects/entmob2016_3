@@ -79,7 +79,7 @@
         <RelativePanel BorderBrush="Black" BorderThickness="1" Background="Olive" x:Name="InformationPanel" RelativePanel.Below="paringPanel" RelativePanel.AlignLeftWith="paringPanel">
         
          <!--Vagetable Image-->
-        <Image RelativePanel.AlignVerticalCenterWithPanel="True" Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="vegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image RelativePanel.AlignVerticalCenterWithPanel="True" Source="{Binding CurrentGrowableItem.Image}" x:Name="vegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!--Vagetable Title-->
         <TextBlock  RelativePanel.RightOf="vegetableImage" Text="{Binding CurrentGrowableItem.Name}" x:Name="vegetableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>

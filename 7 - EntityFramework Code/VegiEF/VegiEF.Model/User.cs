@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace VegiEF.Model
 {
     public class User
     {
+        [Key]     
         private int userId;
         private string username;
         private string password;

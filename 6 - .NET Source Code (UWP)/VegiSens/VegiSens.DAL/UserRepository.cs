@@ -37,14 +37,14 @@ namespace VegiSens.DAL
                 new User ()
                 {
                     UserId = 1,
-                    Username = "Arno Bruynseels",
-                    Password = "arnopxl"
+                    Username = "arno",
+                    Password = "pxl"
                 },
                 new User ()
                 {
                     UserId = 2,
-                    Username = "Niels Carmans",
-                    Password = "nielspxl"
+                    Username = "niels",
+                    Password = "pxl"
                 }
             };
         }

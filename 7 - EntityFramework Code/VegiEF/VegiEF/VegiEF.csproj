@@ -57,9 +57,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer\VegiContext.cs" />
-    <Compile Include="Migrations\201610180948253_Initial.cs" />
-    <Compile Include="Migrations\201610180948253_Initial.Designer.cs">
-      <DependentUpon>201610180948253_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201610200644475_Initial.cs" />
+    <Compile Include="Migrations\201610200644475_Initial.Designer.cs">
+      <DependentUpon>201610200644475_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200647051_ChangeCollumnName.cs" />
+    <Compile Include="Migrations\201610200647051_ChangeCollumnName.Designer.cs">
+      <DependentUpon>201610200647051_ChangeCollumnName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200648258_AddDescription.cs" />
+    <Compile Include="Migrations\201610200648258_AddDescription.Designer.cs">
+      <DependentUpon>201610200648258_AddDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610200648534_AddImagePath.cs" />
+    <Compile Include="Migrations\201610200648534_AddImagePath.Designer.cs">
+      <DependentUpon>201610200648534_AddImagePath.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -78,8 +90,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610180948253_Initial.resx">
-      <DependentUpon>201610180948253_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610200644475_Initial.resx">
+      <DependentUpon>201610200644475_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200647051_ChangeCollumnName.resx">
+      <DependentUpon>201610200647051_ChangeCollumnName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200648258_AddDescription.resx">
+      <DependentUpon>201610200648258_AddDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200648534_AddImagePath.resx">
+      <DependentUpon>201610200648534_AddImagePath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

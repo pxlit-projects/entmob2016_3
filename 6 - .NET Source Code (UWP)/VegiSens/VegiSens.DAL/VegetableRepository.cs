@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using VegiSens.domain;
@@ -12,6 +15,8 @@ namespace VegiSens.DAL
     {
         //Properties
         private static ObservableCollection<GrowableItem> growableItems;
+        private static ObservableCollection<Humidity> humidityList;
+        private static ObservableCollection<Temperature> temperatureList;
 
         //Constructor
         public VegetableRepository()
@@ -23,6 +28,8 @@ namespace VegiSens.DAL
             if (growableItems == null)
             {
                 loadGrowableItems();
+                loadHumidityData();
+                loadTemperatureData();
             }
 
             return growableItems;
@@ -34,39 +41,101 @@ namespace VegiSens.DAL
             if (growableItems == null)
             {
                 loadGrowableItems();
+                loadHumidityData();
+                loadTemperatureData();
             }
 
             return growableItems.Where(g => g.GrowableItemID == growableItemID).FirstOrDefault();
         }
 
-        //Load all data
+        //Load all Growable Items
         private void loadGrowableItems()
         {
-            growableItems = new ObservableCollection<GrowableItem>()
+            //Create a new httpclient instance
+            using (var client = new HttpClient())
             {
-                new GrowableItem ()
-                {
-                    GrowableItemID = 1,
-                    Name = "Red tomato",
-                    Description = "Red tomatos are very tasteful and delicious!",
-                    ImagePath = "ms-appx:///Images/Vegetables/Tomato.png",
-                    Light = new Light() {MinLight = 60, MaxLight = 80},
-                    Humidity = new Humidity() { MinHumidity= 30.5, MaxHumidity = 35.5 },
-                    Temperature = new Temperature { MinTemperature = 15.7, MaxTemperature = 31.2}
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/growableItems");
 
-                },
-                new GrowableItem ()
-                {
-                    GrowableItemID = 2,
-                    Name = "Cabbage",
-                    Description = "Cabbage is very healthy and tasteful.",
-                    ImagePath = "ms-appx:///Images/Vegetables/Cabbage.png",
-                    Light = new Light() {MinLight = 40, MaxLight = 50},
-                    Humidity = new Humidity() { MinHumidity= 63, MaxHumidity = 72.5 },
-                    Temperature = new Temperature { MinTemperature = 23.5, MaxTemperature = 35}
+                //Clear evrything
+                client.DefaultRequestHeaders.Accept.Clear();
 
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+
+                //If the resposne succeeded
+                if (response.IsSuccessStatusCode)
+                {
+                    //Read the data as a json
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convert the json result to the specified type
+                    growableItems = JsonConvert.DeserializeObject<ObservableCollection<GrowableItem>>(result);
+                }           
+            }
+        }
+
+        //Load all Growable Items
+        private void loadHumidityData()
+        {
+            //Create a new httpclient instance
+            using (var client = new HttpClient())
+            {
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/humidity");
+
+                //Clear evrything
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+
+                //If the resposne succeeded
+                if (response.IsSuccessStatusCode)
+                {
+                    //Read the data as a json
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convert the json result to the specified type
+                    humidityList = JsonConvert.DeserializeObject<ObservableCollection<Humidity>>(result);
                 }
-            };
+            }
+        }
+
+        //Load all Growable Items
+        private void loadTemperatureData()
+        {
+            //Create a new httpclient instance
+            using (var client = new HttpClient())
+            {
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/temperature");
+
+                //Clear evrything
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+
+                //If the resposne succeeded
+                if (response.IsSuccessStatusCode)
+                {
+                    //Read the data as a json
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convert the json result to the specified type
+                    temperatureList = JsonConvert.DeserializeObject<ObservableCollection<Temperature>>(result);
+                }
+            }
         }
     }
 }

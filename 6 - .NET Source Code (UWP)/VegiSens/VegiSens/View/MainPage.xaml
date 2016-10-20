@@ -24,7 +24,7 @@
             <TextBlock Margin="0,10,0,0" RelativePanel.AlignHorizontalCenterWithPanel="True" Text="Main page" x:Name="screenTitleTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
 
             <!--Vegetable Image-->
-            <Image RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="screenTitleTextBlock" Source="{Binding CurrentGrowableItem.ImagePath}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="screenTitleTextBlock" Source="{Binding CurrentGrowableItem.Image}" x:Name="currentVegetableImage" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!--Vegatable Title-->
             <TextBlock Text="{Binding CurrentGrowableItem.Name}" RelativePanel.AlignTopWith="currentVegetableImage" RelativePanel.AlignRightWithPanel="True" x:Name="vegtableNameTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontStyle="Italic"/>

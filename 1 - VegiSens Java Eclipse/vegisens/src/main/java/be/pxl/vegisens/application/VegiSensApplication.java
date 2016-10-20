@@ -12,21 +12,21 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.crypto.codec.Base64;
+//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+//import org.springframework.security.crypto.codec.Base64;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @ComponentScan
 @EnableJpaRepositories
-@EnableGlobalMethodSecurity(securedEnabled=true)
+//@EnableGlobalMethodSecurity(securedEnabled=true)
 public class VegiSensApplication {
 
 	 public static final String REST_SERVICE_URI = "http://localhost:8081/vegisens";
     /*
      * Add HTTP Authorization header, using Basic-Authentiscation to send user-credentials.
      */
-    private static HttpHeaders getHeaders()
+    /*private static HttpHeaders getHeaders()
     {
         String plainCredentials="arno:pxl123";
         String base64Credentials = new String(Base64.encode(plainCredentials.getBytes()));
@@ -51,7 +51,7 @@ public class VegiSensApplication {
 		{
 			System.out.println(growableItem.getName());
 		}
-    }
+    }*/
     
 	public static void main(String[] args)
 	{		

@@ -18,12 +18,12 @@ namespace VegiSens.domain
         private string description;
         private string imagePath;
     
-        private int TemperatureID { get; set; }
-        [ForeignKey("TemperatureID")]
+        public int Temperature_FK { get; set; }
+        [ForeignKey("Temperature_FK")]
         private Temperature temperature;
 
-        private int HumidityID { get; set; }
-        [ForeignKey("HumidityID")]
+        public int Humidity_FK { get; set; }
+        [ForeignKey("Humidity_FK")]
         private Humidity humidity;
 
         private int LightID { get; set; }
@@ -48,7 +48,7 @@ namespace VegiSens.domain
             set { description = value; }
         }
 
-        public string ImagePath
+        public string Image
         {
             get { return imagePath; }
             set { imagePath = value; }
