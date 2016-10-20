@@ -1,6 +1,9 @@
 package be.pxl.vegisens.application;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -13,13 +16,16 @@ public class Temperature implements Serializable
     @Column(name="TEMPERATURE_ID")
     private int temperatureId;
 
-    @Column(name="MIN_IDEAL_TEMPERATURE")
+	@OneToMany(mappedBy="temperature")
+    private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
+    
+	@Column(name="MIN_IDEAL_TEMPERATURE")
     private double minTemperature;
 
     @Column(name="MAX_IDEAL_TEMPERATURE")
     private double maxTemperature;
 
-	public int getId() {
+    public int getTemperatureId() {
 		return temperatureId;
 	}
 

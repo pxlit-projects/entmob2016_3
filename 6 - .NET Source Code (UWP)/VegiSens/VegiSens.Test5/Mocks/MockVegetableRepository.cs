@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using VegiSens.DAL;
@@ -17,7 +20,6 @@ namespace VegiSens.Test.Mocks
         //Constructor
         public MockVegetableRepository()
         {
-            growableItems = this.GetAllGrowableItems();
         }
 
         public ObservableCollection<GrowableItem> GetAllGrowableItems()
@@ -41,34 +43,34 @@ namespace VegiSens.Test.Mocks
             return growableItems.Where(g => g.GrowableItemID == growableItemID).FirstOrDefault();
         }
 
-        //Load all data
+        //Load all Growable Items
         private void loadGrowableItems()
         {
-            growableItems = new ObservableCollection<GrowableItem>()
+            //Create a new httpclient instance
+            using (var client = new HttpClient())
             {
-                new GrowableItem ()
-                {
-                    GrowableItemID = 1,
-                    Name = "Red tomato",
-                    Description = "Red tomatos are very tasteful and delicious!",
-                    Image = "ms-appx:///Images/Vegetables/Tomato.png",
-                    Light = new Light() {MinLight = 60, MaxLight = 80},
-                    Humidity = new Humidity() { Min_Ideal_Humidity= 30.5, Max_Ideal_Humidity = 35.5 },
-                    Temperature = new Temperature { Min_Ideal_Temperature = 15.7, Max_Ideal_Temperature = 31.2}
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/growableItems");
 
-                },
-                new GrowableItem ()
-                {
-                    GrowableItemID = 2,
-                    Name = "Cabbage",
-                    Description = "Cabbage is very healthy and tasteful.",
-                    Image = "ms-appx:///Images/Vegetables/Cabbage.png",
-                    Light = new Light() {MinLight = 40, MaxLight = 50},
-                    Humidity = new Humidity() { Min_Ideal_Humidity= 63, Max_Ideal_Humidity = 72.5 },
-                    Temperature = new Temperature { Min_Ideal_Temperature = 23.5, Max_Ideal_Temperature = 35}
+                //Clear evrything before starting
+                client.DefaultRequestHeaders.Accept.Clear();
 
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+
+                //If the resposne succeeded
+                if (response.IsSuccessStatusCode)
+                {
+                    //Read the data as a json
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convert the json result to the specified type
+                    growableItems = JsonConvert.DeserializeObject<ObservableCollection<GrowableItem>>(result);
                 }
-            };
+            }
         }
     }
 }

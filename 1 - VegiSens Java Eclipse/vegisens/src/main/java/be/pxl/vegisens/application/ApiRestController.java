@@ -22,23 +22,10 @@ public class ApiRestController
 {    
 	    @Autowired
 	    private IGrowableItemService repository;
-	    
-	    
+	    	    
 	    @GetMapping("/growableItems")
 	    public List<GrowableItem> getGrowableItems1() 
 	    {	    		       
 	        return repository.getAllGrowableItems();
-	    }
-	    
-	    @GetMapping("/temperature")
-	    public List<Temperature> getTemperature() 
-	    {	    		       
-	        return repository.getTemperatureData();
-	    }    	
-	    
-	    @GetMapping("/humidity")
-	    public List<Humidity> getHumidity() 
-	    {	    		       
-	        return repository.getHumidityData();
-	    }  
+	    }	    	    
 }

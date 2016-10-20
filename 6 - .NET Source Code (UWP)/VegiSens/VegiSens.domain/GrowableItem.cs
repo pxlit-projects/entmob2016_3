@@ -18,11 +18,11 @@ namespace VegiSens.domain
         private string description;
         private string imagePath;
     
-        public int Temperature_FK { get; set; }
+        private int Temperature_FK { get; set; }
         [ForeignKey("Temperature_FK")]
         private Temperature temperature;
 
-        public int Humidity_FK { get; set; }
+        private int Humidity_FK { get; set; }
         [ForeignKey("Humidity_FK")]
         private Humidity humidity;
 

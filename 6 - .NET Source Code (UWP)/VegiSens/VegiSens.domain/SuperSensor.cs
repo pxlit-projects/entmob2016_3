@@ -22,5 +22,7 @@ namespace VegiSens.domain
             get { return sensorName; }
             set { sensorName = value; }
         }
+
+
     }
 }

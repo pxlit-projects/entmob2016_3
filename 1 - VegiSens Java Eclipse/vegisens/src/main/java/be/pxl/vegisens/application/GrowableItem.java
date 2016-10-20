@@ -11,9 +11,17 @@ public class GrowableItem implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private int humidityId;
+    private int growableItemId;
 
-    @Column(name="NAME")
+    @ManyToOne
+    @JoinColumn(name="HUMIDITY_FK", referencedColumnName="HUMIDITY_ID")
+    private Humidity humidity;
+    
+    @ManyToOne
+    @JoinColumn(name="TEMPERATURE_FK", referencedColumnName="TEMPERATURE_ID")
+    private Temperature temperature;
+    
+	@Column(name="NAME")
     private String name;
 
     @Column(name="DESCRIPTION")
@@ -22,14 +30,8 @@ public class GrowableItem implements Serializable
     @Column(name="IMAGE")
     private String image;
 
-    @Column(name="TEMPERATURE_FK")
-    private int temperature_fk;
-
-    @Column(name="HUMIDITY_FK")
-    private int humidity_fk;
-
-	public int getId() {
-		return humidityId;
+	public int getGrowableItemId() {
+		return growableItemId;
 	}
 
 	public String getName() {
@@ -40,16 +42,15 @@ public class GrowableItem implements Serializable
 		return description;
 	}
 
+	public Humidity getHumidity() {
+		return humidity;
+	}
+
+	public Temperature getTemperature() {
+		return temperature;
+	}
+
 	public String getImage() {
 		return image;
 	}
-
-	public int getTemperature_fk() {
-		return temperature_fk;
-	}
-
-	public int getHumidity_Fk() {
-		return humidity_fk;
-	}
-
 }

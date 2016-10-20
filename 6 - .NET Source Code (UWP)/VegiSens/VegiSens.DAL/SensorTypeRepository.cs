@@ -28,7 +28,6 @@ namespace VegiSens.DAL
             return sensorTypes;
         }
 
-
         //Load all data
         private void loadSensorTypeItems()
         {
