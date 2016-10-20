@@ -6,25 +6,15 @@ namespace VegiSens.domain
 {
     public class Humidity
     {
-        public Humidity()
-        {
-            GrowableItems = new List<GrowableItem>();
-
-        }
-
-        [Key]
         private int humidityID;
 
         private double maxHumidity;
         private double minHumidity;
 
-        public virtual ICollection<GrowableItem> GrowableItems { get; set; }
-
-        public int Id
+        public int HumidityId
         {
             get { return humidityID; }
             set { humidityID = value; }
-
         }
 
         public double MaxHumidity

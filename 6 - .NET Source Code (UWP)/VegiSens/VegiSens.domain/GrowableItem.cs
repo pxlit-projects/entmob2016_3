@@ -11,23 +11,14 @@ namespace VegiSens.domain
 {
     public class GrowableItem
     {
-        [Key]
         private int growableItemID;
 
         private string name;
         private string description;
         private string imagePath;
     
-        private int Temperature_FK { get; set; }
-        [ForeignKey("Temperature_FK")]
         private Temperature temperature;
-
-        private int Humidity_FK { get; set; }
-        [ForeignKey("Humidity_FK")]
         private Humidity humidity;
-
-        private int LightID { get; set; }
-        [ForeignKey("LightID")]
         private Light light;
 
         public int GrowableItemID

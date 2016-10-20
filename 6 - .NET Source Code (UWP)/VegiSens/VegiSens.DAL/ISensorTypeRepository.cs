@@ -10,6 +10,6 @@ namespace VegiSens.DAL
 {
     public interface ISensorTypeRepository
     {
-        ObservableCollection<SuperSensor> GetAllSensorTypes();
+        ObservableCollection<SensorType> GetAllSensorTypes();
     }
 }

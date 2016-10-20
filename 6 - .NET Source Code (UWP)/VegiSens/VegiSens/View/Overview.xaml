@@ -38,7 +38,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0">
-                <TextBlock x:Name="daysTitleTextBlock" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Days" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20px"/>
+                <TextBlock x:Name="daysTitleTextBlock" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="20px"/>
             </Grid>
 
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0">
@@ -46,47 +46,47 @@
                 <TextBlock Text="{Binding CurrentSensorType.SensorUnit}" x:Name="unitTextBlock" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="70,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1">
-                <TextBlock x:Name="day1TitleTextBlock" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 1" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day1TitleTextBlock" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[0]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2">
-                <TextBlock x:Name="day2TitleTextBlock" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 2" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day2TitleTextBlock" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[1]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="3">
-                <TextBlock x:Name="day3TitleTextBlock" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 3" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day3TitleTextBlock" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[2]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4">
-                <TextBlock x:Name="day4TitleTextBlock" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 4" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day4TitleTextBlock" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[3]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="5">
-                <TextBlock x:Name="day5TitleTextBlock" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 5" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day5TitleTextBlock" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[4]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="6">
-                <TextBlock x:Name="day6TitleTextBlock" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 6" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day6TitleTextBlock" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[5]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="0" Grid.Row="7">
-                <TextBlock x:Name="day7TitleTextBlock" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Day 7" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock x:Name="day7TitleTextBlock" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding CurrentSensorType.Dates[6]}" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
 
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
-                <TextBlock Text="{Binding CurrentSensorType.GetFirstRegisteredItem}" x:Name="statistic1TitleTextBlock" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[0]}" x:Name="statistic1TitleTextBlock" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2">
-                <TextBlock Text="{Binding CurrentSensorType.GetSecondRegisteredItem}" x:Name="statistic2TitleTextBlock" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[1]}" x:Name="statistic2TitleTextBlock" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3">
-                <TextBlock Text="{Binding CurrentSensorType.GetThirdRegisteredItem}" x:Name="statistic3TitleTextBlock" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[2]}" x:Name="statistic3TitleTextBlock" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4">
-                <TextBlock Text="{Binding CurrentSensorType.GetForthRegisteredItem}" x:Name="statistic4TitleTextBlock" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[3]}" x:Name="statistic4TitleTextBlock" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5">
-                <TextBlock Text="{Binding CurrentSensorType.GetFifthRegisteredItem}" x:Name="statistic5TitleTextBlock" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[4]}" x:Name="statistic5TitleTextBlock" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6">
-                <TextBlock Text="{Binding CurrentSensorType.GetSixtRegisteredItem}" x:Name="statistic6TitleTextBlock" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[5]}" x:Name="statistic6TitleTextBlock" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7">
-                <TextBlock Text="{Binding CurrentSensorType.GetSeventhRegisteredItem}" x:Name="statistic7TitleTextBlock" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
+                <TextBlock Text="{Binding CurrentSensorType.Values[6]}" x:Name="statistic7TitleTextBlock" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontStyle="Italic"/>
             </Grid>
         </Grid>
         

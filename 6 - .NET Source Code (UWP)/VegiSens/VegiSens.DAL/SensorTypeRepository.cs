@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using VegiSens.domain;
@@ -11,14 +14,14 @@ namespace VegiSens.DAL
     public class SensorTypeRepository : ISensorTypeRepository
     {
         //Properties
-        private static ObservableCollection<SuperSensor> sensorTypes;
+        private static ObservableCollection<SensorType> sensorTypes;
 
         //Constructor
         public SensorTypeRepository()
         {
         }
 
-        public ObservableCollection<SuperSensor> GetAllSensorTypes()
+        public ObservableCollection<SensorType> GetAllSensorTypes()
         {
             if (sensorTypes == null)
             {
@@ -28,58 +31,34 @@ namespace VegiSens.DAL
             return sensorTypes;
         }
 
-        //Load all data
+        //Load all Growable Items
         private void loadSensorTypeItems()
         {
-            sensorTypes = new ObservableCollection<SuperSensor>()
+            //Create a new httpclient instance
+            using (var client = new HttpClient())
             {
-                new HumiditySensorType()
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/sensortypes");
+
+                //Clear evrything before starting
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+
+                //If the resposne succeeded
+                if (response.IsSuccessStatusCode)
                 {
-                    SensorName = "Humidity sensor",
-                    RegisteredHumidityValues = new ObservableCollection<double>()
-                    {
-                        31.5,
-                        33.8,
-                        45.6,
-                        78.4,
-                        23.6,
-                        55.0,
-                        24.8
-                    },
-                    SensorUnit = "(%)"
-                    
-                },
-                new TemperatureSensorType()
-                {
-                    SensorName = "Temperature sensor",
-                    RegisteredTemperatureValues = new ObservableCollection<double>()
-                    {
-                        23.5,
-                        24.8,
-                        23.6,
-                        25.4,
-                        30.6,
-                        19.0,
-                        22.8
-                    },
-                    SensorUnit = "(°C)"
-                },
-                new LightSensorType()
-                {
-                    SensorName = "Light sensor",
-                    RegisteredLightValues = new ObservableCollection<double>()
-                    {
-                        80.5,
-                        110.8,
-                        68.6,
-                        120.4,
-                        140.6,
-                        145.0,
-                        60.8
-                    },
-                    SensorUnit = "(lx)"
+                    //Read the data as a json
+                    var result = response.Content.ReadAsStringAsync().Result;
+
+                    //Convert the json result to the specified type
+                    sensorTypes = JsonConvert.DeserializeObject<ObservableCollection<SensorType>>(result);                
                 }
-            };
+            }
         }
     }
 }

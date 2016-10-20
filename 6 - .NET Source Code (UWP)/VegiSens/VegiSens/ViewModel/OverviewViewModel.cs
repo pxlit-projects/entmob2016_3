@@ -16,8 +16,8 @@ namespace VegiSens.ViewModel
     public class OverviewViewModel : SuperViewModel, INotifyPropertyChanged
     {
         //Properties
-        private ObservableCollection<SuperSensor> sensorTypeList;
-        private SuperSensor currentSensorType;
+        private ObservableCollection<SensorType> sensorTypeList;
+        private SensorType currentSensorType;
         private ISensorTypeData sensorTypeDataService;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -32,7 +32,7 @@ namespace VegiSens.ViewModel
 
             LoadCommands();
 
-            Messenger.Default.Register<SuperSensor>(this, OnSensorReceived);            
+            Messenger.Default.Register<SensorType>(this, OnSensorReceived);            
         }
 
         //Load all data
@@ -42,9 +42,11 @@ namespace VegiSens.ViewModel
         }
 
         //Messenger received
-        private void OnSensorReceived(SuperSensor sensorType)
+        private void OnSensorReceived(SensorType sensorType)
         {
             currentSensorType = sensorType;
+            currentSensorType.SetValues(currentSensorType);
+            currentSensorType.SetDates(currentSensorType);
         }
 
         //Load all commands
@@ -54,7 +56,7 @@ namespace VegiSens.ViewModel
         }
 
         //Getters and setters
-        public ObservableCollection<SuperSensor> SensorTypeList
+        public ObservableCollection<SensorType> SensorTypeList
         {
             get { return sensorTypeList; }
             set
@@ -63,12 +65,14 @@ namespace VegiSens.ViewModel
             }
         }
 
-        public SuperSensor CurrentSensorType
+        public SensorType CurrentSensorType
         {
             get { return currentSensorType; }
             set
             {
                 currentSensorType = value;
+                currentSensorType.SetValues(currentSensorType);
+                currentSensorType.SetDates(currentSensorType);
                 RaisePropertyChanged("CurrentSensorType");
             }
         }

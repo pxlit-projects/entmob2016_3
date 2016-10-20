@@ -6,20 +6,12 @@ namespace VegiSens.domain
 {
     public class Temperature
     {
-        public Temperature()
-        {
-            GrowableItems = new List<GrowableItem>();
-        }
-
-        [Key]
         private int temperatureID;
 
         private double maxTemperature;
         private double minTemperature;
 
-        public virtual ICollection<GrowableItem> GrowableItems { get; set; }
-
-        public int Id
+        public int temperatureId
         {
             get { return temperatureID; }
             set { temperatureID = value; }

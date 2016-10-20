@@ -10,6 +10,6 @@ namespace VegiSens.Services
 {
     public interface ISensorTypeData
     {
-        ObservableCollection<SuperSensor> GetAllSensorTypes();
+        ObservableCollection<SensorType> GetAllSensorTypes();
     }
 }

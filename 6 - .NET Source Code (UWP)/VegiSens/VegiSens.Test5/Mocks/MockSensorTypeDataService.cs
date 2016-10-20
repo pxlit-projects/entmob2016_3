@@ -22,7 +22,7 @@ namespace VegiSens.Test.Mocks
         }
 
         //Methods
-        public ObservableCollection<SuperSensor> GetAllSensorTypes()
+        public ObservableCollection<SensorType> GetAllSensorTypes()
         {
             return repository.GetAllSensorTypes();
         }

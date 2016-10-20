@@ -21,11 +21,20 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class ApiRestController 
 {    
 	    @Autowired
-	    private IGrowableItemService repository;
-	    	    
-	    @GetMapping("/growableItems")
-	    public List<GrowableItem> getGrowableItems1() 
+	    private IGrowableItemService growableItemRepository;
+	    
+	    @Autowired
+	    private ISensorTypeService sensorTypeRepository;
+	    
+	    @GetMapping("/growableItems")	    
+	    public List<GrowableItem> getGrowableItems() 
 	    {	    		       
-	        return repository.getAllGrowableItems();
-	    }	    	    
+	        return growableItemRepository.getAllGrowableItems();
+	    }
+	    
+	    @GetMapping("/sensortypes")	    
+	    public List<SensorType> getSensorTypes() 
+	    {	    		       
+	        return sensorTypeRepository.getAllSensorTypes();
+	    }
 }

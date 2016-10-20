@@ -36,8 +36,8 @@ namespace VegiSens.Test
         public void OverviewViewModel_LoadAllSensorTypes()
         {
             //Arrange
-            ObservableCollection<SuperSensor> sensorTypes = null;
-            ObservableCollection<SuperSensor> expectedSensorTypes = sensorTypeDataService.GetAllSensorTypes();
+            ObservableCollection<SensorType> sensorTypes = null;
+            ObservableCollection<SensorType> expectedSensorTypes = sensorTypeDataService.GetAllSensorTypes();
 
             //act
             OverviewViewModel viewModel = GetViewModel();

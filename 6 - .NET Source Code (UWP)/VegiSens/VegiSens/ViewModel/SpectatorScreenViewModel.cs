@@ -16,8 +16,8 @@ namespace VegiSens.ViewModel
     public class SpectatorScreenViewModel : SuperViewModel
     {
         //Properties
-        public ObservableCollection<SuperSensor> sensorTypeList { get; set; }
-        private SuperSensor currentSensorType;
+        public ObservableCollection<SensorType> sensorTypeList { get; set; }
+        private SensorType currentSensorType;
 
         private ISensorTypeData sensorTypeDataService;
 
@@ -82,7 +82,7 @@ namespace VegiSens.ViewModel
         //Navigate to overview
         public void NavigateToOverviewWithTemperature()
         {
-            currentSensorType = sensorTypeList[1];
+            currentSensorType = sensorTypeList[0];
 
             sendDataToMessengerAndNavigate();
         }
@@ -90,7 +90,7 @@ namespace VegiSens.ViewModel
         //Navigate to overview
         public void NavigateToOverviewWithHumidity()
         {
-            currentSensorType = sensorTypeList[0];
+            currentSensorType = sensorTypeList[1];
 
             sendDataToMessengerAndNavigate();
         }
@@ -98,7 +98,7 @@ namespace VegiSens.ViewModel
         //Navigate to overview
         public void NavigateToOverviewWithLight()
         {
-            currentSensorType = sensorTypeList[2];
+            currentSensorType = sensorTypeList[1];
 
             sendDataToMessengerAndNavigate();
 
@@ -107,7 +107,7 @@ namespace VegiSens.ViewModel
         //Send data to messenger and navigate 
         private void sendDataToMessengerAndNavigate()
         {
-            Messenger.Default.Send<SuperSensor>(currentSensorType);
+            Messenger.Default.Send<SensorType>(currentSensorType);
             frameNavagationService.NavigateToFrame(typeof(Overview));
         }
     }

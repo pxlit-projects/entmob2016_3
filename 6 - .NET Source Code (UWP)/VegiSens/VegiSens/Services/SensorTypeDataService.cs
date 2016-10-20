@@ -21,7 +21,7 @@ namespace VegiSens.Services
         }
 
         //Methods
-        public ObservableCollection<SuperSensor> GetAllSensorTypes()
+        public ObservableCollection<SensorType> GetAllSensorTypes()
         {
             return repository.GetAllSensorTypes();
         }  
