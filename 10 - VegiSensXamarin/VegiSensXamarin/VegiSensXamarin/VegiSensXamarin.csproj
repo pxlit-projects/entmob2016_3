@@ -39,19 +39,36 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants\PageUrls.cs" />
-    <Compile Include="GroentenDetail.xaml.cs">
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Converter\HumidityConverter.cs" />
+    <Compile Include="Converter\TemperatureConverter.cs" />
+    <Compile Include="ViewModel\GroentenDetailViewModel.cs" />
+    <Compile Include="ViewModel\GroentenMenuViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\GroentenDetail.xaml.cs">
       <DependentUpon>GroentenDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroentenMenu.xaml.cs">
+    <Compile Include="View\GroentenMenu.xaml.cs">
       <DependentUpon>GroentenMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Locator\ViewModelLocator.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Messages\UpdateCurrentGrowableItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectVegetable.xaml.cs">
       <DependentUpon>SelectVegetable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\FrameNavigationService.cs" />
+    <Compile Include="Services\GrowableItemDataService.cs" />
+    <Compile Include="Services\IGrowableItemData.cs" />
+    <Compile Include="Services\ISensorTypeData.cs" />
+    <Compile Include="Services\IUsernameDataService.cs" />
+    <Compile Include="Services\SensorTypeDataService.cs" />
+    <Compile Include="Services\UsernameDataService.cs" />
+    <Compile Include="Utility\CustomCommand.cs" />
+    <Compile Include="Utility\Messenger.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -64,6 +81,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Windows">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Windows Phone Kits\8.1\References\CommonConfiguration\Neutral\Windows.winmd</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.0.0.6482\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -76,24 +100,35 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.0.0.6482\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="XLabs.Core, Version=2.0.5782.12218, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Forms, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Forms.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8\XLabs.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Ioc, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.IoC.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\XLabs.Ioc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Platform, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Platform.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8\XLabs.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Serialization, Version=2.0.5782.15703, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Serialization.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EntMob3_Logo.png" />
     <Content Include="Images\Logo\EntMob3_Logo.png" />
-    <Content Include="Images\Vegetables\Beans.png" />
-    <Content Include="Images\Vegetables\Bell_Pepper.png" />
-    <Content Include="Images\Vegetables\Cabbage.png" />
-    <Content Include="Images\Vegetables\Cauliflower.png" />
-    <Content Include="Images\Vegetables\Chive.png" />
-    <Content Include="Images\Vegetables\Garlic.png" />
-    <Content Include="Images\Vegetables\Potato.png" />
-    <Content Include="Images\Vegetables\Red_Cabbage.png" />
-    <Content Include="Images\Vegetables\Strawberry.png" />
-    <Content Include="Images\Vegetables\Tomato.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SelectVegetable.xaml">
@@ -102,16 +137,29 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GroentenMenu.xaml">
+    <EmbeddedResource Include="View\GroentenMenu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GroentenDetail.xaml">
+    <EmbeddedResource Include="View\GroentenDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Vegetables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\VegiSens.DAL\VegiSens.DAL.csproj">
+      <Project>{2a87c4bc-a055-4627-ae73-9f83dfcd6d86}</Project>
+      <Name>VegiSens.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VegiSensDomain\VegiSensDomain.csproj">
+      <Project>{3eb28da5-8f5b-474e-a5f0-3981aa75daa9}</Project>
+      <Name>VegiSensDomain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
