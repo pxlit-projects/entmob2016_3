@@ -38,6 +38,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constants\PageUrls.cs" />
+    <Compile Include="GroentenDetail.xaml.cs">
+      <DependentUpon>GroentenDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroentenMenu.xaml.cs">
+      <DependentUpon>GroentenMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +87,7 @@
     <Content Include="Images\Vegetables\Beans.png" />
     <Content Include="Images\Vegetables\Bell_Pepper.png" />
     <Content Include="Images\Vegetables\Cabbage.png" />
+    <Content Include="Images\Vegetables\Cauliflower.png" />
     <Content Include="Images\Vegetables\Chive.png" />
     <Content Include="Images\Vegetables\Garlic.png" />
     <Content Include="Images\Vegetables\Potato.png" />
@@ -89,6 +97,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SelectVegetable.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GroentenMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GroentenDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

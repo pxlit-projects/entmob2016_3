@@ -13,7 +13,7 @@ namespace VegiSensXamarin
         {
             InitializeComponent();
 
-            MainPage = new VegiSensXamarin.SelectVegetable();
+            MainPage = new VegiSensXamarin.GroentenMenu();
         }
 
         protected override void OnStart()

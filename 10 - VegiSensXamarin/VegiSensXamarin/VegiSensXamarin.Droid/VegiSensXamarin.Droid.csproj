@@ -17,7 +17,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
@@ -113,7 +113,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
@@ -125,6 +127,18 @@
       <Project>{914CD97C-92CB-460C-8046-BC3305DFC6C2}</Project>
       <Name>VegiSensXamarin</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Vegetables\Beans.png" />
+    <Content Include="Assets\Vegetables\Bell_Pepper.png" />
+    <Content Include="Assets\Vegetables\Cabbage.png" />
+    <Content Include="Assets\Vegetables\Cauliflower.png" />
+    <Content Include="Assets\Vegetables\Chive.png" />
+    <Content Include="Assets\Vegetables\Garlic.png" />
+    <Content Include="Assets\Vegetables\Potato.png" />
+    <Content Include="Assets\Vegetables\Red_Cabbage.png" />
+    <Content Include="Assets\Vegetables\Strawberry.png" />
+    <Content Include="Assets\Vegetables\Tomato.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
