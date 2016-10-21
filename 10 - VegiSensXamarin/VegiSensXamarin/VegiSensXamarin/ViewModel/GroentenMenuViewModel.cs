@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VegiSensXamarin.ViewModel
 {
-    class GroentenMenuViewModel : SuperViewModel
+    class GroentenMenuViewModel : ViewModelBase
     {
 
     }

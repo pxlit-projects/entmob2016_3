@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Title="Buttons"
              x:Class="VegiSensXamarin.GroentenMenu">
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
-  <Grid BackgroundColor="Lime">
+  <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
@@ -16,97 +18,149 @@
       <ColumnDefinition Width="*" />
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
-
-
-    <Image Source="tomato.png" Grid.Row="0" Grid.Column="0" Aspect="Fill" />
-    <Label Text="Tomato"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="0" Grid.Column="0"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
-
-    <Image Source="strawberry.png" Grid.Row="0" Grid.Column="1" Aspect="Fill"/>
-    <Label Text="Strawberry"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="0" Grid.Column="1"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
-
-    <Image Source="red_cabbage.png" Grid.Row="1" Grid.Column="0" Aspect="Fill"/>
-    <Label Text="Red_Cabbage"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="1" Grid.Column="0"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
-
-    <Image Source="potato.png" Grid.Row="1" Grid.Column="1" Aspect="Fill"/>
-    <Label Text="Potato"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="1" Grid.Column="1"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
     
-    <Image Source="garlic.png" Grid.Row="2" Grid.Column="0" Aspect="Fill"/>
-    <Label Text="Garlic"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="2" Grid.Column="0"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
+    <!--<Image Source="tomato.png" Grid.Row="0" Grid.Column="0" Aspect="Fill" />-->
+    <controls:ImageButton x:Name="TomatoButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Tomato"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="tomato.png"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          Command="{Binding ViewDetailCommand}">
+    </controls:ImageButton>
 
-    <Image Source="chive.png" Grid.Row="2" Grid.Column="1" Aspect="Fill"/>
-    <Label Text="Chive"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="2" Grid.Column="1"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
-    
-    <Image Source="cabbage.png" Grid.Row="3" Grid.Column="0" Aspect="Fill"/>
-    <Label Text="Cabbage"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="3" Grid.Column="0"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
+    <controls:ImageButton x:Name="StrawberryButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Strawberry"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="strawberry.png"
+                          Grid.Row="0"
+                          Grid.Column="1">
+    </controls:ImageButton>
 
-    <Image Source="bell_pepper.png" Grid.Row="3" Grid.Column="1" Aspect="Fill"/>
-    <Label Text="Bell Pepper"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="3" Grid.Column="1"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
+    <controls:ImageButton x:Name="Red_CabbageButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Red Cabbage"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="red_cabbage.png"
+                          Grid.Row="1"
+                          Grid.Column="0">
+    </controls:ImageButton>
 
-    <Image Source="beans.png" Grid.Row="4" Grid.Column="0" Aspect="Fill" />
-    <Label Text="Beans"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="4" Grid.Column="0"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
+    <controls:ImageButton x:Name="PotatoButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Potato"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="potato.png"
+                          Grid.Row="1"
+                          Grid.Column="1">
+    </controls:ImageButton>
 
-    <Image Source="cauliflower.png" Grid.Row="4" Grid.Column="1" Aspect="Fill"/>
-    <Label Text="Cauliflower"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center"
-           Grid.Row="4" Grid.Column="1"
-           TextColor="Black"
-           YAlign="End"
-           FontSize="20"/>
+    <controls:ImageButton x:Name="GarlicButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Garlic"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="garlic.png"
+                          Grid.Row="2"
+                          Grid.Column="0">
+    </controls:ImageButton>
+
+    <controls:ImageButton x:Name="ChiveButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Chive"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="chive.png"
+                          Grid.Row="2"
+                          Grid.Column="1">
+    </controls:ImageButton>
+
+    <controls:ImageButton x:Name="CabbageButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Cabbage"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="cabbage.png"
+                          Grid.Row="3"
+                          Grid.Column="0">
+    </controls:ImageButton>
+
+    <controls:ImageButton x:Name="Bell_PepperButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Bell Pepper"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="bell_pepper.png"
+                          Grid.Row="3"
+                          Grid.Column="1">
+    </controls:ImageButton>
+
+    <controls:ImageButton x:Name="BeansButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Beans"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="beans.png"
+                          Grid.Row="4"
+                          Grid.Column="0">
+    </controls:ImageButton>
+
+    <controls:ImageButton x:Name="CauliflowerButton"
+                          BackgroundColor="#3d509f"
+                          HeightRequest="75"
+                          ImageHeightRequest="100"
+                          ImageWidthRequest="100"
+                          Orientation="ImageToLeft"
+                          Text="Cauliflower"
+                          TextColor="#ffffff"
+                          WidthRequest="175"
+                          Image="cauliflower.png"
+                          Grid.Row="4"
+                          Grid.Column="1">
+    </controls:ImageButton>
+
 
     
   </Grid>
