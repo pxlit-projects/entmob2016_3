@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 18 okt 2016 om 11:31
+-- Gegenereerd op: 21 okt 2016 om 08:42
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 5.6.24
 
@@ -41,7 +41,7 @@ CREATE TABLE `growable_items` (
 
 INSERT INTO `growable_items` (`ID`, `NAME`, `DESCRIPTION`, `IMAGE`, `TEMPERATURE_FK`, `HUMIDITY_FK`) VALUES
 (1, 'Red Tomato', 'Red tomato is the edible, red fruit of Solanum lycopersicum, commonly known as a tomato plant, which belongs to the nightshade family', 'ms-appx:///Images/Vegetables/Tomato.png', 1, 4),
-(2, 'Beans', 'Bean is a common name for large seeds of several genera of the flowering plant family Fabaceae (also known as Leguminosae) which are used for human or animal food.', 'ms-appx:///Images/Vegetables/Cabbage.png', 2, 3),
+(2, 'Beans', 'Bean is a common name for large seeds of several genera of the flowering plant family Fabaceae (also known as Leguminosae) which are used for human or animal food.', 'ms-appx:///Images/Vegetables/Beans.png', 2, 3),
 (3, 'Bell Pepper', 'Bell pepper is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colors, including red, yellow, orange, green, chocolate/brown, vanilla/white, and purple.', 'ms-appx:///Images/Vegetables/Bell_Pepper.png', 3, 3),
 (4, 'Cabbage', 'Cabbage or headed cabbage is a leafy green or purple biennial plant, grown as an annual vegetable crop for its dense-leaved heads.', 'ms-appx:///Images/Vegetables/Cabbage.png', 4, 3),
 (5, 'Garlic', 'Allium sativum, commonly known as garlic, is a species in the onion genus.', 'ms-appx:///Images/Vegetables/Garlic.png', 5, 3),
@@ -75,6 +75,52 @@ INSERT INTO `humidity` (`HUMIDITY_ID`, `MIN_IDEAL_HUMIDITY`, `MAX_IDEAL_HUMIDITY
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `humidity_registered_values`
+--
+
+CREATE TABLE `humidity_registered_values` (
+  `HUM_REG_ID` int(11) NOT NULL,
+  `HUM_DATE` date NOT NULL,
+  `HUM_VALUE` double NOT NULL,
+  `HUM_FK` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `humidity_registered_values`
+--
+
+INSERT INTO `humidity_registered_values` (`HUM_REG_ID`, `HUM_DATE`, `HUM_VALUE`, `HUM_FK`) VALUES
+(1, '2016-10-20', 64, 2),
+(2, '2016-10-21', 58, 2),
+(3, '2016-10-22', 52, 2),
+(4, '2016-10-23', 45, 2),
+(5, '2016-10-24', 82, 2),
+(6, '2016-10-25', 80, 2),
+(7, '2016-10-26', 74, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `sensortype`
+--
+
+CREATE TABLE `sensortype` (
+  `SENSORTYPE_ID` int(11) NOT NULL,
+  `SENSOR_NAME` varchar(50) NOT NULL,
+  `SENSOR_UNIT` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `sensortype`
+--
+
+INSERT INTO `sensortype` (`SENSORTYPE_ID`, `SENSOR_NAME`, `SENSOR_UNIT`) VALUES
+(1, 'Temperature Sensor', '(°C)'),
+(2, 'Humidity Sensor', '(%)');
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `temperature`
 --
 
@@ -91,12 +137,39 @@ CREATE TABLE `temperature` (
 INSERT INTO `temperature` (`TEMPERATURE_ID`, `MIN_IDEAL_TEMPERATURE`, `MAX_IDEAL_TEMPERATURE`) VALUES
 (1, 20, 23),
 (2, 10, 15),
+(3, 18, 23),
 (4, 16, 25),
 (5, 25, 30),
 (6, 17, 19),
 (7, 18, 20),
 (8, 20, 22),
 (9, 24, 26);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `temperature_registered_values`
+--
+
+CREATE TABLE `temperature_registered_values` (
+  `TEMP_REG_ID` int(11) NOT NULL,
+  `TEMP_DATE` date NOT NULL,
+  `TEMP_VALUE` double NOT NULL,
+  `TEMP_FK` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `temperature_registered_values`
+--
+
+INSERT INTO `temperature_registered_values` (`TEMP_REG_ID`, `TEMP_DATE`, `TEMP_VALUE`, `TEMP_FK`) VALUES
+(1, '2016-10-20', 26.5, 1),
+(2, '2016-10-21', 23.7, 1),
+(3, '2016-10-22', 22.2, 1),
+(4, '2016-10-23', 18.8, 1),
+(5, '2016-10-24', 20.3, 1),
+(6, '2016-10-25', 26.9, 1),
+(7, '2016-10-26', 30.5, 1);
 
 -- --------------------------------------------------------
 
@@ -140,10 +213,28 @@ ALTER TABLE `humidity`
   ADD PRIMARY KEY (`HUMIDITY_ID`);
 
 --
+-- Indexen voor tabel `humidity_registered_values`
+--
+ALTER TABLE `humidity_registered_values`
+  ADD PRIMARY KEY (`HUM_REG_ID`);
+
+--
+-- Indexen voor tabel `sensortype`
+--
+ALTER TABLE `sensortype`
+  ADD PRIMARY KEY (`SENSORTYPE_ID`);
+
+--
 -- Indexen voor tabel `temperature`
 --
 ALTER TABLE `temperature`
   ADD PRIMARY KEY (`TEMPERATURE_ID`);
+
+--
+-- Indexen voor tabel `temperature_registered_values`
+--
+ALTER TABLE `temperature_registered_values`
+  ADD PRIMARY KEY (`TEMP_REG_ID`);
 
 --
 -- Indexen voor tabel `usergroups`
@@ -172,10 +263,25 @@ ALTER TABLE `growable_items`
 ALTER TABLE `humidity`
   MODIFY `HUMIDITY_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT voor een tabel `humidity_registered_values`
+--
+ALTER TABLE `humidity_registered_values`
+  MODIFY `HUM_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT voor een tabel `sensortype`
+--
+ALTER TABLE `sensortype`
+  MODIFY `SENSORTYPE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT voor een tabel `temperature`
 --
 ALTER TABLE `temperature`
   MODIFY `TEMPERATURE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT voor een tabel `temperature_registered_values`
+--
+ALTER TABLE `temperature_registered_values`
+  MODIFY `TEMP_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT voor een tabel `usergroups`
 --
