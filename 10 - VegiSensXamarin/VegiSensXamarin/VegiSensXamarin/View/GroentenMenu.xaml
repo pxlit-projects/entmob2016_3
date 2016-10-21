@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VegiSensXamarin.GroentenMenu">
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <Grid BackgroundColor="Lime">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height  ="*" />
+      <RowDefinition Height ="*" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+
+    <Image Source="tomato.png" Grid.Row="0" Grid.Column="0" Aspect="Fill" />
+    <Label Text="Tomato"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="0" Grid.Column="0"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="strawberry.png" Grid.Row="0" Grid.Column="1" Aspect="Fill"/>
+    <Label Text="Strawberry"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="0" Grid.Column="1"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="red_cabbage.png" Grid.Row="1" Grid.Column="0" Aspect="Fill"/>
+    <Label Text="Red_Cabbage"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="1" Grid.Column="0"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="potato.png" Grid.Row="1" Grid.Column="1" Aspect="Fill"/>
+    <Label Text="Potato"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="1" Grid.Column="1"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+    
+    <Image Source="garlic.png" Grid.Row="2" Grid.Column="0" Aspect="Fill"/>
+    <Label Text="Garlic"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="2" Grid.Column="0"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="chive.png" Grid.Row="2" Grid.Column="1" Aspect="Fill"/>
+    <Label Text="Chive"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="2" Grid.Column="1"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+    
+    <Image Source="cabbage.png" Grid.Row="3" Grid.Column="0" Aspect="Fill"/>
+    <Label Text="Cabbage"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="3" Grid.Column="0"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="bell_pepper.png" Grid.Row="3" Grid.Column="1" Aspect="Fill"/>
+    <Label Text="Bell Pepper"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="3" Grid.Column="1"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="beans.png" Grid.Row="4" Grid.Column="0" Aspect="Fill" />
+    <Label Text="Beans"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="4" Grid.Column="0"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    <Image Source="cauliflower.png" Grid.Row="4" Grid.Column="1" Aspect="Fill"/>
+    <Label Text="Cauliflower"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           Grid.Row="4" Grid.Column="1"
+           TextColor="Black"
+           YAlign="End"
+           FontSize="20"/>
+
+    
+  </Grid>
+  
+  
+</ContentPage>
