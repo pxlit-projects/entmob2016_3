@@ -1,7 +1,9 @@
 package be.pxl.vegisens.application;
 
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -13,21 +15,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
-        http.authorizeRequests().antMatchers("/growableitems").hasRole("USER").anyRequest().authenticated();
-        
-        
-                /*.and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-            .logout()
-                .permitAll();*/
+
+        // Order of authentication matters
+        http.authorizeRequests()
+                .antMatchers("/growableItems").fullyAuthenticated()
+                .antMatchers("/growableItems").access("hasRole('ROLE_ADMIN')")
+                .anyRequest().authenticated().and()
+                .httpBasic(); // To get authentication popup
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
-    {
-        //auth.inMemoryAuthentication().withUser("arno").password("pxl").roles("USER");
+    public void configureSecurity(AuthenticationManagerBuilder auth, javax.sql.DataSource ds /*Error can be ignored*/) throws Exception {
+        auth.jdbcAuthentication()
+                .passwordEncoder(new ShaPasswordEncoder(256))
+                .dataSource(ds)
+                .usersByUsernameQuery(
+                        "select USERNAME, PASSWORD, ENABLED from users where USERNAME = ?")
+                .authoritiesByUsernameQuery(
+                        "select USERNAME, ROLE from users where USERNAME = ?");
     }
 }

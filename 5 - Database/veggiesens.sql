@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 21 okt 2016 om 08:42
--- Serverversie: 10.1.16-MariaDB
--- PHP-versie: 5.6.24
+-- Generation Time: Oct 21, 2016 at 10:44 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `growable_items`
+-- Table structure for table `growable_items`
 --
 
 CREATE TABLE `growable_items` (
@@ -36,7 +36,7 @@ CREATE TABLE `growable_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `growable_items`
+-- Dumping data for table `growable_items`
 --
 
 INSERT INTO `growable_items` (`ID`, `NAME`, `DESCRIPTION`, `IMAGE`, `TEMPERATURE_FK`, `HUMIDITY_FK`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `growable_items` (`ID`, `NAME`, `DESCRIPTION`, `IMAGE`, `TEMPERATURE
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `humidity`
+-- Table structure for table `humidity`
 --
 
 CREATE TABLE `humidity` (
@@ -63,7 +63,7 @@ CREATE TABLE `humidity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `humidity`
+-- Dumping data for table `humidity`
 --
 
 INSERT INTO `humidity` (`HUMIDITY_ID`, `MIN_IDEAL_HUMIDITY`, `MAX_IDEAL_HUMIDITY`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `humidity` (`HUMIDITY_ID`, `MIN_IDEAL_HUMIDITY`, `MAX_IDEAL_HUMIDITY
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `humidity_registered_values`
+-- Table structure for table `humidity_registered_values`
 --
 
 CREATE TABLE `humidity_registered_values` (
@@ -86,7 +86,7 @@ CREATE TABLE `humidity_registered_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `humidity_registered_values`
+-- Dumping data for table `humidity_registered_values`
 --
 
 INSERT INTO `humidity_registered_values` (`HUM_REG_ID`, `HUM_DATE`, `HUM_VALUE`, `HUM_FK`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `humidity_registered_values` (`HUM_REG_ID`, `HUM_DATE`, `HUM_VALUE`,
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `sensortype`
+-- Table structure for table `sensortype`
 --
 
 CREATE TABLE `sensortype` (
@@ -111,7 +111,7 @@ CREATE TABLE `sensortype` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `sensortype`
+-- Dumping data for table `sensortype`
 --
 
 INSERT INTO `sensortype` (`SENSORTYPE_ID`, `SENSOR_NAME`, `SENSOR_UNIT`) VALUES
@@ -121,7 +121,7 @@ INSERT INTO `sensortype` (`SENSORTYPE_ID`, `SENSOR_NAME`, `SENSOR_UNIT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `temperature`
+-- Table structure for table `temperature`
 --
 
 CREATE TABLE `temperature` (
@@ -131,7 +131,7 @@ CREATE TABLE `temperature` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `temperature`
+-- Dumping data for table `temperature`
 --
 
 INSERT INTO `temperature` (`TEMPERATURE_ID`, `MIN_IDEAL_TEMPERATURE`, `MAX_IDEAL_TEMPERATURE`) VALUES
@@ -148,7 +148,7 @@ INSERT INTO `temperature` (`TEMPERATURE_ID`, `MIN_IDEAL_TEMPERATURE`, `MAX_IDEAL
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `temperature_registered_values`
+-- Table structure for table `temperature_registered_values`
 --
 
 CREATE TABLE `temperature_registered_values` (
@@ -159,7 +159,7 @@ CREATE TABLE `temperature_registered_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `temperature_registered_values`
+-- Dumping data for table `temperature_registered_values`
 --
 
 INSERT INTO `temperature_registered_values` (`TEMP_REG_ID`, `TEMP_DATE`, `TEMP_VALUE`, `TEMP_FK`) VALUES
@@ -174,124 +174,109 @@ INSERT INTO `temperature_registered_values` (`TEMP_REG_ID`, `TEMP_DATE`, `TEMP_V
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `usergroups`
---
-
-CREATE TABLE `usergroups` (
-  `USERGROUP_ID` int(5) NOT NULL,
-  `GROUPNAME` varchar(30) NOT NULL,
-  `PERMISSION_LEVEL` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `USER_ID` int(5) NOT NULL,
-  `USERGROUP_FK` int(5) NOT NULL,
   `USERNAME` varchar(30) NOT NULL,
-  `PASSWORD` varchar(800) NOT NULL
+  `PASSWORD` varchar(800) NOT NULL,
+  `ROLE` varchar(50) NOT NULL,
+  `ENABLED` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`USER_ID`, `USERNAME`, `PASSWORD`, `ROLE`, `ENABLED`) VALUES
+(1, 'arno', 'fe3f6933bcb74a310dcbd0fc58ab022caa218a5727124f3da5b3800439da87dd', 'ROLE_ADMIN', b'1');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `growable_items`
+-- Indexes for table `growable_items`
 --
 ALTER TABLE `growable_items`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexen voor tabel `humidity`
+-- Indexes for table `humidity`
 --
 ALTER TABLE `humidity`
   ADD PRIMARY KEY (`HUMIDITY_ID`);
 
 --
--- Indexen voor tabel `humidity_registered_values`
+-- Indexes for table `humidity_registered_values`
 --
 ALTER TABLE `humidity_registered_values`
   ADD PRIMARY KEY (`HUM_REG_ID`);
 
 --
--- Indexen voor tabel `sensortype`
+-- Indexes for table `sensortype`
 --
 ALTER TABLE `sensortype`
   ADD PRIMARY KEY (`SENSORTYPE_ID`);
 
 --
--- Indexen voor tabel `temperature`
+-- Indexes for table `temperature`
 --
 ALTER TABLE `temperature`
   ADD PRIMARY KEY (`TEMPERATURE_ID`);
 
 --
--- Indexen voor tabel `temperature_registered_values`
+-- Indexes for table `temperature_registered_values`
 --
 ALTER TABLE `temperature_registered_values`
   ADD PRIMARY KEY (`TEMP_REG_ID`);
 
 --
--- Indexen voor tabel `usergroups`
---
-ALTER TABLE `usergroups`
-  ADD PRIMARY KEY (`USERGROUP_ID`);
-
---
--- Indexen voor tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`USER_ID`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `growable_items`
+-- AUTO_INCREMENT for table `growable_items`
 --
 ALTER TABLE `growable_items`
   MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT voor een tabel `humidity`
+-- AUTO_INCREMENT for table `humidity`
 --
 ALTER TABLE `humidity`
   MODIFY `HUMIDITY_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT voor een tabel `humidity_registered_values`
+-- AUTO_INCREMENT for table `humidity_registered_values`
 --
 ALTER TABLE `humidity_registered_values`
   MODIFY `HUM_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT voor een tabel `sensortype`
+-- AUTO_INCREMENT for table `sensortype`
 --
 ALTER TABLE `sensortype`
   MODIFY `SENSORTYPE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT voor een tabel `temperature`
+-- AUTO_INCREMENT for table `temperature`
 --
 ALTER TABLE `temperature`
   MODIFY `TEMPERATURE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT voor een tabel `temperature_registered_values`
+-- AUTO_INCREMENT for table `temperature_registered_values`
 --
 ALTER TABLE `temperature_registered_values`
   MODIFY `TEMP_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT voor een tabel `usergroups`
---
-ALTER TABLE `usergroups`
-  MODIFY `USERGROUP_ID` int(5) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT voor een tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `USER_ID` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `USER_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
