@@ -18,13 +18,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 @RestController
-public class ApiRestController 
+public class GrowableItemRestController 
 {    
 	    @Autowired
 	    private IGrowableItemService growableItemRepository;
 	    
-	    @Autowired
-	    private ISensorTypeService sensorTypeRepository;
 	    
 	    @GetMapping("/growableItems")	    
 	    public List<GrowableItem> getGrowableItems() 
@@ -32,9 +30,4 @@ public class ApiRestController
 	        return growableItemRepository.getAllGrowableItems();
 	    }
 	    
-	    @GetMapping("/sensortypes")	    
-	    public List<SensorType> getSensorTypes() 
-	    {	    		       
-	        return sensorTypeRepository.getAllSensorTypes();
-	    }
 }

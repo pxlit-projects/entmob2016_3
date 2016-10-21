@@ -13,8 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
-        http.authorizeRequests()
-                .antMatchers("/growableitems").hasRole("USER");
+        http.authorizeRequests().antMatchers("/growableitems").hasRole("USER").anyRequest().authenticated();
         
         
                 /*.and()
@@ -29,6 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
     {
-        auth.inMemoryAuthentication().withUser("arno").password("pxl").roles("USER");
+        //auth.inMemoryAuthentication().withUser("arno").password("pxl").roles("USER");
     }
 }
