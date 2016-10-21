@@ -16,7 +16,7 @@ public class Temperature implements Serializable
     @Column(name="TEMPERATURE_ID")
     private int temperatureId;
 
-	@OneToMany(mappedBy="temperature")
+	@OneToMany(mappedBy="Temperature")
     private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
     
 	@Column(name="MIN_IDEAL_TEMPERATURE")
@@ -36,4 +36,21 @@ public class Temperature implements Serializable
 	public double getMaxTemperature() {
 		return maxTemperature;
 	}
+
+	public void setTemperatureId(int temperatureId) {
+		this.temperatureId = temperatureId;
+	}
+
+	public void setGrowableItems(List<GrowableItem> growableItems) {
+		this.growableItems = growableItems;
+	}
+
+	public void setMinTemperature(double minTemperature) {
+		this.minTemperature = minTemperature;
+	}
+
+	public void setMaxTemperature(double maxTemperature) {
+		this.maxTemperature = maxTemperature;
+	}
+	
 }

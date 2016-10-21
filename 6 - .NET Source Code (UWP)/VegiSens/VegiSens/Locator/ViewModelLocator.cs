@@ -24,6 +24,7 @@ namespace VegiSens.Locator
         private static SelectVegetableViewModel selectVegetableViewModel = new SelectVegetableViewModel(frameNavigationService, growableItemService);
         private static SpectatorScreenViewModel spectatorScreenModel = new SpectatorScreenViewModel(frameNavigationService, growableItemService, sensorTypeDataService);
         private static OverviewViewModel overviewViewModel = new OverviewViewModel(frameNavigationService, sensorTypeDataService);
+        private static AddVegetableViewModel addVegetableViewModel = new AddVegetableViewModel(frameNavigationService, growableItemService);
 
         //Properties
         public static MainPageViewModel MainPageViewModel
@@ -63,6 +64,14 @@ namespace VegiSens.Locator
             get
             {
                 return overviewViewModel;
+            }
+        }
+
+        public static AddVegetableViewModel AddVegetableViewModel
+        {
+            get
+            {
+                return addVegetableViewModel;
             }
         }
     }

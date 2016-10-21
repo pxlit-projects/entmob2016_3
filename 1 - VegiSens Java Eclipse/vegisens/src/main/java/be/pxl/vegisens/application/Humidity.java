@@ -16,7 +16,7 @@ public class Humidity implements Serializable
     @Column(name="HUMIDITY_ID")
     private int humidityId;
    
-    @OneToMany(mappedBy="humidity")
+    @OneToMany(mappedBy="Humidity")
     private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
     
 	@Column(name="MIN_IDEAL_HUMIDITY")
@@ -36,4 +36,21 @@ public class Humidity implements Serializable
 	public double getMaxHumidity() {
 		return maxHumidity;
 	}
+
+	public void setHumidityId(int humidityId) {
+		this.humidityId = humidityId;
+	}
+
+	public void setMinHumidity(double minHumidity) {
+		this.minHumidity = minHumidity;
+	}
+
+	public void setMaxHumidity(double maxHumidity) {
+		this.maxHumidity = maxHumidity;
+	}
+
+	public void setGrowableItems(List<GrowableItem> growableItems) {
+		this.growableItems = growableItems;
+	}
+	
 }

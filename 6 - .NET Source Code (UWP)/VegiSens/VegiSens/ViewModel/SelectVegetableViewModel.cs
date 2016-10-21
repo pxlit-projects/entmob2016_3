@@ -9,6 +9,7 @@ using System.Windows.Input;
 using VegiSens.domain;
 using VegiSens.Services;
 using VegiSens.Utility;
+using VegiSens.View;
 using VegiSens.ViewModel;
 using Windows.UI.Popups;
 
@@ -18,6 +19,8 @@ namespace VegiSens.ViewModel
     {
         //Properties
         public ICommand SaveCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+
         private ObservableCollection<GrowableItem> growableItemList;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -67,7 +70,14 @@ namespace VegiSens.ViewModel
         private void LoadCommands()
         {
             SpectatorCommand = new CustomCommand(NavigateToSpectate, CanNavigate);
+            AddCommand = new CustomCommand(NavigateToAddVegetablePage, CanNavigate);
             SaveCommand = new CustomCommand(SaveVegetable, CanNavigate);
+        }
+
+        //Navigate to Add Vegetable
+        protected void NavigateToAddVegetablePage()
+        {
+            frameNavagationService.NavigateToFrame(typeof(AddVegetable));
         }
 
         //Quit application

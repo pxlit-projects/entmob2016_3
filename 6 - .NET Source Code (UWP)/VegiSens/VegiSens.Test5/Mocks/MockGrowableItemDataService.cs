@@ -36,5 +36,10 @@ namespace VegiSens.Test.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public void AddVegetableITem(GrowableItem growableItemToAdd)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

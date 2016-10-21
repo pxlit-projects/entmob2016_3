@@ -90,7 +90,7 @@ namespace VegiSens.domain
 
             OnPropertyChanged("Kind");
             OnPropertyChanged("Id");
-            OnPropertyChanged("Name");
+            OnPropertyChanged("name");
             OnPropertyChanged("DeviceInformation");
             OnPropertyChanged("CanPair");
             OnPropertyChanged("IsPaired");

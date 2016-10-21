@@ -112,12 +112,16 @@
     <Compile Include="Services\UsernameDataService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="Utility\Messenger.cs" />
+    <Compile Include="ViewModel\AddVegetableViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\OverviewViewModel.cs" />
     <Compile Include="ViewModel\SelectVegetableViewModel.cs" />
     <Compile Include="ViewModel\SpectatorScreenViewModel.cs" />
     <Compile Include="ViewModel\SuperViewModel.cs" />
+    <Compile Include="View\AddVegetable.xaml.cs">
+      <DependentUpon>AddVegetable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -165,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AddVegetable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

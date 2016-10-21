@@ -11,27 +11,27 @@ public class GrowableItem implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private int growableItemId;
+    private int GrowableItemId;
 
     @ManyToOne
     @JoinColumn(name="HUMIDITY_FK", referencedColumnName="HUMIDITY_ID")
-    private Humidity humidity;
+    private Humidity Humidity;
     
     @ManyToOne
     @JoinColumn(name="TEMPERATURE_FK", referencedColumnName="TEMPERATURE_ID")
-    private Temperature temperature;
+    private Temperature Temperature;
     
 	@Column(name="NAME")
     private String name;
 
-    @Column(name="DESCRIPTION")
-    private String description;
+	@Column(name="DESCRIPTION")
+    private String Description;
 
     @Column(name="IMAGE")
-    private String image;
+    private String Image;
 
 	public int getGrowableItemId() {
-		return growableItemId;
+		return GrowableItemId;
 	}
 
 	public String getName() {
@@ -39,18 +39,42 @@ public class GrowableItem implements Serializable
 	}
 
 	public String getDescription() {
-		return description;
+		return Description;
 	}
 
 	public Humidity getHumidity() {
-		return humidity;
+		return Humidity;
 	}
 
 	public Temperature getTemperature() {
-		return temperature;
+		return Temperature;
 	}
 
 	public String getImage() {
-		return image;
+		return Image;
+	}
+	
+    public void setGrowableItemId(int growableItemId) {
+		this.GrowableItemId = growableItemId;
+	}
+
+	public void setHumidity(Humidity humidity) {
+		this.Humidity = humidity;
+	}
+
+	public void setTemperature(Temperature temperature) {
+		this.Temperature = temperature;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.Description = description;
+	}
+
+	public void setImage(String image) {
+		this.Image = image;
 	}
 }

@@ -19,9 +19,36 @@ namespace VegiSens.DAL
         //Constructor
         public VegetableRepository()
         {
+
         }
 
         //Methods
+
+        public async void AddVegetableITem(GrowableItem growableItemToAdd)
+        {
+            
+            //Create a new httpclient instances
+            using (var client = new HttpClient())
+            {
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/add");
+
+                //Clear evrything before starting
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Add base64 string to header
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes("arno:pxl")));
+
+                var growableItem = JsonConvert.SerializeObject(growableItemToAdd);
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = await client.PostAsync(client.BaseAddress, new StringContent(growableItem.ToString(), Encoding.UTF8, "application/json"));           
+            }
+        }
+
         public ObservableCollection<GrowableItem> GetAllGrowableItems()
         {
             if (growableItems == null)
@@ -61,7 +88,7 @@ namespace VegiSens.DAL
                 client.DefaultRequestHeaders.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes("arno:pxl")));
 
                 //Get the connection with the URL and return the result (succes or not)
-                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress.AbsoluteUri).Result;
 
                 //If the resposne succeeded
                 if (response.IsSuccessStatusCode)

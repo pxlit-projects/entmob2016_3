@@ -11,26 +11,25 @@ namespace VegiSens.domain
 {
     public class GrowableItem
     {
-        private int growableItemID;
+        private int growableItemId;
 
-        private string name;
+        private string nam;
         private string description;
-        private string imagePath;
+        private string image;
     
         private Temperature temperature;
         private Humidity humidity;
-        private Light light;
 
         public int GrowableItemID
         {
-            get { return growableItemID; }
-            set { growableItemID = value; }
+            get { return growableItemId; }
+            set { growableItemId = value; }
         }
 
-        public string Name
+        public string name
         {
-            get { return name; }
-            set { name = value; }
+            get { return nam; }
+            set { nam = value; }
         }
 
         public string Description
@@ -41,8 +40,8 @@ namespace VegiSens.domain
 
         public string Image
         {
-            get { return imagePath; }
-            set { imagePath = value; }
+            get { return image; }
+            set { image = value; }
         }
 
         public Temperature Temperature
@@ -55,12 +54,6 @@ namespace VegiSens.domain
         {
             get { return humidity; }
             set { humidity = value; }
-        }
-
-        public Light Light
-        {
-            get { return light; }
-            set { light = value; }
         }
     }
 }

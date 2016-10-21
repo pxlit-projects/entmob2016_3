@@ -5,4 +5,5 @@ import java.util.List;
 public interface IGrowableItemService {
 
 	List<GrowableItem> getAllGrowableItems();
+	void addGrowableITem(GrowableItem item);
 }

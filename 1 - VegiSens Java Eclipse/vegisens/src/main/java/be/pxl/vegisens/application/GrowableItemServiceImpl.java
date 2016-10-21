@@ -18,6 +18,12 @@ public class GrowableItemServiceImpl implements IGrowableItemService
 	{
 		return (List<GrowableItem>) repository.findAll();
 	}
+
+	public void addGrowableITem(GrowableItem growableItem) {
+		
+		repository.save(growableItem);
+		
+	}
 }
 
 

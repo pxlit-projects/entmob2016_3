@@ -20,7 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/growableItems").fullyAuthenticated()
                 .antMatchers("/growableItems").access("hasRole('ROLE_ADMIN')")
-                .anyRequest().authenticated().and()
+                .antMatchers("/growableItems/add/").fullyAuthenticated()
+                .antMatchers("/growableItems/add/").access("hasRole('ROLE_ADMIN')")
+                .anyRequest().authenticated().and().csrf().disable()
                 .httpBasic(); // To get authentication popup
     }
 
