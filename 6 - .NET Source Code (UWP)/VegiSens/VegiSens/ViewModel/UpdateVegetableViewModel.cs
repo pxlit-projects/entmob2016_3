@@ -15,7 +15,7 @@ using Windows.UI.Popups;
 
 namespace VegiSens.ViewModel
 {
-    public class AddVegetableViewModel : SuperViewModel
+    public class UpdateVegetableViewModel : SuperViewModel
     {
         //Properties
         public ICommand AddVegetableCommand { get; set; }
@@ -30,7 +30,7 @@ namespace VegiSens.ViewModel
         public string MaxTemperature { get; set; }
 
         //Contructor
-        public AddVegetableViewModel(IFrameNavigation frameNavagationService, IGrowableItemData growableItemService)
+        public UpdateVegetableViewModel(IFrameNavigation frameNavagationService, IGrowableItemData growableItemService)
         {
             this.growableItemService = growableItemService;
             this.frameNavagationService = frameNavagationService;

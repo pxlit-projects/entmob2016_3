@@ -31,9 +31,9 @@ namespace VegiSens.Services
             return repository.GetAllGrowableItems();
         }
 
-        public void AddVegetableITem(GrowableItem growableItemToAdd)
+        public void AddVegetableItem(GrowableItem growableItemToAdd)
         {
-            repository.AddVegetableITem(growableItemToAdd);
+            repository.AddVegetableItem(growableItemToAdd);
         }
     }
 }

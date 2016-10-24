@@ -3,7 +3,6 @@ package be.pxl.vegisens.application;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,17 +11,19 @@ import org.springframework.transaction.annotation.Transactional;
 public class GrowableItemServiceImpl implements IGrowableItemService
 {
 	@Autowired
-	private GrowableItemRepository repository;
+	private GrowableItemRepository growableItemRepository;
+	
+	@Autowired
+	private GrowableItemEntityRepository entityRepository;
 	
 	public List<GrowableItem> getAllGrowableItems() 
 	{
-		return (List<GrowableItem>) repository.findAll();
+		return (List<GrowableItem>) growableItemRepository.findAll();
 	}
 
-	public void addGrowableITem(GrowableItem growableItem) {
-		
-		repository.save(growableItem);
-		
+	public void addGrowableItem(GrowableItemEntity growableItemToAdd) 
+	{
+		entityRepository.save(growableItemToAdd);			
 	}
 }
 

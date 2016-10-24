@@ -20,6 +20,7 @@ namespace VegiSens.ViewModel
         //Properties
         public ICommand SaveCommand { get; set; }
         public ICommand AddCommand { get; set; }
+        public ICommand updateCommand { get; set; }
 
         private ObservableCollection<GrowableItem> growableItemList;
 
@@ -63,7 +64,15 @@ namespace VegiSens.ViewModel
 
             LoadData();
 
+            Messenger.Default.Register<GrowableItem>(this, OnVegetableReceived);
+
             LoadCommands();
+        }
+
+        //Messenger received
+        private void OnVegetableReceived(GrowableItem growableItemReceived)
+        {
+            this.growableItemList.Add(growableItemReceived);
         }
 
         //Load all commands
@@ -71,13 +80,20 @@ namespace VegiSens.ViewModel
         {
             SpectatorCommand = new CustomCommand(NavigateToSpectate, CanNavigate);
             AddCommand = new CustomCommand(NavigateToAddVegetablePage, CanNavigate);
+            updateCommand= new CustomCommand(NavigateToUpdateVegetablePage, CanNavigate);
             SaveCommand = new CustomCommand(SaveVegetable, CanNavigate);
         }
 
         //Navigate to Add Vegetable
         protected void NavigateToAddVegetablePage()
         {
-            frameNavagationService.NavigateToFrame(typeof(AddVegetable));
+            frameNavagationService.NavigateToFrame(typeof(UpdateVegetable));
+        }
+
+        //Navigate to Update Vegetable
+        protected void NavigateToUpdateVegetablePage()
+        {
+            frameNavagationService.NavigateToFrame(typeof(UpdateVegetable));
         }
 
         //Quit application

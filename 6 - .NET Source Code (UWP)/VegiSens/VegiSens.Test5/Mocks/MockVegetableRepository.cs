@@ -22,10 +22,11 @@ namespace VegiSens.Test.Mocks
         {
         }
 
-        public void AddVegetableITem(GrowableItem growableItemToAdd)
+        public void AddVegetableItem(GrowableItem growableItemToAdd)
         {
             throw new NotImplementedException();
         }
+
 
         public ObservableCollection<GrowableItem> GetAllGrowableItems()
         {

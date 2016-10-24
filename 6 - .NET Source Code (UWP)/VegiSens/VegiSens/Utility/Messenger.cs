@@ -51,9 +51,9 @@ namespace VegiSens.Utility
         /// Registers a recipient for a type of message T. The action parameter will be executed
         /// when a corresponding message is sent.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="recipient"></param>
-        /// <param name="action"></param>
+        /// <typeparam Name="T"></typeparam>
+        /// <param Name="recipient"></param>
+        /// <param Name="action"></param>
         public void Register<T>(object recipient, Action<T> action)
         {
             Register(recipient, action, null);
@@ -63,10 +63,10 @@ namespace VegiSens.Utility
         /// Registers a recipient for a type of message T and a matching context. The action parameter will be executed
         /// when a corresponding message is sent.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="recipient"></param>
-        /// <param name="action"></param>
-        /// <param name="context"></param>
+        /// <typeparam Name="T"></typeparam>
+        /// <param Name="recipient"></param>
+        /// <param Name="action"></param>
+        /// <param Name="context"></param>
         public void Register<T>(object recipient, Action<T> action, object context)
         {
             var key = new MessengerKey(recipient, context);
@@ -77,7 +77,7 @@ namespace VegiSens.Utility
         /// Unregisters a messenger recipient completely. After this method is executed, the recipient will
         /// no longer receive any messages.
         /// </summary>
-        /// <param name="recipient"></param>
+        /// <param Name="recipient"></param>
         public void Unregister(object recipient)
         {
             Unregister(recipient, null);
@@ -87,8 +87,8 @@ namespace VegiSens.Utility
         /// Unregisters a messenger recipient with a matching context completely. After this method is executed, the recipient will
         /// no longer receive any messages.
         /// </summary>
-        /// <param name="recipient"></param>
-        /// <param name="context"></param>
+        /// <param Name="recipient"></param>
+        /// <param Name="context"></param>
         public void Unregister(object recipient, object context)
         {
             object action;
@@ -100,8 +100,8 @@ namespace VegiSens.Utility
         /// Sends a message to registered recipients. The message will reach all recipients that are
         /// registered for this message type.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="message"></param>
+        /// <typeparam Name="T"></typeparam>
+        /// <param Name="message"></param>
         public void Send<T>(T message)
         {
             Send(message, null);
@@ -111,9 +111,9 @@ namespace VegiSens.Utility
         /// Sends a message to registered recipients. The message will reach all recipients that are
         /// registered for this message type and matching context.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="message"></param>
-        /// <param name="context"></param>
+        /// <typeparam Name="T"></typeparam>
+        /// <param Name="message"></param>
+        /// <param Name="context"></param>
         public void Send<T>(T message, object context)
         {
             IEnumerable<KeyValuePair<MessengerKey, object>> result;
@@ -144,8 +144,8 @@ namespace VegiSens.Utility
             /// <summary>
             /// Initializes a new instance of the MessengerKey class.
             /// </summary>
-            /// <param name="recipient"></param>
-            /// <param name="context"></param>
+            /// <param Name="recipient"></param>
+            /// <param Name="context"></param>
             public MessengerKey(object recipient, object context)
             {
                 Recipient = recipient;
@@ -155,7 +155,7 @@ namespace VegiSens.Utility
             /// <summary>
             /// Determines whether the specified MessengerKey is equal to the current MessengerKey.
             /// </summary>
-            /// <param name="other"></param>
+            /// <param Name="other"></param>
             /// <returns></returns>
             protected bool Equals(MessengerKey other)
             {
@@ -165,7 +165,7 @@ namespace VegiSens.Utility
             /// <summary>
             /// Determines whether the specified MessengerKey is equal to the current MessengerKey.
             /// </summary>
-            /// <param name="obj"></param>
+            /// <param Name="obj"></param>
             /// <returns></returns>
             public override bool Equals(object obj)
             {

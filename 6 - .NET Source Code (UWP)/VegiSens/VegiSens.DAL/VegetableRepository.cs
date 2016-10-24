@@ -23,15 +23,13 @@ namespace VegiSens.DAL
         }
 
         //Methods
-
-        public async void AddVegetableITem(GrowableItem growableItemToAdd)
-        {
-            
+        public async void AddVegetableItem(GrowableItem growableItemToAdd)
+        {         
             //Create a new httpclient instances
             using (var client = new HttpClient())
             {
                 //Set URL
-                client.BaseAddress = new Uri("http://localhost:8081/add");
+                client.BaseAddress = new Uri("http://localhost:8081/growableItems/add");
 
                 //Clear evrything before starting
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -44,8 +42,23 @@ namespace VegiSens.DAL
 
                 var growableItem = JsonConvert.SerializeObject(growableItemToAdd);
 
+                //Make properties lowercase
+                growableItem = growableItem.Replace("Name", "name");
+                growableItem = growableItem.Replace("Description", "description");
+                growableItem = growableItem.Replace("Image", "image");
+
+                growableItem = growableItem.Replace("Temperature", "temperature");
+                growableItem = growableItem.Replace("Maxtemperature", "maxTemperature");
+                growableItem = growableItem.Replace("Mintemperature", "minTemperature");
+
+                growableItem = growableItem.Replace("Humidity", "humidity");
+                growableItem = growableItem.Replace("Maxhumidity", "maxHumidity");
+                growableItem = growableItem.Replace("Minhumidity", "minHumidity");
+
                 //Get the connection with the URL and return the result (succes or not)
-                HttpResponseMessage response = await client.PostAsync(client.BaseAddress, new StringContent(growableItem.ToString(), Encoding.UTF8, "application/json"));           
+                HttpResponseMessage response = await client.PostAsync(client.BaseAddress, new StringContent(growableItem.ToString(), Encoding.UTF8, "application/json"));
+
+                loadGrowableItems();
             }
         }
 

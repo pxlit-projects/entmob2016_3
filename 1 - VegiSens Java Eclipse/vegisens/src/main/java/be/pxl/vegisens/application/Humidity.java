@@ -11,12 +11,17 @@ import javax.persistence.*;
 @Table(name="humidity")
 public class Humidity implements Serializable 
 {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="HUMIDITY_ID")
     private int humidityId;
    
-    @OneToMany(mappedBy="Humidity")
+    @OneToMany(mappedBy="humidity")
     private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
     
 	@Column(name="MIN_IDEAL_HUMIDITY")

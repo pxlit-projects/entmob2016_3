@@ -8,30 +8,35 @@ import javax.persistence.*;
 @Table(name="growable_items")
 public class GrowableItem implements Serializable 
 {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private int GrowableItemId;
+    private int growableItemId;
 
     @ManyToOne
     @JoinColumn(name="HUMIDITY_FK", referencedColumnName="HUMIDITY_ID")
-    private Humidity Humidity;
+    private Humidity humidity;
     
     @ManyToOne
     @JoinColumn(name="TEMPERATURE_FK", referencedColumnName="TEMPERATURE_ID")
-    private Temperature Temperature;
+    private Temperature temperature;
     
 	@Column(name="NAME")
     private String name;
 
 	@Column(name="DESCRIPTION")
-    private String Description;
+    private String description;
 
     @Column(name="IMAGE")
-    private String Image;
+    private String image;
 
 	public int getGrowableItemId() {
-		return GrowableItemId;
+		return growableItemId;
 	}
 
 	public String getName() {
@@ -39,31 +44,31 @@ public class GrowableItem implements Serializable
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public Humidity getHumidity() {
-		return Humidity;
+		return humidity;
 	}
 
 	public Temperature getTemperature() {
-		return Temperature;
+		return temperature;
 	}
 
 	public String getImage() {
-		return Image;
+		return image;
 	}
 	
     public void setGrowableItemId(int growableItemId) {
-		this.GrowableItemId = growableItemId;
+		this.growableItemId = growableItemId;
 	}
 
 	public void setHumidity(Humidity humidity) {
-		this.Humidity = humidity;
+		this.humidity = humidity;
 	}
 
 	public void setTemperature(Temperature temperature) {
-		this.Temperature = temperature;
+		this.temperature = temperature;
 	}
 
 	public void setName(String name) {
@@ -71,10 +76,10 @@ public class GrowableItem implements Serializable
 	}
 
 	public void setDescription(String description) {
-		this.Description = description;
+		this.description = description;
 	}
 
 	public void setImage(String image) {
-		this.Image = image;
+		this.image = image;
 	}
 }

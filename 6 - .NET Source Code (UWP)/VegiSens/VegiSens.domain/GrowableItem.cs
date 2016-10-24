@@ -13,7 +13,7 @@ namespace VegiSens.domain
     {
         private int growableItemId;
 
-        private string nam;
+        private string name;
         private string description;
         private string image;
     
@@ -26,10 +26,10 @@ namespace VegiSens.domain
             set { growableItemId = value; }
         }
 
-        public string name
+        public string Name
         {
-            get { return nam; }
-            set { nam = value; }
+            get { return name; }
+            set { name = value; }
         }
 
         public string Description

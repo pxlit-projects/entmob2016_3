@@ -10,7 +10,12 @@ import javax.persistence.*;
 @Table(name="temperature_registered_values")
 public class TemperatureRegisteredValues implements Serializable 
 {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="TEMP_REG_ID")
     private int temperatureRegisteredId;

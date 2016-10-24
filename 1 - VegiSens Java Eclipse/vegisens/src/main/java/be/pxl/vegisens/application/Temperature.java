@@ -11,12 +11,17 @@ import javax.persistence.*;
 @Table(name="temperature")
 public class Temperature implements Serializable 
 {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="TEMPERATURE_ID")
     private int temperatureId;
 
-	@OneToMany(mappedBy="Temperature")
+	@OneToMany(mappedBy="temperature")
     private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
     
 	@Column(name="MIN_IDEAL_TEMPERATURE")

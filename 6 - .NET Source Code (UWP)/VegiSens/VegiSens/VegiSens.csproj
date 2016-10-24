@@ -112,6 +112,7 @@
     <Compile Include="Services\UsernameDataService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="Utility\Messenger.cs" />
+    <Compile Include="ViewModel\UpdateVegetableViewModel.cs" />
     <Compile Include="ViewModel\AddVegetableViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
@@ -119,6 +120,9 @@
     <Compile Include="ViewModel\SelectVegetableViewModel.cs" />
     <Compile Include="ViewModel\SpectatorScreenViewModel.cs" />
     <Compile Include="ViewModel\SuperViewModel.cs" />
+    <Compile Include="View\UpdateVegetable.xaml.cs">
+      <DependentUpon>UpdateVegetable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddVegetable.xaml.cs">
       <DependentUpon>AddVegetable.xaml</DependentUpon>
     </Compile>
@@ -159,6 +163,7 @@
     <Content Include="Images\Vegetables\Chive.png" />
     <Content Include="Images\Vegetables\Garlic.png" />
     <Content Include="Images\Vegetables\Potato.png" />
+    <Content Include="Images\Vegetables\Pumpkin.png" />
     <Content Include="Images\Vegetables\Red_Cabbage.png" />
     <Content Include="Images\Vegetables\Strawberry.png" />
     <Content Include="Images\Vegetables\Tomato.png" />
@@ -169,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\UpdateVegetable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\AddVegetable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

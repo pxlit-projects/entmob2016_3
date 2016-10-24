@@ -65,8 +65,12 @@
         <Button RelativePanel.AlignLeftWith="descriptionPanel" RelativePanel.Below="descriptionPanel" Command="{Binding SpectatorCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!--Add Button-->
-        <Button RelativePanel.AlignHorizontalCenterWith="descriptionPanel" RelativePanel.Below="descriptionPanel" Command="{Binding AddCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="addButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-       
+        <Button RelativePanel.Below="descriptionPanel" Command="{Binding AddCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="addButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--Update Button-->
+        <Button BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="updateButton" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        
         <!--Save Button-->
         <Button RelativePanel.AlignRightWith="descriptionPanel" RelativePanel.Below="descriptionPanel" Command="{Binding SaveCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         
@@ -85,6 +89,13 @@
                         <Setter Target="currentVegetableImage.(RelativePanel.AlignHorizontalCenterWith)" Value="vegtableNameTextBlock"/>
                         <Setter Target="vegtableNameTextBlock.(RelativePanel.Above)" Value="selectVegetableComboBox"/>
                         <Setter Target="vegtableNameTextBlock.(RelativePanel.AlignHorizontalCenterWith)" Value="rangePanel"/>
+
+                        <Setter Target="updateButton.(RelativePanel.AlignHorizontalCenterWith)" Value="descriptionPanel"/>
+                        <Setter Target="updateButton.(RelativePanel.Below)" Value="addButton"/>
+
+                        <Setter Target="addButton.(RelativePanel.AlignHorizontalCenterWith)" Value="descriptionPanel"/>
+                        <Setter Target="addButton.(RelativePanel.LeftOf)" Value="saveButton"/>
+                        
                         <Setter Target="vegtableNameTextBlock.Margin" Value="0,0,0,0"/>
                         
                         <Setter Target="currentVegetableImage.Width" Value="150"/>
@@ -120,6 +131,9 @@
                         <Setter Target="backButton.Width" Value="100"/>
                         <Setter Target="backButton.Margin" Value="0,10,0,0"/>
 
+                        <Setter Target="updateButton.Width" Value="100"/>
+                        <Setter Target="updateButton.Margin" Value="0,10,0,0"/>
+                        
                         <Setter Target="addButton.Width" Value="100"/>
                         <Setter Target="addButton.Margin" Value="0,10,0,0"/>
                         
@@ -146,6 +160,12 @@
                         <Setter Target="vegtableNameTextBlock.(RelativePanel.RightOf)" Value="selectVegetableComboBox"/>
                         <Setter Target="vegtableNameTextBlock.(RelativePanel.AlignVerticalCenterWith)" Value="selectVegetableComboBox"/>
                         <Setter Target="vegtableNameTextBlock.Margin" Value="50,0,0,0"/>
+
+                        <Setter Target="updateButton.(RelativePanel.Below)" Value="descriptionPanel"/>
+                        <Setter Target="updateButton.(RelativePanel.RightOf)" Value="backButton"/>
+
+                        <Setter Target="addButton.(RelativePanel.Below)" Value="descriptionPanel"/>
+                        <Setter Target="addButton.(RelativePanel.LeftOf)" Value="saveButton"/>
                         
                         <Setter Target="selectVegetableComboBox.Width" Value="300"/>
                         <Setter Target="selectVegetableComboBox.Margin" Value="10,20,0,0"/>
@@ -172,13 +192,16 @@
                         <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
                         <Setter Target="descriptionTextBlock.Margin" Value="10,5,0,0"/>
 
-                        <Setter Target="backButton.Width" Value="150"/>
+                        <Setter Target="backButton.Width" Value="120"/>
                         <Setter Target="backButton.Margin" Value="0,10,0,0"/>
 
-                        <Setter Target="addButton.Width" Value="150"/>
-                        <Setter Target="addButton.Margin" Value="0,10,0,0"/>
+                        <Setter Target="updateButton.Width" Value="120"/>
+                        <Setter Target="updateButton.Margin" Value="35,10,0,0"/>
                         
-                        <Setter Target="saveButton.Width" Value="150"/>
+                        <Setter Target="addButton.Width" Value="120"/>
+                        <Setter Target="addButton.Margin" Value="0,10,35,0"/>
+                        
+                        <Setter Target="saveButton.Width" Value="120"/>
                         <Setter Target="saveButton.Margin" Value="0,10,0,0"/>
                     </VisualState.Setters>
                 </VisualState>
@@ -202,6 +225,12 @@
                         <Setter Target="vegtableNameTextBlock.(RelativePanel.AlignVerticalCenterWith)" Value="selectVegetableComboBox"/>
                         <Setter Target="vegtableNameTextBlock.Margin" Value="130,0,0,0"/>
 
+                        <Setter Target="updateButton.(RelativePanel.Below)" Value="descriptionPanel"/>
+                        <Setter Target="updateButton.(RelativePanel.RightOf)" Value="backButton"/>
+
+                        <Setter Target="addButton.(RelativePanel.Below)" Value="descriptionPanel"/>
+                        <Setter Target="addButton.(RelativePanel.LeftOf)" Value="saveButton"/>
+                        
                         <Setter Target="selectVegetableComboBox.Width" Value="300"/>
                         <Setter Target="selectVegetableComboBox.Margin" Value="10,20,0,0"/>
                         <Setter Target="chooseTitleTextBlock.Margin" Value="0,20,0,5"/>
@@ -228,13 +257,16 @@
                         <Setter Target="informationTitleTextBlock.Margin" Value="10,10,0,0"/>
                         <Setter Target="descriptionTextBlock.Margin" Value="10,5,0,0"/>
 
-                        <Setter Target="backButton.Width" Value="170"/>
+                        <Setter Target="backButton.Width" Value="150"/>
                         <Setter Target="backButton.Margin" Value="0,10,0,0"/>
 
-                        <Setter Target="addButton.Width" Value="170"/>
-                        <Setter Target="addButton.Margin" Value="0,10,0,0"/>
+                        <Setter Target="updateButton.Width" Value="150"/>
+                        <Setter Target="updateButton.Margin" Value="50,10,0,0"/>
                         
-                        <Setter Target="saveButton.Width" Value="170"/>
+                        <Setter Target="addButton.Width" Value="150"/>
+                        <Setter Target="addButton.Margin" Value="0,10,50,0"/>
+                        
+                        <Setter Target="saveButton.Width" Value="150"/>
                         <Setter Target="saveButton.Margin" Value="0,10,0,0"/>
                     </VisualState.Setters>
                 </VisualState>

@@ -11,7 +11,12 @@ import javax.persistence.*;
 @Table(name="sensortype")
 public class SensorType implements Serializable 
 {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="SENSORTYPE_ID")
     private int sensortypeId;
@@ -47,5 +52,4 @@ public class SensorType implements Serializable
 	public String getSensorUnit() {
 		return sensorUnit;
 	}
-
 }
