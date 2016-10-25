@@ -36,7 +36,7 @@ namespace VegiSens.ViewModel
 
             LoadCommands();
 
-            Messenger.Default.Register<GrowableItem>(this, OnGrowableItemReceived);
+            Messenger.Default.Register<GrowableItem>(this, OnGrowableItemReceived, "SAVE");
         }
 
         private void OnGrowableItemReceived(GrowableItem growbaleItem)
@@ -62,12 +62,6 @@ namespace VegiSens.ViewModel
         {
             sensorTypeList = sensorTypeDataService.GetAllSensorTypes();
             currentGrowableItem = growableItemService.GetGrowableItemById(1);
-        }
-
-        public GrowableItem CurrentGrowableItem
-        {
-            get { return currentGrowableItem; }
-            set { currentGrowableItem = value; }
         }
 
         //Navigate to overview

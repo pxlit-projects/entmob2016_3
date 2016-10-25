@@ -17,7 +17,7 @@
         <TextBlock x:Name="updateTitleTextBlock" RelativePanel.Above="informationGrid" RelativePanel.AlignRightWith="informationGrid" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Update Vegetable" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
 
         <!--VegiSens Title-->
-        <TextBlock x:Name="titleTextBlock" RelativePanel.RightOf="logoImage" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock x:Name="titleTextBlock" RelativePanel.AlignVerticalCenterWith="logoImage" RelativePanel.RightOf="logoImage" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
 
         <!--Overview Grid-->
         <Grid x:Name="informationGrid" Background="YellowGreen" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" Margin="-76,8,0,0">
@@ -103,8 +103,6 @@
                         <Setter Target="logoImage.Width" Value="100"/>
                         <Setter Target="logoImage.Height" Value="100"/>
 
-                        <Setter Target="titleTextBlock.(RelativePanel.AlignVerticalCenterWith)" Value="logoImage"/>
-
                         <Setter Target="nameTextBox.Width" Value="180"/>
                         <Setter Target="descriptionTextBox.Width" Value="180"/>
                         <Setter Target="imageTextBox.Width" Value="180"/>
@@ -138,7 +136,6 @@
                         <Setter Target="logoImage.Width" Value="100"/>
                         <Setter Target="logoImage.Height" Value="100"/>
                         <Setter Target="titleTextBlock.(RelativePanel.Above)" Value="informationGrid"/>
-
                         <Setter Target="nameTextBlock.FontSize" Value="21"/>
                         <Setter Target="descriptionTextBlock.FontSize" Value="21"/>
                         <Setter Target="imageTextBlock.FontSize" Value="21"/>
@@ -179,8 +176,7 @@
                     <VisualState.Setters>
                         <Setter Target="logoImage.Width" Value="100"/>
                         <Setter Target="logoImage.Height" Value="100"/>
-                        <Setter Target="titleTextBlock.(RelativePanel.AlignVerticalCenterWith)" Value="logoImage"/>
-
+                        
                         <Setter Target="nameTextBlock.FontSize" Value="24"/>
                         <Setter Target="descriptionTextBlock.FontSize" Value="24"/>
                         <Setter Target="imageTextBlock.FontSize" Value="24"/>

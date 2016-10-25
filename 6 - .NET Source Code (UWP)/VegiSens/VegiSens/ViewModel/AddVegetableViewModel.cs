@@ -30,10 +30,16 @@ namespace VegiSens.ViewModel
             LoadCommands();
         }
 
+        //Messenger received
+        private void OnVegetableReceived(GrowableItem growableItemReceived)
+        {
+            currentGrowableItem = growableItemReceived;
+        }
+
         //Load all commands
         private void LoadCommands()
         {
-            SelectVegetableCommand = new CustomCommand(NavigateToSelectVegetable, CanNavigate);
+            SelectVegetableCommand = new CustomCommand(NavigateToSelectVegetableWithoutPassingCurrentData, CanNavigate);
             AddVegetableCommand = new CustomCommand(AddVegetableAndNavigate, CanNavigate);
         }
 

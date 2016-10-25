@@ -32,7 +32,7 @@ namespace VegiSens.ViewModel
             }
         }
 
-        public GrowableItem CurrentGrowableItem
+        public new GrowableItem CurrentGrowableItem
         {
             get { return currentGrowableItem; }
             set
@@ -67,33 +67,32 @@ namespace VegiSens.ViewModel
         //Messenger received
         private void OnVegetableReceived(GrowableItem growableItemReceived)
         {
-            //ObservableCollection<GrowableItem> growableItemListHulp = this.growableItemList;
+            ObservableCollection<GrowableItem> growableItemListHulp = this.growableItemList;
+
+            bool checkToInsertOrAdd = true;
+
+            foreach (var growableItem in growableItemListHulp)
+            {
+                if (growableItem.GrowableItemID == growableItemReceived.GrowableItemID)
+                {
+                    int index = growableItemListHulp.IndexOf(growableItem);
+                    growableItemListHulp.Remove(growableItem);
+                    growableItemListHulp.Insert(index, growableItemReceived);
+                    growableItemList = growableItemListHulp;
+                    checkToInsertOrAdd = false;
+                }
+
+                if (!checkToInsertOrAdd)
+                {
+                    break;
+                }
+            }
 
             this.currentGrowableItem = growableItemReceived;
-
-            //bool checkToInsertOrAdd = true;
-
-            //foreach (var growableItem in growableItemListHulp)
-            //{
-            //    if (growableItem.GrowableItemID == growableItemReceived.GrowableItemID)
-            //    {
-            //        int index = growableItemListHulp.IndexOf(growableItem);
-            //        growableItemListHulp.Remove(growableItem);
-            //        growableItemListHulp.Insert(index, growableItemReceived);
-            //        growableItemList = growableItemListHulp;
-            //        checkToInsertOrAdd = false;
-            //    }
-
-            //    if (!checkToInsertOrAdd)
-            //    {
-            //        break;
-            //    }
-            //}
-
-            //if (checkToInsertOrAdd)
-            //{
-            //    this.growableItemList.Add(growableItemReceived);
-            //}
+            if (checkToInsertOrAdd)
+            {
+                this.growableItemList.Add(growableItemReceived);
+            }
         }
 
         //Load all commands
@@ -114,7 +113,7 @@ namespace VegiSens.ViewModel
         //Navigate to Update Vegetable
         protected void NavigateToUpdateVegetablePage()
         {
-            Messenger.Default.Send<GrowableItem>(currentGrowableItem);
+            Messenger.Default.Send<GrowableItem>(currentGrowableItem, "UPDATE");
 
             frameNavagationService.NavigateToFrame(typeof(UpdateVegetable));
         }
@@ -122,7 +121,7 @@ namespace VegiSens.ViewModel
         //Quit application
         private async void SaveVegetable()
         {
-            Messenger.Default.Send<GrowableItem>(currentGrowableItem);
+            Messenger.Default.Send<GrowableItem>(currentGrowableItem, "SAVE");
 
             //Messgae confirmation
             MessageDialog dialog = new MessageDialog("Selected vegetable has been saved!");

@@ -25,6 +25,13 @@ namespace VegiSens.ViewModel
         public ICommand SelectVegetableCommand { get; set; }
         public ICommand OverviewCommand { get; set; }
 
+
+        public GrowableItem CurrentGrowableItem
+        {
+            get { return currentGrowableItem; }
+            set { currentGrowableItem = value; }
+        }
+
         //Methods
         protected bool CanNavigate(object obj)
         {
@@ -55,6 +62,12 @@ namespace VegiSens.ViewModel
         {
             Messenger.Default.Send<GrowableItem>(currentGrowableItem);
 
+            frameNavagationService.NavigateToFrame(typeof(SelectVegetable));
+        }
+
+        //Navigate to selectVegetable without passing data
+        protected void NavigateToSelectVegetableWithoutPassingCurrentData()
+        {
             frameNavagationService.NavigateToFrame(typeof(SelectVegetable));
         }
     }

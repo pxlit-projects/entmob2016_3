@@ -29,7 +29,7 @@ namespace VegiSens.ViewModel
 
             LoadCommands();
 
-            Messenger.Default.Register<GrowableItem>(this, OnVegetableReceived);
+            Messenger.Default.Register<GrowableItem>(this, OnVegetableReceived, "UPDATE");
         }
 
         //Messenger received
@@ -41,14 +41,8 @@ namespace VegiSens.ViewModel
         //Load all commands
         private void LoadCommands()
         {
-            SelectVegetableCommand = new CustomCommand(NavigateToSelectVegetable, CanNavigate);
+            SelectVegetableCommand = new CustomCommand(NavigateToSelectVegetableWithoutPassingCurrentData, CanNavigate);
             UpdateVegetableCommand = new CustomCommand(UpdateVegetableAndNavigate, CanNavigate);
-        }
-
-        public GrowableItem CurrentGrowableItem
-        {
-            get { return currentGrowableItem; }
-            set { currentGrowableItem = value; }
         }
 
         private async void UpdateVegetableAndNavigate()
