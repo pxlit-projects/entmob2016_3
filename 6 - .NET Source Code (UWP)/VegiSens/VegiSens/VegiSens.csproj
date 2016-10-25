@@ -120,9 +120,6 @@
     <Compile Include="ViewModel\SelectVegetableViewModel.cs" />
     <Compile Include="ViewModel\SpectatorScreenViewModel.cs" />
     <Compile Include="ViewModel\SuperViewModel.cs" />
-    <Compile Include="View\UpdateVegetable.xaml.cs">
-      <DependentUpon>UpdateVegetable.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\AddVegetable.xaml.cs">
       <DependentUpon>AddVegetable.xaml</DependentUpon>
     </Compile>
@@ -141,6 +138,9 @@
     </Compile>
     <Compile Include="View\SpectatorScreen.xaml.cs">
       <DependentUpon>SpectatorScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateVegetable.xaml.cs">
+      <DependentUpon>UpdateVegetable.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -174,10 +174,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\UpdateVegetable.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\AddVegetable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SpectatorScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateVegetable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

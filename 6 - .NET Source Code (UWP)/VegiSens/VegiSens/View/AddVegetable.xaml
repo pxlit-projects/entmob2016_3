@@ -1,19 +1,21 @@
 ﻿<Page
-    x:Class="VegiSens.View.UpdateVegetable"
+    x:Class="VegiSens.View.AddVegetable"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:VegiSens.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource ViewModelLocatorKey},  Path=AddVegetableViewModel}"
+    mc:Ignorable="d"    DataContext="{Binding Source={StaticResource ViewModelLocatorKey},  Path=AddVegetableViewModel}"
     >
-
     <RelativePanel Background="GreenYellow">
 
         <!--Logo-->
         <Image RelativePanel.Above="informationGrid" RelativePanel.AlignLeftWith="informationGrid" x:Name="logoImage" Source="ms-appx:///Images/Logo/EntMob3_Logo.png"/>
 
+        <!--add Title-->
+        <TextBlock x:Name="addTitleTextBlock" RelativePanel.Above="informationGrid" RelativePanel.AlignRightWith="informationGrid" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Add Vegetable" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontStyle="Italic"/>
+
+        
         <!--VegiSens Title-->
         <TextBlock x:Name="titleTextBlock" RelativePanel.RightOf="logoImage" HorizontalAlignment="Left" TextWrapping="Wrap" Text="VegiSens" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" FontStyle="Italic"/>
 
@@ -33,7 +35,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
+
             <!--Titles-->
             <Grid HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0">
                 <TextBlock x:Name="informationTitleTextBlock" Grid.Column="0" Grid.Row="1" HorizontalAlignment="left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -62,32 +64,33 @@
 
             <!--TextBoxes-->
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
-                <TextBox x:Name="nameTextBox" Height="10" Text=""/>
+                <TextBox x:Name="nameTextBox" Height="10" Text="Pumpkin"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2">
-                <TextBox x:Name="descriptionTextBox" Height="10" Text=""/>
+                <TextBox x:Name="descriptionTextBox" Height="10" Text="A pumpkin is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration."/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="3">
-                <TextBox x:Name="imageTextBox" Height="10" Text=""/>
+                <TextBox x:Name="imageTextBox" Height="10" Text="ms-appx:///Images/Vegetables/Pumpkin.png"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4">
-                <TextBox x:Name="humMinTextBox" Height="10" Text=""/>
+                <TextBox x:Name="humMinTextBox" Height="10" Text="50"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5">
-                <TextBox x:Name="humMaxTextBox" Height="10" Text=""/>
+                <TextBox x:Name="humMaxTextBox" Height="10" Text="60"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="6">
-                <TextBox x:Name="tempMinTextBox" Height="10" Text=""/>
+                <TextBox x:Name="tempMinTextBox" Height="10" Text="22"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Grid.Column="1" Grid.Row="7">
-                <TextBox x:Name="tempMaxTextBox" Height="10" Text=""/>
+                <TextBox x:Name="tempMaxTextBox" Height="10" Text="26"/>
             </Grid>
         </Grid>
 
         <!--Back Button-->
         <Button RelativePanel.Below="informationGrid" RelativePanel.AlignLeftWith="informationGrid" Command="{Binding SelectVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="backButton" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
         <!--Save Button-->
-        <Button RelativePanel.Below="informationGrid" RelativePanel.AlignRightWith="informationGrid" Command="{Binding AddVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Click="saveButton_Click"/>
+        <Button RelativePanel.Below="informationGrid" RelativePanel.AlignRightWith="informationGrid" Command="{Binding AddVegetableCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="saveButton_Click" Width="150"/>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="Screenstates">
@@ -118,7 +121,7 @@
                         <Setter Target="tempMinTitleTextBlock.Text" Value="min. Temp."/>
 
                         <Setter Target="informationTitleTextBlock.FontSize" Value="23"/>
-                        
+
                         <Setter Target="backButton.Width" Value="100"/>
                         <Setter Target="backButton.Margin" Value="0,10,0,0"/>
 
@@ -143,7 +146,7 @@
                         <Setter Target="humMaxTitleTextBlock.FontSize" Value="21"/>
                         <Setter Target="tempMinTitleTextBlock.FontSize" Value="21"/>
                         <Setter Target="tempMaxTitleTextBlock.FontSize" Value="21"/>
-                        
+
                         <Setter Target="nameTextBox.Width" Value="300"/>
                         <Setter Target="descriptionTextBox.Width" Value="300"/>
                         <Setter Target="imageTextBox.Width" Value="300"/>
@@ -198,7 +201,7 @@
                         <Setter Target="informationGrid.Width" Value="800"/>
                         <Setter Target="informationGrid.Margin" Value="0,10,0,0"/>
 
-                        
+
                         <Setter Target="tempMaxTitleTextBlock.Text" Value="max. Temp."/>
                         <Setter Target="tempMinTitleTextBlock.Text" Value="min. Temp."/>
 

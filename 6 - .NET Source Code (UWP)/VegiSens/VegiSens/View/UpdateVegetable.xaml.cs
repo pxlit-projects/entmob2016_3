@@ -28,16 +28,15 @@ namespace VegiSens.View
             this.InitializeComponent();
         }
 
-        //Get the data from textboxes
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            ((AddVegetableViewModel)this.DataContext).Name = nameTextBox.Text;
-            ((AddVegetableViewModel)this.DataContext).Description = descriptionTextBox.Text;
-            ((AddVegetableViewModel)this.DataContext).ImagePath = imageTextBox.Text;
-            ((AddVegetableViewModel)this.DataContext).MinHumidity = humMinTextBox.Text;
-            ((AddVegetableViewModel)this.DataContext).MaxHumidity = humMaxTextBox.Text;
-            ((AddVegetableViewModel)this.DataContext).MinTemperature = tempMinTextBox.Text;
-            ((AddVegetableViewModel)this.DataContext).MaxTemperature = tempMaxTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).Name = nameTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).Description = descriptionTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).ImagePath = imageTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).MinHumidity = humMinTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).MaxHumidity = humMaxTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).MinTemperature = tempMinTextBox.Text;
+            ((UpdateVegetableViewModel)this.DataContext).MaxTemperature = tempMaxTextBox.Text;
         }
     }
 }

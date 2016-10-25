@@ -53,6 +53,8 @@ namespace VegiSens.ViewModel
         //Navigate to selectVegetable
         protected void NavigateToSelectVegetable()
         {
+            Messenger.Default.Send<GrowableItem>(currentGrowableItem);
+
             frameNavagationService.NavigateToFrame(typeof(SelectVegetable));
         }
     }

@@ -13,5 +13,6 @@ namespace VegiSens.Services
         GrowableItem GetGrowableItemById(int growableItemID);
         ObservableCollection<GrowableItem> GetAllGrowableItems();
         void AddVegetableItem(GrowableItem growableItemToAdd);
+        void UpdateVegetableItem(GrowableItem growableItemToUpdate);
     }
 }

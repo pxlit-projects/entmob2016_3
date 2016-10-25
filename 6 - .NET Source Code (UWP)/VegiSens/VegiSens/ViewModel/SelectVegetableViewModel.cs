@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using VegiSens.domain;
 using VegiSens.Services;
 using VegiSens.Utility;
 using VegiSens.View;
-using VegiSens.ViewModel;
 using Windows.UI.Popups;
 
 namespace VegiSens.ViewModel
@@ -20,7 +15,7 @@ namespace VegiSens.ViewModel
         //Properties
         public ICommand SaveCommand { get; set; }
         public ICommand AddCommand { get; set; }
-        public ICommand updateCommand { get; set; }
+        public ICommand UpdateCommand { get; set; }
 
         private ObservableCollection<GrowableItem> growableItemList;
 
@@ -72,7 +67,33 @@ namespace VegiSens.ViewModel
         //Messenger received
         private void OnVegetableReceived(GrowableItem growableItemReceived)
         {
-            this.growableItemList.Add(growableItemReceived);
+            //ObservableCollection<GrowableItem> growableItemListHulp = this.growableItemList;
+
+            this.currentGrowableItem = growableItemReceived;
+
+            //bool checkToInsertOrAdd = true;
+
+            //foreach (var growableItem in growableItemListHulp)
+            //{
+            //    if (growableItem.GrowableItemID == growableItemReceived.GrowableItemID)
+            //    {
+            //        int index = growableItemListHulp.IndexOf(growableItem);
+            //        growableItemListHulp.Remove(growableItem);
+            //        growableItemListHulp.Insert(index, growableItemReceived);
+            //        growableItemList = growableItemListHulp;
+            //        checkToInsertOrAdd = false;
+            //    }
+
+            //    if (!checkToInsertOrAdd)
+            //    {
+            //        break;
+            //    }
+            //}
+
+            //if (checkToInsertOrAdd)
+            //{
+            //    this.growableItemList.Add(growableItemReceived);
+            //}
         }
 
         //Load all commands
@@ -80,19 +101,21 @@ namespace VegiSens.ViewModel
         {
             SpectatorCommand = new CustomCommand(NavigateToSpectate, CanNavigate);
             AddCommand = new CustomCommand(NavigateToAddVegetablePage, CanNavigate);
-            updateCommand= new CustomCommand(NavigateToUpdateVegetablePage, CanNavigate);
+            UpdateCommand= new CustomCommand(NavigateToUpdateVegetablePage, CanNavigate);
             SaveCommand = new CustomCommand(SaveVegetable, CanNavigate);
         }
 
         //Navigate to Add Vegetable
         protected void NavigateToAddVegetablePage()
         {
-            frameNavagationService.NavigateToFrame(typeof(UpdateVegetable));
+            frameNavagationService.NavigateToFrame(typeof(AddVegetable));
         }
 
         //Navigate to Update Vegetable
         protected void NavigateToUpdateVegetablePage()
         {
+            Messenger.Default.Send<GrowableItem>(currentGrowableItem);
+
             frameNavagationService.NavigateToFrame(typeof(UpdateVegetable));
         }
 

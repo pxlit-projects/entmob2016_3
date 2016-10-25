@@ -20,6 +20,9 @@ public class GrowableItemRestController
 	    @Autowired
 	    private IHumidityService humidityRepository;
 	    
+	    private int humidity_FK;
+	    private int temperature_FK;
+	    
 	    @GetMapping("/growableItems")	    
 	    public List<GrowableItem> getGrowableItems() 
 	    {	    		       
@@ -27,14 +30,36 @@ public class GrowableItemRestController
 	    }
 	    
 	    @PostMapping("/growableItems/add")	    
-	    public void addGrowableItems(@RequestBody GrowableItem  growableItem) 
+	    public void addGrowableItem(@RequestBody GrowableItem  growableItem) 
 	    {	    	
 	    	//Add temp and hum, get the keys and put them as FK for the new vegetable
-	    	int humidity_FK = humidityRepository.addHumidity(growableItem.getHumidity()).getHumidityId();
-	    	int temperature_FK = temperatureRepository.addTemperature(growableItem.getTemperature()).getTemperatureId();
+	    	humidity_FK = humidityRepository.addHumidity(growableItem.getHumidity()).getHumidityId();
+	    	temperature_FK = temperatureRepository.addTemperature(growableItem.getTemperature()).getTemperatureId();
 	    	
 	    	//Create entity item
 	    	GrowableItemEntity growableItemEntity = new GrowableItemEntity();
+	    	
+	    	growableItemEntity.setDescription(growableItem.getDescription());
+	    	growableItemEntity.setImage(growableItem.getImage());
+	    	growableItemEntity.setName(growableItem.getName());
+	    	growableItemEntity.setHumidity_fk(humidity_FK);
+	    	growableItemEntity.setTemperature_fk(temperature_FK);
+	    	
+	    	//Save entity Item
+	        growableItemRepository.addGrowableItem(growableItemEntity);    
+	    }
+	    
+	    @PutMapping("/growableItems/update")	    
+	    public void updateGrowableItem(@RequestBody GrowableItem  growableItem) 
+	    {	    	
+	    	//Add temp and hum, get the keys and put them as FK for the new vegetable
+	    	humidity_FK = humidityRepository.updateHumidity(growableItem.getHumidity()).getHumidityId();
+	    	temperature_FK = temperatureRepository.updateTemperature(growableItem.getTemperature()).getTemperatureId();
+	    	
+	    	//Create entity item
+	    	GrowableItemEntity growableItemEntity = new GrowableItemEntity();
+	    	
+	    	growableItemEntity.setGrowableItemId(growableItem.getGrowableItemId());
 	    	growableItemEntity.setDescription(growableItem.getDescription());
 	    	growableItemEntity.setImage(growableItem.getImage());
 	    	growableItemEntity.setName(growableItem.getName());

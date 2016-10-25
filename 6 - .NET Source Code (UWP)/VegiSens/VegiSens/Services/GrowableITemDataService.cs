@@ -35,5 +35,10 @@ namespace VegiSens.Services
         {
             repository.AddVegetableItem(growableItemToAdd);
         }
+
+        public void UpdateVegetableItem(GrowableItem growableItemToUpdate)
+        {
+            repository.UpdateVegetableItem(growableItemToUpdate);
+        }
     }
 }

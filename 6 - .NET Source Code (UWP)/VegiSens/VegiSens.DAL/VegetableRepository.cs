@@ -57,8 +57,6 @@ namespace VegiSens.DAL
 
                 //Get the connection with the URL and return the result (succes or not)
                 HttpResponseMessage response = await client.PostAsync(client.BaseAddress, new StringContent(growableItem.ToString(), Encoding.UTF8, "application/json"));
-
-                loadGrowableItems();
             }
         }
 
@@ -80,6 +78,45 @@ namespace VegiSens.DAL
             }
 
             return growableItems.Where(g => g.GrowableItemID == growableItemID).FirstOrDefault();
+        }
+
+        public async void UpdateVegetableItem(GrowableItem growableItemToUpdate)
+        {
+            //Create a new httpclient instances
+            using (var client = new HttpClient())
+            {
+                //Set URL
+                client.BaseAddress = new Uri("http://localhost:8081/growableItems/update");
+
+                //Clear evrything before starting
+                client.DefaultRequestHeaders.Accept.Clear();
+
+                //Set the format to JSON
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Add base64 string to header
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes("arno:pxl")));
+
+                var growableItem = JsonConvert.SerializeObject(growableItemToUpdate);
+
+                //Make properties lowercase
+                growableItem = growableItem.Replace("GrowableItemID", "growableItemId");
+                growableItem = growableItem.Replace("Name", "name");
+                growableItem = growableItem.Replace("Description", "description");
+                growableItem = growableItem.Replace("Image", "image");
+
+                growableItem = growableItem.Replace("Temperature", "temperature");
+                growableItem = growableItem.Replace("Maxtemperature", "maxTemperature");
+                growableItem = growableItem.Replace("Mintemperature", "minTemperature");
+
+                growableItem = growableItem.Replace("Humidity", "humidity");
+                growableItem = growableItem.Replace("Maxhumidity", "maxHumidity");
+                growableItem = growableItem.Replace("Minhumidity", "minHumidity");
+
+                //Get the connection with the URL and return the result (succes or not)
+                HttpResponseMessage response = await client.PutAsync(client.BaseAddress, new StringContent(growableItem.ToString(), Encoding.UTF8, "application/json"));
+
+            }
         }
 
         //Load all Growable Items

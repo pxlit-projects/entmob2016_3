@@ -21,14 +21,13 @@ namespace VegiSens.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class UpdateVegetable : Page
+    public sealed partial class AddVegetable : Page
     {
-        public UpdateVegetable()
+        public AddVegetable()
         {
             this.InitializeComponent();
         }
 
-        //Get the data from textboxes
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
             ((AddVegetableViewModel)this.DataContext).Name = nameTextBox.Text;

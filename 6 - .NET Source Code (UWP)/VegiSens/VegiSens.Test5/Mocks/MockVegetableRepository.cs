@@ -49,6 +49,11 @@ namespace VegiSens.Test.Mocks
             return growableItems.Where(g => g.GrowableItemID == growableItemID).FirstOrDefault();
         }
 
+        public void UpdateVegetableItem(GrowableItem growableItemToUpdate)
+        {
+            throw new NotImplementedException();
+        }
+
         //Load all Growable Items
         private void loadGrowableItems()
         {

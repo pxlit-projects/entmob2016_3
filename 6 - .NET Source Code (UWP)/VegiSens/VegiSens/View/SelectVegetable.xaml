@@ -68,7 +68,7 @@
         <Button RelativePanel.Below="descriptionPanel" Command="{Binding AddCommand}" BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="addButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <!--Update Button-->
-        <Button BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="updateButton" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button BorderThickness="1" BorderBrush="Black" Background="LimeGreen" x:Name="updateButton" Content="Update" Command="{Binding UpdateCommand}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         
         <!--Save Button-->

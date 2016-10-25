@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using VegiSens.domain;
 using VegiSens.Services;
 using VegiSens.Utility;
-using VegiSens.View;
-using VegiSens.ViewModel;
 using Windows.UI.Popups;
 
 namespace VegiSens.ViewModel
@@ -45,8 +37,6 @@ namespace VegiSens.ViewModel
             AddVegetableCommand = new CustomCommand(AddVegetableAndNavigate, CanNavigate);
         }
 
-
-        //Quit application
         private async void AddVegetableAndNavigate()
         {
             Humidity humidityToAdd = new Humidity();

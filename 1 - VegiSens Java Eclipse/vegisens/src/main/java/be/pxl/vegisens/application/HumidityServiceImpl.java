@@ -41,4 +41,9 @@ public class HumidityServiceImpl implements IHumidityService
 		return repository.save(humidityToAdd);
 	}
 
+	public Humidity updateHumidity(Humidity humidityToUpdate) 
+	{
+		return repository.save(humidityToUpdate);
+	}
+
 }

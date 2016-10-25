@@ -34,4 +34,9 @@ public class TemperatureServiceImpl implements ITemperatureService {
 		return repository.save(temperatureToAdd);
 	}
 
+	public Temperature updateTemperature(Temperature temperatureToUpdate) 
+	{
+		return repository.save(temperatureToUpdate);
+	}
+
 }
