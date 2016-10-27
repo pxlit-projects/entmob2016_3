@@ -52,4 +52,11 @@ public class SensorType implements Serializable
 	public String getSensorUnit() {
 		return sensorUnit;
 	}
+	
+	public String toString()
+	{
+		return "[SensorTypeID]: " + this.sensortypeId +
+			   " [Name]: " + this.sensorName +
+			   " [Unit]: " + this.sensorUnit;
+	}
 }

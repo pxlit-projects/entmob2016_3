@@ -58,4 +58,10 @@ public class Humidity implements Serializable
 		this.growableItems = growableItems;
 	}
 	
+	public String toString()
+	{
+		return "{[HumidityID]: " + this.humidityId +
+			   " [MinHumidity]: " + this.minHumidity +
+			   " [MaxHumidity]: " + this.maxHumidity + "}";	
+	}
 }

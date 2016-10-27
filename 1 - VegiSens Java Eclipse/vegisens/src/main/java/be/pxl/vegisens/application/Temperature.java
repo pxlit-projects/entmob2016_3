@@ -58,4 +58,10 @@ public class Temperature implements Serializable
 		this.maxTemperature = maxTemperature;
 	}
 	
+	public String toString()
+	{
+		return "{[TemperatureID]: " + this.temperatureId +
+			   " [MinTemperature]: " + this.minTemperature +
+			   " [MaxTemperature]: " + this.maxTemperature + "}";	
+	}
 }

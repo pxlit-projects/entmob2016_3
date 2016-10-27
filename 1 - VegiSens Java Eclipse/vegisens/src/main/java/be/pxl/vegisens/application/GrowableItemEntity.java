@@ -81,5 +81,12 @@ public class GrowableItemEntity implements Serializable
 		this.humidity_fk = humidity_fk;
 	}
 
-
+	public String toString()
+	{
+		return "[GrowableItemID]: " + this.growableItemId + 	
+			   " [Name]: " + this.name +
+			   " [Description]: " + this.description +
+			   " [Humidity_FK]: " + this.humidity_fk + 	
+			   " [Temperature_FK]: " + this.temperature_fk;
+	}
 }

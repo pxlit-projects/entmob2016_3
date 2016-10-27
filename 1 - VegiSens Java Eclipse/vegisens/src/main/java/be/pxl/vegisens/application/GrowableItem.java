@@ -82,4 +82,14 @@ public class GrowableItem implements Serializable
 	public void setImage(String image) {
 		this.image = image;
 	}
+	
+	public String toString()
+	{
+		return "[GrowableItemID]: " + this.growableItemId +
+			   " [Name]: " + this.name +
+			   " [Description]: " + this.description +
+			   " [Image]: " + this.image + 	
+			   " [Temperature]: " + this.temperature.toString() + 	
+			   " [Humidity]: " + this.humidity.toString();
+	}
 }
