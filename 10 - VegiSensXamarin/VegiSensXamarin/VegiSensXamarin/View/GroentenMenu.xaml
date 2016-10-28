@@ -5,7 +5,7 @@
              Title="Buttons"
              x:Class="VegiSensXamarin.GroentenMenu">
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-
+  <ScrollView>
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
@@ -169,4 +169,10 @@
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton> 
   </Grid>
+<<<<<<< HEAD
+=======
+    </ScrollView>
+  
+  
+>>>>>>> d7cf9f3815893b24f7fe588cbe541d47754f0b32
 </ContentPage>
