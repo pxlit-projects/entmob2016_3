@@ -5,7 +5,7 @@
              Title="Buttons"
              x:Class="VegiSensXamarin.GroentenMenu">
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-
+  <ScrollView>
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
@@ -167,6 +167,7 @@
 
     
   </Grid>
+    </ScrollView>
   
   
 </ContentPage>

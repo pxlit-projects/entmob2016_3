@@ -15,7 +15,7 @@ namespace VegiSensXamarin
         public GroentenDetail()
         {
             InitializeComponent();
-            BindingContext = ViewModelLocator.GroentenMenuViewModel;
+            BindingContext = ViewModelLocator.GroentenDetailViewModel;
 
         }
     }

@@ -2,6 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VegiSensXamarin.GroentenDetail">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,0.75"
+                 AbsoluteLayout.LayoutFlags="All"
+                 BackgroundColor="#7E808080">
+        <Button Text="&lt;&lt; Go back" Command="{Binding ViewMenuCommand}">></Button>
+        <StackLayout Orientation="Horizontal">
+          <Image Source="icon.png"></Image>
+          <Label Text="VegiSens" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="50" />
+        </StackLayout> 
+        <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="5" VerticalOptions="Start" />
+        
+        <StackLayout Orientation="Horizontal" Spacing="20">
+          <Image Source="tomato.png"></Image>
+          <Label Text="Tomato" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="30" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+          <Label Text="Temperature" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="Humidity" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+        </StackLayout>
+        <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="2" VerticalOptions="Start" />
+        <StackLayout Orientation="Horizontal">
+          <Label Text="Min: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="--°C" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="Min: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="--°C" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+          <Label Text="Max: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="--%" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="Max: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="--%" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+        </StackLayout>
+        <Label Text="Description: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+        <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="2" VerticalOptions="Start" />
+        <Label VerticalOptions="CenterAndExpand" Text="Lorem ipsum dolor sit amet, nobis doctus commodo eam no, ius ad persecuti temporibus. Homero impetus reprehendunt mel cu, mollis tibique principes per ea. Sale nostro eruditi no pro, mei unum saperet ne, te modo latine usu. Ius verear maiestatis an. Mel cu iriure officiis, ne eam impetus torquatos persecuti. Audire nusquam adversarium te quo." />
+        
+      </StackLayout>
+    </ScrollView>
+   
+    
+  </ContentPage.Content>
 
 </ContentPage>
