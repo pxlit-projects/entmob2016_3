@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using VegiSensXamarin.Locator;
+using VegiSensXamarin.Services;
+using VegiSensXamarin.ViewModel;
 using Xamarin.Forms;
 
 namespace VegiSensXamarin
@@ -13,6 +15,8 @@ namespace VegiSensXamarin
         public GroentenDetail()
         {
             InitializeComponent();
+            BindingContext = ViewModelLocator.GroentenMenuViewModel;
+
         }
     }
 }

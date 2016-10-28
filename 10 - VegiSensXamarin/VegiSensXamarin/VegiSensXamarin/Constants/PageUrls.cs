@@ -8,7 +8,7 @@ namespace VegiSensXamarin.Constants
 {
     class PageUrls
     {
-        public const string MenuView = "MenuView";
-        public const string DetailView = "DetailView";
+        public const string VegetableMenuView = "GroentenMenu";
+        public const string VegetableDetailView = "GroentenDetail";
     }
 }

@@ -20,13 +20,14 @@ namespace VegiSensXamarin.ViewModel
         {
             ViewMenuCommand = new Command(async () =>
             {
-                await navigationService.PushModalAsync(PageUrls.MenuView);
+                await navigationService.PushModalAsync(PageUrls.VegetableMenuView);
             });
 
             ViewDetailCommand = new Command(async () =>
             {
-                await navigationService.PushAsync(PageUrls.DetailView);
+                await navigationService.PushAsync(PageUrls.VegetableDetailView);
             });
+
 
         }
     }

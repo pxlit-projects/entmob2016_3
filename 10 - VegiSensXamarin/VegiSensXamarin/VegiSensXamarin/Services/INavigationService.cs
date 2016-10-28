@@ -19,6 +19,7 @@ namespace VegiSensXamarin.Services
         void InsertPageBefore(string pageName, string beforeName);
         Task<Page> PopModalAsync();
         Task<Page> PopModalAsync(bool animated);
+        Task PushModalAsync(object menuView);
         Task PopToRootAsync(bool animated);
         Task PushAsync(string pageName, bool animated);
         Task PushModalAsync(string pageName);
