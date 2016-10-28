@@ -22,6 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/growableItems").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/growableItems/add/").fullyAuthenticated()
                 .antMatchers("/growableItems/add/").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/growableItems/update/").fullyAuthenticated()
+                .antMatchers("/growableItems/update/").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated().and().csrf().disable()
                 .httpBasic(); // To get authentication popup
     }
