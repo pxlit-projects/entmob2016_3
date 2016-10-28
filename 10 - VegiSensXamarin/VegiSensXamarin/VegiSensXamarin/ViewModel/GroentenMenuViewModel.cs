@@ -12,30 +12,23 @@ namespace VegiSensXamarin.ViewModel
 {
     public class GroentenMenuViewModel : ViewModelBase
     {
-        private IFrameNavigation navigationService;
+        private INavigationService navigationService;
         public ICommand ViewMenuCommand { get; set; }
         public ICommand ViewDetailCommand { get; set; }
-        public GroentenMenuViewModel(IFrameNavigation navigationService)
-        {
-           
+
+        public GroentenMenuViewModel(INavigationService navigationService)
+        {          
             this.navigationService = navigationService;
 
             InitializeCommands();
-            //InitializeMessagingCenter();
         }
+
         private void InitializeCommands()
         {
-            ViewMenuCommand = new Command( () =>
-            {
-                navigationService.NavigateTo("Detail");
-            });
-
             ViewDetailCommand = new Command(() =>
             {
                 navigationService.NavigateTo("Detail");
             });
-
-
         }
     }
-    }
+ }

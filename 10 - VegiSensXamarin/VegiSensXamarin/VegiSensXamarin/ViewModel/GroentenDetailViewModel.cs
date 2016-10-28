@@ -10,25 +10,25 @@ using Xamarin.Forms;
 
 namespace VegiSensXamarin.ViewModel
 {
-    class GroentenDetailViewModel : ViewModelBase
+    public class GroentenDetailViewModel : ViewModelBase
     {
         private INavigationService navigationService;
         public ICommand ViewMenuCommand { get; set; }
         public ICommand ViewDetailCommand { get; set; }
 
+        public GroentenDetailViewModel(INavigationService navigationService)
+        {
+            this.navigationService = navigationService;
+
+            InitializeCommands();
+        }
+
         private void InitializeCommands()
         {
-            ViewMenuCommand = new Command(async () =>
-            {
-                await navigationService.PushModalAsync(PageUrls.VegetableMenuView);
-            });
-
-            ViewDetailCommand = new Command(async () =>
-            {
-                await navigationService.PushAsync(PageUrls.VegetableDetailView);
-            });
-
-
+            ViewMenuCommand = new Command(() =>
+           {
+               navigationService.NavigateTo("Menu");
+           });
         }
     }
 }

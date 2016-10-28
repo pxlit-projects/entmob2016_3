@@ -21,7 +21,7 @@
     
     <!--<Image Source="tomato.png" Grid.Row="0" Grid.Column="0" Aspect="Fill" />-->
     
-    <!--<controls:ImageButton x:Name="TomatoButton"
+    <controls:ImageButton x:Name="TomatoButton"
                           BackgroundColor="#3d509f"
                           HeightRequest="75"
                           ImageHeightRequest="100"
@@ -34,8 +34,9 @@
                           Grid.Row="0"
                           Grid.Column="0"
                           Command="{Binding ViewDetailCommand}">
-    </controls:ImageButton>-->
-    <Button Text="About Joe's Burgers" Command="{Binding ViewDetailCommand}"></Button>
+    </controls:ImageButton>
+    <!--
+    <Button Text="About Joe's Burgers" Command="{Binding ViewDetailCommand}"></Button>-->
 
     <controls:ImageButton x:Name="StrawberryButton"
                           BackgroundColor="#3d509f"
