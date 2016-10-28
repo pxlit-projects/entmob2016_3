@@ -28,7 +28,7 @@
                           Text="Tomato"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="{Binding GrowableItemListToSend[0].Image}"
+                          Image="{Binding GrowableItem.Image}"
                           Grid.Row="0"
                           Grid.Column="0"
                           Command="{Binding ViewDetailCommand}">
@@ -169,10 +169,5 @@
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton> 
   </Grid>
-<<<<<<< HEAD
-=======
     </ScrollView>
-  
-  
->>>>>>> d7cf9f3815893b24f7fe588cbe541d47754f0b32
 </ContentPage>

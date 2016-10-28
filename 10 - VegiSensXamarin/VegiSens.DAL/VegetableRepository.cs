@@ -50,7 +50,7 @@ namespace VegiSens.DAL
             {
                 //Set URL
                 //10.84.134.146
-                client.BaseAddress = new Uri("http://169.254.80.80:8081/growableItems");
+                client.BaseAddress = new Uri("http://10.84.134.146:8081/growableItems");
 
                 //Clear evrything before starting
                 client.DefaultRequestHeaders.Accept.Clear();

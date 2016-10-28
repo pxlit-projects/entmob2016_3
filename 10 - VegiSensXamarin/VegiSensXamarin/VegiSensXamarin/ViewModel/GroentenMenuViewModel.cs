@@ -42,30 +42,30 @@ namespace VegiSensXamarin.ViewModel
 
         private void loadData()
         {
-            GrowableItemListToSend.Clear();
+            //GrowableItemListToSend.Clear();
+
+            //GrowableItemListRevceived = growableDataservice.GetAllGrowableItems();
+
+            //string imagePath;
+            //int index;
+
+            //foreach (var growableItem in GrowableItemListRevceived)
+            //{
+            //    imagePath = GrowableItem.Image.ToLower();
+            //    index = imagePath.LastIndexOf('/');
+            //    growableItem.Image = imagePath.Substring(index);
+            //    GrowableItemListToSend.Add(growableItem);
+            //}
 
             GrowableItemListRevceived = growableDataservice.GetAllGrowableItems();
 
-            string imagePath;
-            int index;
 
-            foreach (var growableItem in GrowableItemListRevceived)
-            {
-                imagePath = GrowableItem.Image.ToLower();
-                index = imagePath.LastIndexOf('/');
-                growableItem.Image = imagePath.Substring(index);
-                GrowableItemListToSend.Add(growableItem);
-            }
+            GrowableItem = GrowableItemListRevceived[0];
+            string imagePath = GrowableItem.Image.ToLower();
+            int index = imagePath.LastIndexOf('/');
 
-            //GrowableItemList = growableDataservice.GetAllGrowableItems();
-
-
-            //GrowableItem = GrowableItemList[0];
-            //string imagePath = GrowableItem.Image.ToLower();
-            //int index = imagePath.LastIndexOf('/');
-
-            //GrowableItem.Image = imagePath.Substring(index);
-            //GrowableItemList[0] = GrowableItem;
+            GrowableItem.Image = imagePath.Substring(index);
+            GrowableItemListRevceived[0] = GrowableItem;
         }
     }
  }
