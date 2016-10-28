@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="growable_items")
+@NamedQuery(name = "GrowableItem.getGrowableItemByName", query = "select g from GrowableItem g where g.name=?1")
 public class GrowableItem implements Serializable 
 {
     /**

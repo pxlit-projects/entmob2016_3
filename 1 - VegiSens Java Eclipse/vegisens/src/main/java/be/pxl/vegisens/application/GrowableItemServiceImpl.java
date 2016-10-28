@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NamedQuery;
+
 @Service
 @Transactional
 public class GrowableItemServiceImpl implements IGrowableItemService
@@ -26,5 +28,4 @@ public class GrowableItemServiceImpl implements IGrowableItemService
 		entityRepository.save(growableItemToAdd);			
 	}
 }
-
 
