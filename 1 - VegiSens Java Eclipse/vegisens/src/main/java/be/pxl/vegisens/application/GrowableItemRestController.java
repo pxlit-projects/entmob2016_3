@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import static be.pxl.vegisens.application.LogColor.GET_PREFIX;
+import static be.pxl.vegisens.application.LogColor.POST_PREFIX;
+import static be.pxl.vegisens.application.LogColor.PUT_PREFIX;
 
 
 @RestController
@@ -26,9 +29,7 @@ public class GrowableItemRestController
 	    private int humidity_FK;
 	    private int temperature_FK;
 	    
-	    private final String GET_PREFIX = "[GET] ";
-	    private final String POST_PREFIX = "[POST] ";
-	    private final String PUT_PREFIX = "[PUT] ";
+
 	    
 	    @GetMapping("/growableItems")	    
 	    public List<GrowableItem> getGrowableItems() 
