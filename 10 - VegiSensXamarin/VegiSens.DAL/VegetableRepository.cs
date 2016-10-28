@@ -42,16 +42,6 @@ namespace VegiSens.DAL
             return growableItems.Where(g => g.GrowableItemID == growableItemID).FirstOrDefault();
         }
 
-        ObservableCollection<GrowableItem> IVegetableRepository.GetAllGrowableItems()
-        {
-            throw new NotImplementedException();
-        }
-
-        GrowableItem IVegetableRepository.GetGrowableItemById(int growableItemID)
-        {
-            throw new NotImplementedException();
-        }
-
         //Load all Growable Items
         private void loadGrowableItems()
         {
@@ -59,7 +49,8 @@ namespace VegiSens.DAL
             using (var client = new HttpClient())
             {
                 //Set URL
-                client.BaseAddress = new Uri("http://localhost:8081/growableItems");
+                //10.84.134.146
+                client.BaseAddress = new Uri("http://169.254.80.80:8081/growableItems");
 
                 //Clear evrything before starting
                 client.DefaultRequestHeaders.Accept.Clear();
@@ -67,8 +58,11 @@ namespace VegiSens.DAL
                 //Set the format to JSON
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+                //Add base64 string to header
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes("arno:pxl")));
+
                 //Get the connection with the URL and return the result (succes or not)
-                HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
+                HttpResponseMessage response = client.GetAsync(client.BaseAddress.AbsoluteUri).Result;
 
                 //If the resposne succeeded
                 if (response.IsSuccessStatusCode)

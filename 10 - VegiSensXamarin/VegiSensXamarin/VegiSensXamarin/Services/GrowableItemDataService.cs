@@ -4,12 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VegiSensDomain;
 using VegiSens.DAL;
+using VegiSensDomain;
 
 namespace VegiSensXamarin.Services
 {
-    public class GrowableItemDataService : IGrowableItemData
+    public class GrowableItemDataService : IGrowableItemDataService
     {
         //Properties
         IVegetableRepository repository;
@@ -21,24 +21,14 @@ namespace VegiSensXamarin.Services
         }
 
         //Methods
-        public GrowableItem GetGrowableItemById(int growableItemID)
-        {
-            return repository.GetGrowableItemById(growableItemID);
-        }
-
         public ObservableCollection<GrowableItem> GetAllGrowableItems()
         {
             return repository.GetAllGrowableItems();
         }
 
-        GrowableItem IGrowableItemData.GetGrowableItemById(int growableItemID)
+        public GrowableItem GetGrowableItemById(int growableItemID)
         {
-            throw new NotImplementedException();
-        }
-
-        ObservableCollection<GrowableItem> IGrowableItemData.GetAllGrowableItems()
-        {
-            throw new NotImplementedException();
+            return repository.GetGrowableItemById(growableItemID);
         }
     }
 }

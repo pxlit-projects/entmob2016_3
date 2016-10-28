@@ -8,7 +8,7 @@ using VegiSensDomain;
 
 namespace VegiSensXamarin.Services
 {
-    public interface IGrowableItemData
+    public interface IGrowableItemDataService
     {
         GrowableItem GetGrowableItemById(int growableItemID);
         ObservableCollection<GrowableItem> GetAllGrowableItems();

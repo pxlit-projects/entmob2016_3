@@ -36,12 +36,8 @@
   <ItemGroup>
     <Compile Include="GrowableItem.cs" />
     <Compile Include="Humidity.cs" />
-    <Compile Include="HumidityRegisteredValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SensorType.cs" />
     <Compile Include="Temperature.cs" />
-    <Compile Include="TemperatureRegisteredValues.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Windows">

@@ -11,7 +11,7 @@ namespace VegiSens.domain
         private double maxTemperature;
         private double minTemperature;
 
-        public int temperatureId
+        public int TemperatureId
         {
             get { return temperatureID; }
             set { temperatureID = value; }

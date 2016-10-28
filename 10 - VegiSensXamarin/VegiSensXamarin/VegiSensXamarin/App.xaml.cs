@@ -16,12 +16,9 @@ namespace VegiSensXamarin
         public App()
         {
             InitializeComponent();
+
             locator = new ViewModelLocator();
-
-
-            var groentenMenu = new GroentenMenu();
-
-            
+            var groentenMenu = new GroentenMenu();       
             MainPage = new NavigationPage(groentenMenu);
         }
 

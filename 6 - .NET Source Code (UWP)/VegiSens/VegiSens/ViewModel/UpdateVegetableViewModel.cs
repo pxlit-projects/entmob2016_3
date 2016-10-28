@@ -55,7 +55,7 @@ namespace VegiSens.ViewModel
 
             Temperature temperatureToAdd = new Temperature();
 
-            temperatureToAdd.temperatureId = currentGrowableItem.Temperature.temperatureId;
+            temperatureToAdd.TemperatureId = currentGrowableItem.Temperature.TemperatureId;
             temperatureToAdd.MaxTemperature = Convert.ToDouble(this.MaxTemperature);
             temperatureToAdd.MinTemperature = Convert.ToDouble(this.MinTemperature);
 

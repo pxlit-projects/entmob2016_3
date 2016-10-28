@@ -38,7 +38,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Constants\PageUrls.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Converter\HumidityConverter.cs" />
     <Compile Include="Converter\TemperatureConverter.cs" />
@@ -62,9 +61,7 @@
       <DependentUpon>SelectVegetable.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\GrowableItemDataService.cs" />
-    <Compile Include="Services\IGrowableItemData.cs" />
-    <Compile Include="Services\ISensorTypeData.cs" />
-    <Compile Include="Services\SensorTypeDataService.cs" />
+    <Compile Include="Services\IGrowableItemDataService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />
     <Compile Include="Utility\Messenger.cs" />
   </ItemGroup>
@@ -153,7 +150,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EntMob3_Logo.png" />
     <Content Include="Images\Logo\EntMob3_Logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +169,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Vegetables\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\VegiSens.DAL\VegiSens.DAL.csproj">
