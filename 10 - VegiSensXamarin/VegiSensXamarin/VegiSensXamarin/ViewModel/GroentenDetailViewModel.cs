@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using VegiSensXamarin.Services;
 using Xamarin.Forms;
+using VegiSensDomain;
+using VegiSensXamarin.Utility;
 
 namespace VegiSensXamarin.ViewModel
 {
@@ -13,13 +15,22 @@ namespace VegiSensXamarin.ViewModel
     {
         private INavigationService navigationService;
         public ICommand ViewMenuCommand { get; set; }
-        public ICommand ViewDetailCommand { get; set; }
+
+
+        public GrowableItem CurrentGrowableItem { get; set; }
 
         public GroentenDetailViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
 
+            Messenger.Default.Register<GrowableItem>(this, OnReceiveGrowableItem);
+
             InitializeCommands();
+        }
+
+        private void OnReceiveGrowableItem(GrowableItem receivedGrowableItem)
+        {
+            this.CurrentGrowableItem = receivedGrowableItem;
         }
 
         private void InitializeCommands()

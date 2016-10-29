@@ -3327,20 +3327,23 @@ namespace VegiSensXamarin.Droid
 			// aapt resource value: 0x7f020068
 			public const int mr_ic_settings_light = 2130837608;
 			
-			// aapt resource value: 0x7f02006d
-			public const int notification_template_icon_bg = 2130837613;
+			// aapt resource value: 0x7f02006e
+			public const int notification_template_icon_bg = 2130837614;
 			
 			// aapt resource value: 0x7f020069
 			public const int potato = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int red_cabbage = 2130837610;
+			public const int pumpkin = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int strawberry = 2130837611;
+			public const int red_cabbage = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int tomato = 2130837612;
+			public const int strawberry = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int tomato = 2130837613;
 			
 			static Drawable()
 			{

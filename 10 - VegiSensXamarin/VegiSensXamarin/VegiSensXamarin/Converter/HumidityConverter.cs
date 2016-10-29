@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace VegiSensXamarin.Coverter
+namespace VegiSensXamarin.Converter
 {
     public class HumidityConverter : IValueConverter
     {

@@ -47,6 +47,11 @@ namespace VegiSensXamarin.Utility
         {
         }
 
+        internal void Send<T>()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Registers a recipient for a type of message T. The action parameter will be executed
         /// when a corresponding message is sent.

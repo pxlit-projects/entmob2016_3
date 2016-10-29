@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:VegiSensXamarin.Converter"
              x:Class="VegiSensXamarin.GroentenDetail">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converter:TemperatureConverter x:Key="TemperatureConverterKey"></converter:TemperatureConverter>
+      <converter:HumidityConverter x:Key="HumidityConverterKey"></converter:HumidityConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
   <ContentPage.Content>
     <ScrollView>
       <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,0.75"
@@ -15,8 +22,8 @@
         <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="5" VerticalOptions="Start" />
         
         <StackLayout Orientation="Horizontal" Spacing="20">
-          <Image Source="tomato.png"></Image>
-          <Label Text="Tomato" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="30" />
+          <Image Source="{Binding CurrentGrowableItem.Image}"></Image>
+          <Label Text="{Binding CurrentGrowableItem.Name}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="30" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">
           <Label Text="Temperature" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
@@ -25,25 +32,20 @@
         <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="2" VerticalOptions="Start" />
         <StackLayout Orientation="Horizontal">
           <Label Text="Min: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
-          <Label Text="--°C" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
-          <Label Text="Min: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
-          <Label Text="--°C" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="{Binding CurrentGrowableItem.Temperature.MinTemperature, Converter={StaticResource TemperatureConverterKey}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="Max: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="{Binding CurrentGrowableItem.Humidity.MinHumidity, Converter={StaticResource HumidityConverterKey}} " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">
+          <Label Text="Min: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="{Binding CurrentGrowableItem.Temperature.MaxTemperature, Converter={StaticResource TemperatureConverterKey}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
           <Label Text="Max: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
-          <Label Text="--%" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
-          <Label Text="Max: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
-          <Label Text="--%" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
+          <Label Text="{Binding CurrentGrowableItem.Humidity.MaxHumidity, Converter={StaticResource HumidityConverterKey}}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
         </StackLayout>
         <Label Text="Description: " VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="20" />
         <BoxView Color="Black" HorizontalOptions="FillAndExpand" HeightRequest="2" VerticalOptions="Start" />
-        <Label VerticalOptions="CenterAndExpand" Text="Lorem ipsum dolor sit amet, nobis doctus commodo eam no, ius ad persecuti temporibus. Homero impetus reprehendunt mel cu, mollis tibique principes per ea. Sale nostro eruditi no pro, mei unum saperet ne, te modo latine usu. Ius verear maiestatis an. Mel cu iriure officiis, ne eam impetus torquatos persecuti. Audire nusquam adversarium te quo." />
-        
+        <Label VerticalOptions="CenterAndExpand" Text="{Binding CurrentGrowableItem.Description}" />        
       </StackLayout>
-    </ScrollView>
-   
-    
+    </ScrollView>    
   </ContentPage.Content>
-
-  <Entry Text="Hello"></Entry>
 </ContentPage>

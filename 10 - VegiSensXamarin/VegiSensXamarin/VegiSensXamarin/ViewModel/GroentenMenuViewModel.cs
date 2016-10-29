@@ -8,6 +8,8 @@ using System.Windows.Input;
 using VegiSensDomain;
 using VegiSensXamarin.Services;
 using Xamarin.Forms;
+using VegiSensXamarin.Utility;
+using XLabs.Forms.Controls;
 
 namespace VegiSensXamarin.ViewModel
 {
@@ -16,9 +18,8 @@ namespace VegiSensXamarin.ViewModel
         private IGrowableItemDataService growableDataservice;
         private INavigationService navigationService;
 
-        private ObservableCollection<GrowableItem> GrowableItemListRevceived { get; set; }
-        private ObservableCollection<GrowableItem> GrowableItemListToSend { get; set; }
-        public GrowableItem GrowableItem { get; set; }
+        public ObservableCollection<GrowableItem> GrowableItemListRevceived { get; set; }
+        public ObservableCollection<GrowableItem> GrowableItemListToSend { get; set; }
 
         public ICommand ViewDetailCommand { get; set; }
 
@@ -28,44 +29,78 @@ namespace VegiSensXamarin.ViewModel
             this.growableDataservice = growableDataservice;
             this.navigationService = navigationService;
 
+            GrowableItemListRevceived = new ObservableCollection<GrowableItem>();
+            GrowableItemListToSend = new ObservableCollection<GrowableItem>();
+
             InitializeCommands();
             loadData();
         }
 
         private void InitializeCommands()
         {
-            ViewDetailCommand = new Command(() =>
+            ViewDetailCommand = new Command(
+            (parameter) =>
             {
-                navigationService.NavigateTo("Detail");
+                    switch (parameter.ToString())
+                    {
+                        case "Red Tomato":
+                            navigateToDetailview(0);
+                            break;
+                        case "Strawberry":
+                            navigateToDetailview(1);
+                            break;
+                        case "Red cabbage":
+                            navigateToDetailview(2);
+                            break;
+                        case "Potato":
+                            navigateToDetailview(3);
+                            break;
+                        case "Garlic":
+                            navigateToDetailview(4);
+                            break;
+                        case "Chives":
+                            navigateToDetailview(5);
+                            break;
+                        case "Cabbage":
+                            navigateToDetailview(6);
+                            break;
+                        case "Bell Pepper":
+                            navigateToDetailview(7);
+                            break;
+                        case "Bean":
+                            navigateToDetailview(8);
+                            break;
+                        case "Pumpkin":
+                            navigateToDetailview(9);
+                            break;
+                        default:
+                            break;
+                    }             
             });
+        }
+
+        private void navigateToDetailview(int growableItemNumber)
+        {
+            Messenger.Default.Send<GrowableItem>(GrowableItemListToSend[growableItemNumber]);
+            navigationService.NavigateTo("Detail");
         }
 
         private void loadData()
         {
-            //GrowableItemListToSend.Clear();
-
-            //GrowableItemListRevceived = growableDataservice.GetAllGrowableItems();
-
-            //string imagePath;
-            //int index;
-
-            //foreach (var growableItem in GrowableItemListRevceived)
-            //{
-            //    imagePath = GrowableItem.Image.ToLower();
-            //    index = imagePath.LastIndexOf('/');
-            //    growableItem.Image = imagePath.Substring(index);
-            //    GrowableItemListToSend.Add(growableItem);
-            //}
+            GrowableItemListToSend.Clear();
 
             GrowableItemListRevceived = growableDataservice.GetAllGrowableItems();
 
+            string imagePath;
+            int index;
 
-            GrowableItem = GrowableItemListRevceived[0];
-            string imagePath = GrowableItem.Image.ToLower();
-            int index = imagePath.LastIndexOf('/');
-
-            GrowableItem.Image = imagePath.Substring(index);
-            GrowableItemListRevceived[0] = GrowableItem;
+            foreach (var growableItem in GrowableItemListRevceived)
+            {
+                imagePath = growableItem.Image.ToLower();
+                index = imagePath.LastIndexOf('/');
+                growableItem.Image = imagePath.Substring(index);
+                GrowableItemListToSend.Add(growableItem);
+            }
         }
     }
  }

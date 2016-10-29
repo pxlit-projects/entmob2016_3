@@ -25,12 +25,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Tomato"
+                          Text="{Binding GrowableItemListToSend[0].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="{Binding GrowableItem.Image}"
+                          Image="{Binding GrowableItemListToSend[0].Image}"
                           Grid.Row="0"
                           Grid.Column="0"
+                          CommandParameter ="Red Tomato"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -40,12 +41,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Strawberry"
+                          Text="{Binding GrowableItemListToSend[1].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="strawberry.png"
+                          Image="{Binding GrowableItemListToSend[1].Image}"
                           Grid.Row="0"
                           Grid.Column="1"
+                          CommandParameter ="Strawberry"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -55,12 +57,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Red Cabbage"
+                          Text="{Binding GrowableItemListToSend[2].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="red_cabbage.png"
+                          Image="{Binding GrowableItemListToSend[2].Image}"
                           Grid.Row="1"
                           Grid.Column="0"
+                          CommandParameter ="Red cabbage"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -70,12 +73,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Potato"
+                          Text="{Binding GrowableItemListToSend[3].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="potato.png"
+                          Image="{Binding GrowableItemListToSend[3].Image}"
                           Grid.Row="1"
                           Grid.Column="1"
+                          CommandParameter ="Potato"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -85,12 +89,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Garlic"
+                          Text="{Binding GrowableItemListToSend[4].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="garlic.png"
+                          Image="{Binding GrowableItemListToSend[4].Image}"
                           Grid.Row="2"
                           Grid.Column="0"
+                          CommandParameter ="Garlic"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -100,12 +105,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Chive"
+                          Text="{Binding GrowableItemListToSend[5].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="chive.png"
+                          Image="{Binding GrowableItemListToSend[5].Image}"
                           Grid.Row="2"
                           Grid.Column="1"
+                          CommandParameter ="Chives"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -115,12 +121,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Cabbage"
+                          Text="{Binding GrowableItemListToSend[6].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="cabbage.png"
+                          Image="{Binding GrowableItemListToSend[6].Image}"
                           Grid.Row="3"
                           Grid.Column="0"
+                          CommandParameter ="Cabbage"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -130,12 +137,13 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Bell Pepper"
+                          Text="{Binding GrowableItemListToSend[7].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="bell_pepper.png"
+                          Image="{Binding GrowableItemListToSend[7].Image}"
                           Grid.Row="3"
                           Grid.Column="1"
+                          CommandParameter ="Bell Pepper"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
@@ -145,27 +153,29 @@
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Beans"
+                          Text="{Binding GrowableItemListToSend[8].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="beans.png"
+                          Image="{Binding GrowableItemListToSend[8].Image}"
                           Grid.Row="4"
                           Grid.Column="0"
+                          CommandParameter ="Bean"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton>
 
-    <controls:ImageButton x:Name="CauliflowerButton"
+    <controls:ImageButton x:Name="PumpkinButton"
                           BackgroundColor="#3d509f"
                           HeightRequest="75"
                           ImageHeightRequest="100"
                           ImageWidthRequest="100"
                           Orientation="ImageToLeft"
-                          Text="Cauliflower"
+                          Text="{Binding GrowableItemListToSend[9].Name}"
                           TextColor="#ffffff"
                           WidthRequest="175"
-                          Image="cauliflower.png"
+                          Image="{Binding GrowableItemListToSend[9].Image}"
                           Grid.Row="4"
                           Grid.Column="1"
+                          CommandParameter ="Pumpkin"
                           Command="{Binding ViewDetailCommand}">
     </controls:ImageButton> 
   </Grid>
