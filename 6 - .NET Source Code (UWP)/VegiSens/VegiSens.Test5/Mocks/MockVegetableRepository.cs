@@ -69,6 +69,9 @@ namespace VegiSens.Test.Mocks
                 //Set the format to JSON
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+                //Add base64 string to header
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + Convert.ToBase64String(Encoding.UTF8.GetBytes("arno:pxl")));
+
                 //Get the connection with the URL and return the result (succes or not)
                 HttpResponseMessage response = client.GetAsync(client.BaseAddress).Result;
 
