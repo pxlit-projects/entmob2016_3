@@ -50,6 +50,20 @@ public class GrowableItemRestController
 	    	      
 	        return allGrowableItems;
 	    }
+
+		@GetMapping("/growableItems/{growableItemId}")
+		public GrowableItem getGrowableItemById(@PathVariable String growableItemId)
+		{
+			int id = Integer.parseInt(growableItemId);
+
+			jmsSender.sendInformation(GET_PREFIX + "Request to get growable item with ID " + id);
+
+			GrowableItem growableItem = growableItemRepository.getGrowableItemById(id);
+
+			jmsSender.sendInformation(GET_PREFIX + "[GROWABLEITEM]: " + growableItem.toString());
+
+			return growableItem;
+		}
 	    
 	    @PostMapping("/growableItems/add")	    
 	    public void addGrowableItem(@RequestBody GrowableItem  growableItem) 

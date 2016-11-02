@@ -18,10 +18,12 @@ import static org.junit.Assert.*;
  * Created by aless on 28/10/2016.
  */
 
+// Testing the repository layer
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 //@SpringBootTest(classes = VegiSensApplication.class)
-public class JpaTesting {
+public class DataJpaTesting {
 
     @Autowired
     private TestEntityManager entityManager;

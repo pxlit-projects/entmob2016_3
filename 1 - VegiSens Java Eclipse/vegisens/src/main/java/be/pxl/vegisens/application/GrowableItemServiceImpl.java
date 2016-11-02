@@ -27,5 +27,9 @@ public class GrowableItemServiceImpl implements IGrowableItemService
 	{
 		entityRepository.save(growableItemToAdd);			
 	}
+
+	public GrowableItem getGrowableItemById(int id) {
+		return growableItemRepository.findOne(id);
+	}
 }
 
