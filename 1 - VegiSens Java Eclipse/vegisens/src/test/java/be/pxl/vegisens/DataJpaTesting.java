@@ -6,11 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import be.pxl.vegisens.application.GrowableItem;
 import be.pxl.vegisens.application.GrowableItemRepository;
@@ -22,6 +18,8 @@ import static org.junit.Assert.*;
 /**
  * Created by aless on 28/10/2016.
  */
+
+//Testing the repository layer
 
 @RunWith(SpringRunner.class) //Indicates that the class should use Spring's JUnit facilities
 @DataJpaTest
@@ -56,7 +54,7 @@ public class DataJpaTesting
     }
     
     @Test
-    public void testGetSensrTypeById_AfterPersistingNewSensorType()
+    public void testGetSensorTypeById_AfterPersistingNewSensorType()
     {
         SensorType sensorTypeToPersist = new SensorType();
         sensorTypeToPersist.setSensortypeId(1);
