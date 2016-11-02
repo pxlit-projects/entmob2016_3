@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface GrowableItemRepository extends CrudRepository<GrowableItem, Integer> {
+public interface GrowableItemRepository extends CrudRepository<GrowableItem, Integer>
+{
     GrowableItem getGrowableItemByName(String lookupName);
 }

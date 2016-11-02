@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2016 at 10:44 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Gegenereerd op: 02 nov 2016 om 09:44
+-- Serverversie: 10.1.16-MariaDB
+-- PHP-versie: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `growable_items`
+-- Tabelstructuur voor tabel `growable_items`
 --
 
 CREATE TABLE `growable_items` (
@@ -36,24 +36,25 @@ CREATE TABLE `growable_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `growable_items`
+-- Gegevens worden geëxporteerd voor tabel `growable_items`
 --
 
 INSERT INTO `growable_items` (`ID`, `NAME`, `DESCRIPTION`, `IMAGE`, `TEMPERATURE_FK`, `HUMIDITY_FK`) VALUES
-(1, 'Red Tomato', 'Red tomato is the edible, red fruit of Solanum lycopersicum, commonly known as a tomato plant, which belongs to the nightshade family', 'ms-appx:///Images/Vegetables/Tomato.png', 1, 4),
-(2, 'Beans', 'Bean is a common name for large seeds of several genera of the flowering plant family Fabaceae (also known as Leguminosae) which are used for human or animal food.', 'ms-appx:///Images/Vegetables/Beans.png', 2, 3),
+(1, 'Red Tomato', 'Red tomato is the edible, red fruit of Solanum lycopersicum, commonly known as a tomato plant, which belongs to the nightshade family', 'ms-appx:///images/Vegetables/Tomato.png', 1, 3),
+(2, 'Bean', 'Bean is a common name for large seeds of several genera of the flowering plant family Fabaceae (also known as Leguminosae) which are used for human or animal food.', 'ms-appx:///images/Vegetables/Beans.png', 2, 3),
 (3, 'Bell Pepper', 'Bell pepper is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colors, including red, yellow, orange, green, chocolate/brown, vanilla/white, and purple.', 'ms-appx:///Images/Vegetables/Bell_Pepper.png', 3, 3),
 (4, 'Cabbage', 'Cabbage or headed cabbage is a leafy green or purple biennial plant, grown as an annual vegetable crop for its dense-leaved heads.', 'ms-appx:///Images/Vegetables/Cabbage.png', 4, 3),
 (5, 'Garlic', 'Allium sativum, commonly known as garlic, is a species in the onion genus.', 'ms-appx:///Images/Vegetables/Garlic.png', 5, 3),
 (6, 'Potato', 'The potato is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.', 'ms-appx:///Images/Vegetables/Potato.png', 6, 2),
 (7, 'Strawberry', 'The garden strawberry is a widely grown hybrid species of the genus Fragaria.', 'ms-appx:///Images/Vegetables/Strawberry.png', 7, 3),
 (8, 'Red cabbage', 'The red cabbage is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation. Its leaves are coloured dark red/purple.', 'ms-appx:///Images/Vegetables/Red_Cabbage.png', 8, 3),
-(9, 'Chives', 'Chives is the common name of Allium schoenoprasum, an edible species of the Allium genus.', 'ms-appx:///Images/Vegetables/Chive.png', 9, 4);
+(9, 'Chives', 'Chives is the common name of Allium schoenoprasum, an edible species of the Allium genus.', 'ms-appx:///Images/Vegetables/Chive.png', 9, 4),
+(11, 'Pumpkin', 'A pumpkin is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.', 'ms-appx:///images/Vegetables/Pumpkin.png', 11, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `humidity`
+-- Tabelstructuur voor tabel `humidity`
 --
 
 CREATE TABLE `humidity` (
@@ -63,7 +64,7 @@ CREATE TABLE `humidity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `humidity`
+-- Gegevens worden geëxporteerd voor tabel `humidity`
 --
 
 INSERT INTO `humidity` (`HUMIDITY_ID`, `MIN_IDEAL_HUMIDITY`, `MAX_IDEAL_HUMIDITY`) VALUES
@@ -75,7 +76,7 @@ INSERT INTO `humidity` (`HUMIDITY_ID`, `MIN_IDEAL_HUMIDITY`, `MAX_IDEAL_HUMIDITY
 -- --------------------------------------------------------
 
 --
--- Table structure for table `humidity_registered_values`
+-- Tabelstructuur voor tabel `humidity_registered_values`
 --
 
 CREATE TABLE `humidity_registered_values` (
@@ -86,7 +87,7 @@ CREATE TABLE `humidity_registered_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `humidity_registered_values`
+-- Gegevens worden geëxporteerd voor tabel `humidity_registered_values`
 --
 
 INSERT INTO `humidity_registered_values` (`HUM_REG_ID`, `HUM_DATE`, `HUM_VALUE`, `HUM_FK`) VALUES
@@ -101,7 +102,7 @@ INSERT INTO `humidity_registered_values` (`HUM_REG_ID`, `HUM_DATE`, `HUM_VALUE`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sensortype`
+-- Tabelstructuur voor tabel `sensortype`
 --
 
 CREATE TABLE `sensortype` (
@@ -111,7 +112,7 @@ CREATE TABLE `sensortype` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sensortype`
+-- Gegevens worden geëxporteerd voor tabel `sensortype`
 --
 
 INSERT INTO `sensortype` (`SENSORTYPE_ID`, `SENSOR_NAME`, `SENSOR_UNIT`) VALUES
@@ -121,7 +122,7 @@ INSERT INTO `sensortype` (`SENSORTYPE_ID`, `SENSOR_NAME`, `SENSOR_UNIT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temperature`
+-- Tabelstructuur voor tabel `temperature`
 --
 
 CREATE TABLE `temperature` (
@@ -131,7 +132,7 @@ CREATE TABLE `temperature` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `temperature`
+-- Gegevens worden geëxporteerd voor tabel `temperature`
 --
 
 INSERT INTO `temperature` (`TEMPERATURE_ID`, `MIN_IDEAL_TEMPERATURE`, `MAX_IDEAL_TEMPERATURE`) VALUES
@@ -143,12 +144,13 @@ INSERT INTO `temperature` (`TEMPERATURE_ID`, `MIN_IDEAL_TEMPERATURE`, `MAX_IDEAL
 (6, 17, 19),
 (7, 18, 20),
 (8, 20, 22),
-(9, 24, 26);
+(9, 24, 26),
+(11, 22, 26);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temperature_registered_values`
+-- Tabelstructuur voor tabel `temperature_registered_values`
 --
 
 CREATE TABLE `temperature_registered_values` (
@@ -159,7 +161,7 @@ CREATE TABLE `temperature_registered_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `temperature_registered_values`
+-- Gegevens worden geëxporteerd voor tabel `temperature_registered_values`
 --
 
 INSERT INTO `temperature_registered_values` (`TEMP_REG_ID`, `TEMP_DATE`, `TEMP_VALUE`, `TEMP_FK`) VALUES
@@ -174,7 +176,7 @@ INSERT INTO `temperature_registered_values` (`TEMP_REG_ID`, `TEMP_DATE`, `TEMP_V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -186,94 +188,94 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`USER_ID`, `USERNAME`, `PASSWORD`, `ROLE`, `ENABLED`) VALUES
 (1, 'arno', 'fe3f6933bcb74a310dcbd0fc58ab022caa218a5727124f3da5b3800439da87dd', 'ROLE_ADMIN', b'1');
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `growable_items`
+-- Indexen voor tabel `growable_items`
 --
 ALTER TABLE `growable_items`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `humidity`
+-- Indexen voor tabel `humidity`
 --
 ALTER TABLE `humidity`
   ADD PRIMARY KEY (`HUMIDITY_ID`);
 
 --
--- Indexes for table `humidity_registered_values`
+-- Indexen voor tabel `humidity_registered_values`
 --
 ALTER TABLE `humidity_registered_values`
   ADD PRIMARY KEY (`HUM_REG_ID`);
 
 --
--- Indexes for table `sensortype`
+-- Indexen voor tabel `sensortype`
 --
 ALTER TABLE `sensortype`
   ADD PRIMARY KEY (`SENSORTYPE_ID`);
 
 --
--- Indexes for table `temperature`
+-- Indexen voor tabel `temperature`
 --
 ALTER TABLE `temperature`
   ADD PRIMARY KEY (`TEMPERATURE_ID`);
 
 --
--- Indexes for table `temperature_registered_values`
+-- Indexen voor tabel `temperature_registered_values`
 --
 ALTER TABLE `temperature_registered_values`
   ADD PRIMARY KEY (`TEMP_REG_ID`);
 
 --
--- Indexes for table `users`
+-- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`USER_ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `growable_items`
+-- AUTO_INCREMENT voor een tabel `growable_items`
 --
 ALTER TABLE `growable_items`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `humidity`
+-- AUTO_INCREMENT voor een tabel `humidity`
 --
 ALTER TABLE `humidity`
   MODIFY `HUMIDITY_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `humidity_registered_values`
+-- AUTO_INCREMENT voor een tabel `humidity_registered_values`
 --
 ALTER TABLE `humidity_registered_values`
   MODIFY `HUM_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `sensortype`
+-- AUTO_INCREMENT voor een tabel `sensortype`
 --
 ALTER TABLE `sensortype`
   MODIFY `SENSORTYPE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `temperature`
+-- AUTO_INCREMENT voor een tabel `temperature`
 --
 ALTER TABLE `temperature`
-  MODIFY `TEMPERATURE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `TEMPERATURE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `temperature_registered_values`
+-- AUTO_INCREMENT voor een tabel `temperature_registered_values`
 --
 ALTER TABLE `temperature_registered_values`
   MODIFY `TEMP_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `USER_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

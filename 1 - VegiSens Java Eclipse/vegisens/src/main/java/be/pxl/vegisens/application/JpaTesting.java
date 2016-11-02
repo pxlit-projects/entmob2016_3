@@ -1,8 +1,5 @@
-package be.pxl.vegisens;
+package be.pxl.vegisens.application;
 
-import be.pxl.vegisens.application.GrowableItem;
-import be.pxl.vegisens.application.GrowableItemRepository;
-import be.pxl.vegisens.application.VegiSensApplication;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.*;
 
@@ -18,10 +18,10 @@ import static org.junit.Assert.*;
  * Created by aless on 28/10/2016.
  */
 
-@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class) //Indicates that the class should use Spring's JUnit facilities
 @DataJpaTest
-//@SpringBootTest(classes = VegiSensApplication.class)
-public class JpaTesting {
+public class JpaTesting
+{
 
     @Autowired
     private TestEntityManager entityManager;
@@ -30,18 +30,20 @@ public class JpaTesting {
     private GrowableItemRepository growableItemRepository;
 
     @Before
-    public void SetUp() {
+    public void SetUp() 
+    {
         growableItemRepository.deleteAll();
     }
 
     @Test
-    public void testGetGrowableItemByName_AfterPersistingNewGrowableItem() {
+    public void testGetGrowableItemByName_AfterPersistingNewGrowableItem()
+    {
         GrowableItem insertedItem = new GrowableItem();
-        insertedItem.setName("Tomato");
+        insertedItem.setName("Red Tomato");
         entityManager.persist(insertedItem);
 
-        GrowableItem searchedItem = growableItemRepository.getGrowableItemByName("Tomato");
+        GrowableItem searchedItem = growableItemRepository.getGrowableItemByName("Red Tomato");
 
-        assertEquals("Tomato", searchedItem.getName());
+        assertEquals("Red Tomato", searchedItem.getName());	
     }
 }
