@@ -11,11 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class SensorTypeServiceImpl implements ISensorTypeService
 {
 	@Autowired
-	private SensorTypeRepository repository;
+	private SensorTypeRepository sensorTypeRepository;
 
 	public List<SensorType> getAllSensorTypes() 
 	{
-		return (List<SensorType>) repository.findAll();
+		return (List<SensorType>) sensorTypeRepository.findAll();
+	}
+
+	@Override
+	public SensorType getSensorTypeById(int sensorTypeId)
+	{
+		return sensorTypeRepository.findOne(sensorTypeId);
 	}
 	
 }

@@ -37,6 +37,9 @@ public class SensorType implements Serializable
 		return sensortypeId;
 	}
 
+	public void setSensortypeId(int sensortypeId) {
+		this.sensortypeId = sensortypeId;
+	}
 	public List<TemperatureRegisteredValues> getTemperatureValues() {
 		return temperatureValues;
 	}

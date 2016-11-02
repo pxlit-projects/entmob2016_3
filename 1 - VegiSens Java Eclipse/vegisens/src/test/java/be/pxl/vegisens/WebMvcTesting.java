@@ -1,19 +1,20 @@
 package be.pxl.vegisens;
 
-import be.pxl.vegisens.application.GrowableItem;
-import be.pxl.vegisens.application.GrowableItemRestController;
-import be.pxl.vegisens.application.IGrowableItemService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.*;
+import org.junit.runner.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.boot.test.autoconfigure.web.servlet.*;
+import org.springframework.boot.test.mock.mockito.*;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static java.nio.file.Paths.get;
-import static org.mockito.BDDMockito.given;
+import be.pxl.vegisens.application.GrowableItem;
+import be.pxl.vegisens.application.GrowableItemRestController;
+import be.pxl.vegisens.application.IGrowableItemService;
+
+import static org.mockito.BDDMockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
@@ -24,7 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(GrowableItemRestController.class)
-public class WebMvcTesting {
+public class WebMvcTesting 
+{
 
         @Autowired
         private MockMvc mvc;
@@ -33,14 +35,14 @@ public class WebMvcTesting {
         private IGrowableItemService growableItemService;
 
         @Test
-        public void getVehicleShouldReturnMakeAndModel() {
+        public void getVehicleShouldReturnMakeAndModel() throws Exception 
+        {
             GrowableItem expectedItem = new GrowableItem();
             expectedItem.setName("Cabbage");
 
-            given(growableItemService.getGrowableItemById(1))
-                    .willReturn(expectedItem);
+            given(growableItemService.getGrowableItemById(1)).willReturn(expectedItem);
 
-            mvc.perform(get("/growableItems").accept(MediaType.APPLICATION_JSON))
+            mvc.perform(get("/growableItems/1").accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(content().string("Cabbage"));
         }

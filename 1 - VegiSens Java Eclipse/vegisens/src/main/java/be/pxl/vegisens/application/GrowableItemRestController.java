@@ -56,7 +56,7 @@ public class GrowableItemRestController
 		{
 			int id = Integer.parseInt(growableItemId);
 
-			jmsSender.sendInformation(GET_PREFIX + "Request to get growable item with ID " + id);
+			jmsSender.sendInformation(GET_PREFIX + "Request to get growable item with ID: " + id);
 
 			GrowableItem growableItem = growableItemRepository.getGrowableItemById(id);
 

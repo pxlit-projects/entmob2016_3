@@ -1,5 +1,7 @@
 package be.pxl.vegisens.application;
 
+import static be.pxl.vegisens.application.LogColor.GET_PREFIX;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +40,18 @@ public class SensorTypeRestController
 	    	
 	        return listOfAllSensorTypes;
 	    }
+	    
+		@GetMapping("/sensortypes/{sensorTypeId}")
+		public SensorType getSensorTypeById(@PathVariable String sensorTypeId)
+		{
+			int id = Integer.parseInt(sensorTypeId);
+
+			jmsSender.sendInformation(GET_PREFIX + "Request to get sensorType with ID: " + id);
+
+			SensorType sensorType = sensorTypeRepository.getSensorTypeById(id);
+
+			jmsSender.sendInformation(GET_PREFIX + "[SENSORTYPE]: " + sensorType.toString());
+
+			return sensorType;
+		}
 }
