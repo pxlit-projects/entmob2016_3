@@ -9,21 +9,23 @@ import javax.persistence.*;
 @NamedQuery(name = "GrowableItem.getGrowableItemByName", query = "select g from GrowableItem g where g.name=?1")
 public class GrowableItem implements Serializable 
 {
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
+	//private Humidity humidity;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
     private int growableItemId;
 
-    @ManyToOne
+	//Fetchtype Eager => Load all related entities | Fetype Lazy => Load on demand
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name="HUMIDITY_FK", referencedColumnName="HUMIDITY_ID")
     private Humidity humidity;
     
-    @ManyToOne
+  //Fetchtype Eager => Load all related entities | Fetype Lazy => Load on demand
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name="TEMPERATURE_FK", referencedColumnName="TEMPERATURE_ID")
     private Temperature temperature;
     
@@ -60,18 +62,20 @@ public class GrowableItem implements Serializable
 		return image;
 	}
 	
+	public void setHumidity(Humidity humidity)
+	{
+		this.humidity = humidity;
+	}
+	
     public void setGrowableItemId(int growableItemId) {
 		this.growableItemId = growableItemId;
 	}
 
-	public void setHumidity(Humidity humidity) {
-		this.humidity = humidity;
+	public void setTemperature(Temperature temperature)
+	{
+		this.temperature = temperature;	
 	}
-
-	public void setTemperature(Temperature temperature) {
-		this.temperature = temperature;
-	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -92,5 +96,33 @@ public class GrowableItem implements Serializable
 			   " [Image]: " + this.image + 	
 			   " [Temperature]: " + this.temperature.toString() + 	
 			   " [Humidity]: " + this.humidity.toString();
+	}
+	
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + growableItemId;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GrowableItem other = (GrowableItem) obj;
+		if (growableItemId != other.growableItemId)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 }

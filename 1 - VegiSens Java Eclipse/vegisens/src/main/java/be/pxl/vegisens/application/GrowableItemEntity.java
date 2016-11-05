@@ -8,9 +8,7 @@ import javax.persistence.*;
 @Table(name="growable_items")
 public class GrowableItemEntity implements Serializable 
 {
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -88,5 +86,33 @@ public class GrowableItemEntity implements Serializable
 			   " [Description]: " + this.description +
 			   " [Humidity_FK]: " + this.humidity_fk + 	
 			   " [Temperature_FK]: " + this.temperature_fk;
+	}
+	
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + growableItemId;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GrowableItemEntity other = (GrowableItemEntity) obj;
+		if (growableItemId != other.growableItemId)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 }

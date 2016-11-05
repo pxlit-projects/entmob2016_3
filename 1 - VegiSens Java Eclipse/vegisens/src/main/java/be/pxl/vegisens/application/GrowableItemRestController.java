@@ -4,6 +4,7 @@ package be.pxl.vegisens.application;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import static be.pxl.vegisens.application.LogColor.GET_PREFIX;
@@ -25,7 +26,7 @@ public class GrowableItemRestController
 	    
 	    @Autowired
 	    private JMSSender jmsSender;
-	    	    
+	    		    
 	    private int humidity_FK;
 	    private int temperature_FK;
 	    
@@ -61,7 +62,7 @@ public class GrowableItemRestController
 			GrowableItem growableItem = growableItemRepository.getGrowableItemById(id);
 
 			jmsSender.sendInformation(GET_PREFIX + "[GROWABLEITEM]: " + growableItem.toString());
-
+			
 			return growableItem;
 		}
 	    

@@ -20,7 +20,7 @@ public class TemperatureRegisteredValues implements Serializable
     @Column(name="TEMP_REG_ID")
     private int temperatureRegisteredId;
     
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)//(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name="TEMP_FK", referencedColumnName="SENSORTYPE_ID")
     private SensorType sensortype;
     

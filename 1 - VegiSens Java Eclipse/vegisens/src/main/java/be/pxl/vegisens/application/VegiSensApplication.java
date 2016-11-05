@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-@SpringBootApplication
-@ComponentScan
+@SpringBootApplication//(scanBasePackages = "be.pxl.vegisens")
+//@ComponentScan
 @EnableJpaRepositories
 @EnableGlobalMethodSecurity(securedEnabled=true)
 @EnableJms //-> Asynchrone verwerking

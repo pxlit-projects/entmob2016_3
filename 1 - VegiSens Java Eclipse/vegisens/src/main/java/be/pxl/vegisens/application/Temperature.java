@@ -21,9 +21,10 @@ public class Temperature implements Serializable
     @Column(name="TEMPERATURE_ID")
     private int temperatureId;
 
-	@OneToMany(mappedBy="temperature")
+	//Fetchtype Eager => Load all related entities | Fetype Lazy => Load on demand
+	@OneToMany(mappedBy="temperature", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
-    
+        
 	@Column(name="MIN_IDEAL_TEMPERATURE")
     private double minTemperature;
 

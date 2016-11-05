@@ -20,7 +20,7 @@ public class HumidityRegisteredValues implements Serializable
     @Column(name="HUM_REG_ID")
     private int humidityRegisteredId;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE) //(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name="HUM_FK", referencedColumnName="SENSORTYPE_ID")
     private SensorType sensortype;
     

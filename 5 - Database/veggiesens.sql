@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 02 nov 2016 om 09:44
+-- Gegenereerd op: 05 nov 2016 om 10:30
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 5.6.24
 
@@ -253,7 +253,7 @@ ALTER TABLE `growable_items`
 -- AUTO_INCREMENT voor een tabel `humidity`
 --
 ALTER TABLE `humidity`
-  MODIFY `HUMIDITY_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `HUMIDITY_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT voor een tabel `humidity_registered_values`
 --
@@ -268,7 +268,7 @@ ALTER TABLE `sensortype`
 -- AUTO_INCREMENT voor een tabel `temperature`
 --
 ALTER TABLE `temperature`
-  MODIFY `TEMPERATURE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `TEMPERATURE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT voor een tabel `temperature_registered_values`
 --

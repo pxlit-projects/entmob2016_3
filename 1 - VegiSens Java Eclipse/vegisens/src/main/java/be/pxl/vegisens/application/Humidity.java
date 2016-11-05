@@ -16,14 +16,17 @@ public class Humidity implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 
+	//private List growableItems2;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="HUMIDITY_ID")
     private int humidityId;
    
-    @OneToMany(mappedBy="humidity")
+	//Fetchtype Eager => Load all related entities | Fetype Lazy => Load on demand
+    @OneToMany(mappedBy="humidity", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<GrowableItem> growableItems = new ArrayList<GrowableItem>();
-    
+       
 	@Column(name="MIN_IDEAL_HUMIDITY")
     private double minHumidity;
 
@@ -53,7 +56,7 @@ public class Humidity implements Serializable
 	public void setMaxHumidity(double maxHumidity) {
 		this.maxHumidity = maxHumidity;
 	}
-
+	
 	public void setGrowableItems(List<GrowableItem> growableItems) {
 		this.growableItems = growableItems;
 	}
