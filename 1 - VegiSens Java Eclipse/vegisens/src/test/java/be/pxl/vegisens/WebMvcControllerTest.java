@@ -11,13 +11,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.security.test.context.support.WithMockUser;
 
-import be.pxl.vegisens.application.GrowableItem;
-import be.pxl.vegisens.application.Humidity;
-import be.pxl.vegisens.application.IGrowableItemService;
-import be.pxl.vegisens.application.ISensorTypeService;
-import be.pxl.vegisens.application.SensorType;
-import be.pxl.vegisens.application.Temperature;
-import be.pxl.vegisens.application.VegiSensApplication;
+import be.pxl.vegisens.domain.GrowableItem;
+import be.pxl.vegisens.domain.Humidity;
+import be.pxl.vegisens.domain.SensorType;
+import be.pxl.vegisens.domain.Temperature;
+import be.pxl.vegisens.service.interfaces.IGrowableItemService;
+import be.pxl.vegisens.service.interfaces.ISensorTypeService;
 
 import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

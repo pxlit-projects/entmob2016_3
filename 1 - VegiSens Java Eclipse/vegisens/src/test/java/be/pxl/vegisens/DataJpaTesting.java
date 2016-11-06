@@ -13,15 +13,14 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import be.pxl.vegisens.application.GrowableItem;
-import be.pxl.vegisens.application.GrowableItemEntity;
-import be.pxl.vegisens.application.GrowableItemEntityRepository;
-import be.pxl.vegisens.application.GrowableItemRepository;
-import be.pxl.vegisens.application.Humidity;
-import be.pxl.vegisens.application.SensorType;
-import be.pxl.vegisens.application.SensorTypeRepository;
-import be.pxl.vegisens.application.Temperature;
-import be.pxl.vegisens.application.VegiSensApplication;
+import be.pxl.vegisens.controller.entity.GrowableItemEntity;
+import be.pxl.vegisens.domain.GrowableItem;
+import be.pxl.vegisens.domain.Humidity;
+import be.pxl.vegisens.domain.SensorType;
+import be.pxl.vegisens.domain.Temperature;
+import be.pxl.vegisens.repository.GrowableItemEntityRepository;
+import be.pxl.vegisens.repository.GrowableItemRepository;
+import be.pxl.vegisens.repository.SensorTypeRepository;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
