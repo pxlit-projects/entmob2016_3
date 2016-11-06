@@ -1,4 +1,4 @@
-package be.pxl.vegisens;
+package be.pxl.vegisens.unittest;
 
 import org.junit.*;
 import org.junit.runner.*;
@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.security.test.context.support.WithMockUser;
 
+import be.pxl.vegisens.VegiSensApplication;
 import be.pxl.vegisens.domain.GrowableItem;
 import be.pxl.vegisens.domain.Humidity;
 import be.pxl.vegisens.domain.SensorType;

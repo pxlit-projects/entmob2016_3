@@ -1,24 +1,21 @@
-package be.pxl.vegisens;
+package be.pxl.vegisens.unittest;
 
-import org.hamcrest.CoreMatchers;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import be.pxl.vegisens.controller.entity.GrowableItemEntity;
+import be.pxl.vegisens.VegiSensApplication;
 import be.pxl.vegisens.domain.GrowableItem;
 import be.pxl.vegisens.domain.Humidity;
 import be.pxl.vegisens.domain.SensorType;
 import be.pxl.vegisens.domain.Temperature;
-import be.pxl.vegisens.repository.GrowableItemEntityRepository;
 import be.pxl.vegisens.repository.GrowableItemRepository;
 import be.pxl.vegisens.repository.SensorTypeRepository;
 
@@ -27,8 +24,6 @@ import static org.hamcrest.CoreMatchers.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.transaction.Transactional;
 
 
 /**
