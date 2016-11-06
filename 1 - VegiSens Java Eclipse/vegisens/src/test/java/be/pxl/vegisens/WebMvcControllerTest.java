@@ -12,14 +12,20 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.security.test.context.support.WithMockUser;
 
 import be.pxl.vegisens.application.GrowableItem;
+import be.pxl.vegisens.application.Humidity;
 import be.pxl.vegisens.application.IGrowableItemService;
 import be.pxl.vegisens.application.ISensorTypeService;
 import be.pxl.vegisens.application.SensorType;
+import be.pxl.vegisens.application.Temperature;
 import be.pxl.vegisens.application.VegiSensApplication;
 
 import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by aless on 2/11/2016.
@@ -49,12 +55,37 @@ public class WebMvcControllerTest
         {            
         	GrowableItem growableExpectedItem = new GrowableItem();
         	growableExpectedItem.setName("Cabbage");
-            
+        	growableExpectedItem.setHumidity(new Humidity());
+        	growableExpectedItem.setTemperature(new Temperature());
+        	
             given(mockGrowableItemService.getGrowableItemById(1)).willReturn(growableExpectedItem);
             
-            /*mockMVC.perform(get("/growableItems/1").accept(MediaType.APPLICATION_JSON))
+           mockMVC.perform(get("/growableItems/1").accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
-                    .andExpect(content().json("{'name':'Cabbage'}"));*/                            
+                    .andExpect(content().json("{'name':'Cabbage'}"));                           
+        }
+        
+        @Test
+        @WithMockUser(username="arno", password="pxl", roles={"ADMIN"})
+        public void getAllGrowableItems_ThroughControllerMapping() throws Exception 
+        {
+        	GrowableItem growableExpectedItem1 = new GrowableItem();
+        	growableExpectedItem1.setName("Cabbage");
+        	growableExpectedItem1.setHumidity(new Humidity());
+        	growableExpectedItem1.setTemperature(new Temperature());
+            
+        	GrowableItem growableExpectedItem2 = new GrowableItem();
+        	growableExpectedItem2.setName("Tomato");
+        	growableExpectedItem2.setHumidity(new Humidity());
+        	growableExpectedItem2.setTemperature(new Temperature());
+            
+            List<GrowableItem> expectedItems = Arrays.asList(growableExpectedItem1, growableExpectedItem2);
+            	
+            given(mockGrowableItemService.getAllGrowableItems()).willReturn(expectedItems);
+            
+           mockMVC.perform(get("/growableItems").accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("[{'name':'Cabbage'}, {'name':'Tomato'}]"));  
         }
         
         @MockBean
@@ -73,5 +104,24 @@ public class WebMvcControllerTest
                     .andExpect(status().isOk())
                     .andExpect(content().json("{'sensorUnit':'%'}"));
             
+        }
+        
+        @Test
+        @WithMockUser(username="arno", password="pxl", roles={"ADMIN"})
+        public void getAllSensorTypes_ThroughControllerMapping() throws Exception 
+        {
+            SensorType expectedItem1 = new SensorType();
+            expectedItem1.setSensortypeUnit("%");
+            
+            SensorType expectedItem2 = new SensorType();
+            expectedItem2.setSensortypeUnit("°C");
+            
+            List<SensorType> expectedItems = Arrays.asList(expectedItem1, expectedItem2);
+            	
+            given(mockSensorTypeService.getAllSensorTypes()).willReturn(expectedItems);
+
+            mockMVC.perform(get("/sensortypes").accept(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andExpect(content().json("[{'sensorUnit':'%'},{'sensorUnit':'°C'}]"));
         }
 }

@@ -30,7 +30,6 @@ public class GrowableItemRestController
 	    private int humidity_FK;
 	    private int temperature_FK;
 	    
-
 	    
 	    @GetMapping("/growableItems")	    
 	    public List<GrowableItem> getGrowableItems() 
@@ -62,7 +61,7 @@ public class GrowableItemRestController
 			GrowableItem growableItem = growableItemRepository.getGrowableItemById(id);
 
 			jmsSender.sendInformation(GET_PREFIX + "[GROWABLEITEM]: " + growableItem.toString());
-			
+					
 			return growableItem;
 		}
 	    
