@@ -10,9 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter 
+{
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	protected void configure(HttpSecurity http) throws Exception 
+	{
 
 		// Order of authentication matters
 		http.authorizeRequests()
@@ -28,8 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Autowired
-	public void configureSecurity(AuthenticationManagerBuilder auth,
-			javax.sql.DataSource ds /* Error can be ignored */) throws Exception {
+	public void configureSecurity(AuthenticationManagerBuilder auth, javax.sql.DataSource ds /* Error can be ignored */) throws Exception 
+	{
 		auth.jdbcAuthentication().passwordEncoder(new ShaPasswordEncoder(256)).dataSource(ds)
 				.usersByUsernameQuery("select USERNAME, PASSWORD, ENABLED from users where USERNAME = ?")
 				.authoritiesByUsernameQuery("select USERNAME, ROLE from users where USERNAME = ?");

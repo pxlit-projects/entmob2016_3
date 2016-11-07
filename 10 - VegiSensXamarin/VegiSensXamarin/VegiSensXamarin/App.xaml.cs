@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VegiSens.DAL;
 using VegiSensXamarin.Locator;
 using VegiSensXamarin.Services;
+using VegiSensXamarin.ViewModel;
 using Xamarin.Forms;
 using XLabs.Forms.Services;
 
@@ -11,15 +13,23 @@ namespace VegiSensXamarin
 {
     public partial class App : Application
     {
-        private ViewModelLocator locator;
+        private GroentenMenu groentenMenu;
 
         public App()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            locator = new ViewModelLocator();
-            var groentenMenu = new GroentenMenu();       
-            MainPage = new NavigationPage(groentenMenu);
+                groentenMenu = new GroentenMenu();
+
+                MainPage = new NavigationPage(groentenMenu);
+
+            }
+            catch (Exception ex)
+            {
+                object messages = ex.InnerException;
+            }
         }
 
 

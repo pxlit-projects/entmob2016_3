@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: be.pxl.vegisens.integrationtest.IntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.643 sec <<< FAILURE! - in be.pxl.vegisens.integrationtest.IntegrationTest
+createGrowableItem(be.pxl.vegisens.integrationtest.IntegrationTest)  Time elapsed: 0.364 sec  <<< ERROR!
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8081/growableItems/add": cannot retry due to server authentication, in streaming mode; nested exception is java.net.HttpRetryException: cannot retry due to server authentication, in streaming mode
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1638)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1441)
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
+	at org.springframework.http.client.SimpleClientHttpResponse.getRawStatusCode(SimpleClientHttpResponse.java:52)
+	at org.springframework.http.client.AbstractClientHttpResponse.getStatusCode(AbstractClientHttpResponse.java:33)
+	at org.springframework.web.client.DefaultResponseErrorHandler.getHttpStatusCode(DefaultResponseErrorHandler.java:56)
+	at org.springframework.web.client.DefaultResponseErrorHandler.hasError(DefaultResponseErrorHandler.java:50)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:655)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:620)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:580)
+	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:407)
+	at org.springframework.boot.test.web.client.TestRestTemplate.postForEntity(TestRestTemplate.java:461)
+	at be.pxl.vegisens.integrationtest.IntegrationTest.createGrowableItem(IntegrationTest.java:44)
+

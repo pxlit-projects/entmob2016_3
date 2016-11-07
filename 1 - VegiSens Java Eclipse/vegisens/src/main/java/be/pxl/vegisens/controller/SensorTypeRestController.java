@@ -1,7 +1,5 @@
 package be.pxl.vegisens.controller;
 
-import static be.pxl.vegisens.logging.LogColor.GET_PREFIX;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +20,6 @@ public class SensorTypeRestController
 	    private JMSSender jmsSender;
 	    
 	    private final String GET_PREFIX = "[GET] ";
-	    private final String POST_PREFIX = "[POST] ";
-	    private final String PUT_PREFIX = "[PUT] ";
 	    
 	    @GetMapping("/sensortypes")	    
 	    public List<SensorType> getSensorTypes() 

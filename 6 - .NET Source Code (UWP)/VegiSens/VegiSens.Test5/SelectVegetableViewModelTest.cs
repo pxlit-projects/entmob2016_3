@@ -44,7 +44,7 @@ namespace VegiSens.Test
             growableItems = viewModel.GrowableItemList;
 
             //assert
-            CollectionAssert.AreEqual(growableItems, growableItems);
+            CollectionAssert.AreEqual(expectedGrowableItems, growableItems);
         }
 
         [TestMethod]

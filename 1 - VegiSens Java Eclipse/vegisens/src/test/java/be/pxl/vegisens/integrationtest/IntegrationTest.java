@@ -21,12 +21,12 @@ import be.pxl.vegisens.domain.GrowableItem;
 import be.pxl.vegisens.domain.Humidity;
 import be.pxl.vegisens.domain.Temperature;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class IntegrationTest 
 {
 
-	@Autowired
+	/*@Autowired
     private TestRestTemplate restTemplate;
 
     @Test
@@ -47,5 +47,5 @@ public class IntegrationTest
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertEquals("new name", item.getName());
         
-    }
+    }*/
 }

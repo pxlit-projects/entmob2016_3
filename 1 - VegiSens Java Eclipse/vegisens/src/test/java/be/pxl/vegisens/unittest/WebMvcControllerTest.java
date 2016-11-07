@@ -35,7 +35,6 @@ import java.util.List;
 
 @SpringBootTest(classes = VegiSensApplication.class)
 @RunWith(SpringRunner.class)
-//Often @WebMvcTest will be limited to a single controller and used in combination with @MockBean to provide mock implementations for required collaborators.
 //You can also auto-configure MockMvc in a non-@WebMvcTest (e.g. SpringBootTest) by annotating it with @AutoConfigureMockMvc.
 @AutoConfigureMockMvc
 public class WebMvcControllerTest 

@@ -8,7 +8,6 @@ import static be.pxl.vegisens.logging.LogColor.PUT_PREFIX;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import be.pxl.vegisens.controller.entity.GrowableItemEntity;

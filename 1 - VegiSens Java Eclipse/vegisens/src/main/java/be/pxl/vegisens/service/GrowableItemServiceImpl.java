@@ -12,7 +12,6 @@ import be.pxl.vegisens.repository.GrowableItemEntityRepository;
 import be.pxl.vegisens.repository.GrowableItemRepository;
 import be.pxl.vegisens.service.interfaces.IGrowableItemService;
 
-import javax.persistence.NamedQuery;
 
 @Service
 @Transactional
