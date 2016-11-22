@@ -101,7 +101,6 @@
     <Compile Include="Converter\LightConverter.cs" />
     <Compile Include="Converter\TemperatureConverter.cs" />
     <Compile Include="Locator\ViewModelLocator.cs" />
-    <Compile Include="Messages\UpdateCurrentGrowableItem.cs" />
     <Compile Include="Services\FrameNavigationService.cs" />
     <Compile Include="Services\GrowableItemDataService.cs" />
     <Compile Include="Services\IFrameNavigation.cs" />

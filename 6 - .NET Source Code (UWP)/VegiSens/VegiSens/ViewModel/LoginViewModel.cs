@@ -43,10 +43,6 @@ namespace VegiSens.ViewModel
             this.usernameDataService = usernameDataService;
             this.frameNavagationService = frameNavagationService;
 
-            //Hardcoded login data
-            this.Username = "Arno Bruynseels";
-            this.Password = "arnopxl";
-
             LoadCommands();
         }
 

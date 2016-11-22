@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VegiSens.domain;
-using VegiSens.Messages;
 using VegiSens.Services;
 using VegiSens.Utility;
 using VegiSens.ViewModel;
