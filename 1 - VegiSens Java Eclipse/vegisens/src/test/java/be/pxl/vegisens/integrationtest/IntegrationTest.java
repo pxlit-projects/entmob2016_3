@@ -21,12 +21,12 @@ import be.pxl.vegisens.domain.GrowableItem;
 import be.pxl.vegisens.domain.Humidity;
 import be.pxl.vegisens.domain.Temperature;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class IntegrationTest 
 {
 
-	/*@Autowired
+	@Autowired
     private TestRestTemplate restTemplate;
 
     @Test
@@ -40,12 +40,12 @@ public class IntegrationTest
     	newGrowableItem.setTemperature(new Temperature());
     	newGrowableItem.setName("new name");
     	newGrowableItem.setImage("new image");
- 	
+ 	  
         ResponseEntity<GrowableItem> responseEntity = restTemplate.postForEntity("/growableItems/add", newGrowableItem, GrowableItem.class);
         GrowableItem item = responseEntity.getBody();
 
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
         assertEquals("new name", item.getName());
         
-    }*/
+    }
 }
