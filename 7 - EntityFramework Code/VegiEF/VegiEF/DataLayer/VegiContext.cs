@@ -18,7 +18,7 @@ namespace VegiEF.DataLayer
         public DbSet<Light> Light { get; set; }
         public DbSet<Temperature> Temperature { get; set; }
 
-        //Fluant API (Powerpoint EF => slide 63+) (NEED 4)
+        //Fluent API (Powerpoint EF => slide 63+) (NEED 4)
         //Some Example: https://msdn.microsoft.com/en-us/data/jj591617(v=vs.113).aspx#1.1
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -16,7 +16,9 @@ namespace VegiSens.Converter
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new NotImplementedException();
+            int index = value.ToString().IndexOf("%");
+            String newValue = value.ToString().Remove(index);
+            return newValue;
         }
     }
 }
